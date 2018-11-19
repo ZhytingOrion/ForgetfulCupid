@@ -21,11 +21,11 @@ public class CardManager : MonoBehaviour {
     public List<int> cardsLocsRight = new List<int>();
 
     [Header("Type Texs")]
-    public Texture[] typeTexs;
-    public Texture[] contentTexsLeft;
-    public Texture[] contentTexsRight;
-    public Texture leftBackTex;
-    public Texture rightBackTex;
+    public Texture2D[] typeTexs;
+    public Texture2D[] contentTexsLeft;
+    public Texture2D[] contentTexsRight;
+    public Texture2D leftBackTex;
+    public Texture2D rightBackTex;
 
 	// Use this for initialization
 	void Start () {
@@ -48,7 +48,8 @@ public class CardManager : MonoBehaviour {
         for (int i = 0; i < cardsInfos.Count; ++i)
         {
             GameObject card = Instantiate((GameObject)Resources.Load("Prefabs/Card"));
-            
+
+            card.transform.parent = GameObject.Find("Cards").transform;
             card.GetComponent<CardSingle>().cardInfo = cardsInfos[i];
             card.GetComponent<CardSingle>().showTypeTime = showTypeTime;
             card.GetComponent<CardSingle>().TypeTex = typeTexs[(int)cardsInfos[i].type];
@@ -96,6 +97,7 @@ public class CardManager : MonoBehaviour {
         setCardsLocs(cardsLocsRight, cardsRight, false);
 
         GameObject.Find("_levelManager").GetComponent<LevelInstance>().ResetSteps();
+        //弹出已重新洗牌的标识
     }
 
     private List<GameObject> ResetCards(List<GameObject> cards)

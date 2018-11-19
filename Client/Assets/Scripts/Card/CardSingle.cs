@@ -4,18 +4,20 @@ using UnityEngine;
 
 public class CardSingle : MonoBehaviour {
 
-    public Texture BackTex;
-    public Texture ContentTex;
-    public Texture TypeTex;
+    public Texture2D BackTex;
+    public Texture2D ContentTex;
+    public Texture2D TypeTex;
     private Vector3 oldScale;
     private Vector3 oldLoc;
-    private bool isDrag = true;
+    public bool isDrag = false;
 
     public CardInfo cardInfo;
     private GameObject levelInstance;
     public float showTypeTime = 3.0f;
 
     public bool isFlip;
+    private GameObject slot = null;
+    public bool isInSlot = false;
 
     public void setLoc(Vector3 locs)
     {
@@ -25,8 +27,9 @@ public class CardSingle : MonoBehaviour {
     public void resetLoc(Vector3 locs)
     {
         GameObject cardsCenter = GameObject.Find("CardsCenter");
-        StartCoroutine(resetLocAnim(this.oldLoc, cardsCenter.transform.position, locs, 1.0f, 1.0f));
+        StartCoroutine(resetLocAnim(this.transform.position, cardsCenter.transform.position, locs, 1.0f, 1.0f));
         this.oldLoc = locs;
+        this.slot = null;
     }
 
     IEnumerator resetLocAnim(Vector3 oldLoc, Vector3 centerLoc, Vector3 newLoc, float moveTime, float stayTime)
@@ -36,6 +39,8 @@ public class CardSingle : MonoBehaviour {
         yield return new WaitForSeconds(stayTime);
         yield return moveCardAnim(centerLoc, newLoc, moveTime);
         if (this.cardInfo.AlwaysShowCard) FlipCard();
+
+        ShowType(this.showTypeTime);
     }
 
     IEnumerator moveCardAnim(Vector3 startLoc, Vector3 endLoc, float moveTime)
@@ -93,9 +98,11 @@ public class CardSingle : MonoBehaviour {
 
     IEnumerator RotateSelf(float degree)
     {
+        Destroy(this.GetComponent<BoxCollider2D>());
+
         float rotateY = 0.0f;
         Vector3 loc = this.transform.position;
-        loc.z -= 20.0f;
+        loc.z = -3.0f;
         this.transform.position = loc;
         for(int i = 0; i < 180 / Mathf.Abs(degree); i++)
         {
@@ -117,8 +124,11 @@ public class CardSingle : MonoBehaviour {
         }
         rotateY = degree < 0 ? -180 - rotateY : 180 - rotateY;
         this.transform.Rotate(new Vector3(0, 1, 0), rotateY);
-        loc.z += 20.0f;
+        loc.z = 0.0f;
         this.transform.position = loc;
+
+        this.gameObject.AddComponent<BoxCollider2D>();
+        this.GetComponent<BoxCollider2D>().isTrigger = true;
     }
     
     public void FlipCard(float time = 3.0f)
@@ -141,12 +151,17 @@ public class CardSingle : MonoBehaviour {
         //FlipCard(3);
         levelInstance = GameObject.Find("_levelManager");
     }
-
+    
     public void Init()
     {
         Debug.Log("myname is " + this.cardInfo.cardID + " and im init!");
         oldScale = this.transform.localScale;
-        if (BackTex != null) this.GetComponent<Renderer>().material.SetTexture("_MainTex", BackTex);
+        if (BackTex != null)
+        {
+            this.GetComponent<Renderer>().material.SetTexture("_MainTex", BackTex);
+            Sprite sp = Sprite.Create(BackTex, this.GetComponent<SpriteRenderer>().sprite.textureRect, new Vector2(0.5f, 0.5f));
+            this.GetComponent<SpriteRenderer>().sprite = sp;
+        }
         if (ContentTex != null) this.GetComponent<Renderer>().material.SetTexture("_ContentTex", ContentTex);
         if (TypeTex != null) this.GetComponent<Renderer>().material.SetTexture("_TypeTex", TypeTex);
         this.setText(this.cardInfo.context);
@@ -154,11 +169,13 @@ public class CardSingle : MonoBehaviour {
 
     private void OnMouseDown()
     {
-        //如果没有行动力，返回（根据gender获取剩余行动力数值）
 
         //如果牌处于已翻开状态：不能再翻一次，返回
         if (this.isFlip) return;
-        if(this.cardInfo.locType == LocType.Left)
+
+        if (this.isInSlot) return;  //如果牌已经置于槽中，返回
+
+        if (this.cardInfo.locType == LocType.Left)
         {
             if (!levelInstance.GetComponent<LevelInstance>().leftCanBeClick) return; //左边的牌正在恢复中，不能点击
 
@@ -214,12 +231,6 @@ public class CardSingle : MonoBehaviour {
         this.transform.position = localPos;
     }
 
-    /*
-    private void OnMouseDrag()
-    {
-        this.transform.position = Input.mousePosition;
-    }*/
-
     private void OnMouseUp()
     {
         ResetLoc();
@@ -227,6 +238,23 @@ public class CardSingle : MonoBehaviour {
 
     public void ResetLoc()
     {
-        if (this.isDrag) this.transform.position = this.oldLoc;
+        if (this.isDrag)
+        {
+            if (this.slot == null)
+                this.transform.position = this.oldLoc;
+            else  //置于槽中
+            {
+                this.transform.position = this.slot.transform.position;
+                this.slot.GetComponent<SlotCardInstance>().thisCard = this.gameObject;
+                this.isInSlot = true;
+                if (this.isFlip && !this.cardInfo.AlwaysShowCard) FlipCard(); 
+            }
+        }
+        this.isDrag = false;
+    }
+
+    public void setSlot(GameObject slot = null)
+    {
+        this.slot = slot;
     }
 }

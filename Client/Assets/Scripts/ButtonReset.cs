@@ -20,5 +20,6 @@ public class ButtonReset : MonoBehaviour {
 
         //重置
         GameObject.Find("_cardManager").GetComponent<CardManager>().ResetCards();
+        GameObject.Find("_slotManager").GetComponent<SlotManager>().ResetSlots();
     }
 }
