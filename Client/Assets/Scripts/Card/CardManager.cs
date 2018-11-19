@@ -6,7 +6,11 @@ public class CardManager : MonoBehaviour {
 
     public float SpaceX = 1.5f;
     public float SpaceY = 2.0f;
+    public float OffsetY = 5.0f;
     public float StartX = 8.0f;
+
+    public float originCardSize = 1.0f;  //原始卡片大小
+    public float mouseOnCardScale = 1.5f;   //鼠标悬浮时卡片缩放比例
 
     public float showTypeTime = 3.0f;
 
@@ -50,7 +54,9 @@ public class CardManager : MonoBehaviour {
             GameObject card = Instantiate((GameObject)Resources.Load("Prefabs/Card"));
 
             card.transform.parent = GameObject.Find("Cards").transform;
+            card.transform.localScale = new Vector3(this.originCardSize, this.originCardSize, this.originCardSize);
             card.GetComponent<CardSingle>().cardInfo = cardsInfos[i];
+            card.GetComponent<CardSingle>().mouseOnScaleSize = this.mouseOnCardScale;
             card.GetComponent<CardSingle>().showTypeTime = showTypeTime;
             card.GetComponent<CardSingle>().TypeTex = typeTexs[(int)cardsInfos[i].type];
             card.GetComponent<CardSingle>().ContentTex = isLeft ? contentTexsLeft[(int)cardsInfos[i].type] : contentTexsRight[(int)cardsInfos[i].type];
@@ -69,7 +75,7 @@ public class CardManager : MonoBehaviour {
         int count = 0;
         int ratio = 1;
         if (isLeft) ratio = -1;
-        float startY = (cardsLocs.Count-1) * 0.5f * -this.SpaceY;
+        float startY = (cardsLocs.Count-1) * 0.5f * -this.SpaceY + this.OffsetY;
         float startX = this.StartX * ratio;
         Debug.Log(isLeft + " " + ratio + " " + startY + "," + startX);
         for(int i = 0;i<cardsLocs.Count; ++i)
@@ -78,7 +84,6 @@ public class CardManager : MonoBehaviour {
             for(int j = 0; j<cardsLocs[i]; ++j)
             {
                 float locX = startX - j * this.SpaceX * ratio;
-                cards[count].transform.position = new Vector3(locX, locY, 0);
                 if(isInit) cards[count].GetComponent<CardSingle>().setLoc(new Vector3(locX, locY, 0));
                 else cards[count].GetComponent<CardSingle>().resetLoc(new Vector3(locX, locY, 0));
                 count++;

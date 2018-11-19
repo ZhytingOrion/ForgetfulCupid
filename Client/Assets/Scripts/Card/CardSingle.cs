@@ -14,10 +14,13 @@ public class CardSingle : MonoBehaviour {
     public CardInfo cardInfo;
     private GameObject levelInstance;
     public float showTypeTime = 3.0f;
+    public float mouseOnScaleSize = 1.5f;
 
     public bool isFlip;
     private GameObject slot = null;
     public bool isInSlot = false;
+
+    private Vector2 colliderSize;
 
     public void setLoc(Vector3 locs)
     {
@@ -30,12 +33,14 @@ public class CardSingle : MonoBehaviour {
         StartCoroutine(resetLocAnim(this.transform.position, cardsCenter.transform.position, locs, 1.0f, 1.0f));
         this.oldLoc = locs;
         this.slot = null;
+        this.isInSlot = false;
     }
 
-    IEnumerator resetLocAnim(Vector3 oldLoc, Vector3 centerLoc, Vector3 newLoc, float moveTime, float stayTime)
+    IEnumerator resetLocAnim(Vector3 startLoc, Vector3 centerLoc, Vector3 newLoc, float moveTime, float stayTime)
     {
+        Debug.Log("平移动画：" + this.gameObject.name + " " + startLoc + " " + centerLoc + " " + newLoc);
         if (this.isFlip) FlipCard();
-        yield return moveCardAnim(oldLoc, centerLoc, moveTime);    //移动到中心位置
+        yield return moveCardAnim(startLoc, centerLoc, moveTime);    //移动到中心位置
         yield return new WaitForSeconds(stayTime);
         yield return moveCardAnim(centerLoc, newLoc, moveTime);
         if (this.cardInfo.AlwaysShowCard) FlipCard();
@@ -102,7 +107,7 @@ public class CardSingle : MonoBehaviour {
 
         float rotateY = 0.0f;
         Vector3 loc = this.transform.position;
-        loc.z = -3.0f;
+        loc.z = -5.0f;
         this.transform.position = loc;
         for(int i = 0; i < 180 / Mathf.Abs(degree); i++)
         {
@@ -156,6 +161,7 @@ public class CardSingle : MonoBehaviour {
     {
         Debug.Log("myname is " + this.cardInfo.cardID + " and im init!");
         oldScale = this.transform.localScale;
+        this.colliderSize = this.GetComponent<BoxCollider2D>().size;
         if (BackTex != null)
         {
             this.GetComponent<Renderer>().material.SetTexture("_MainTex", BackTex);
@@ -217,9 +223,9 @@ public class CardSingle : MonoBehaviour {
 
     private void OnMouseEnter()
     {
-        this.transform.localScale = oldScale * 1.5f;
+        this.transform.localScale = oldScale * this.mouseOnScaleSize;
         Vector3 localPos = this.transform.position;
-        localPos.z -= 3.0f;
+        localPos.z = -3.0f;
         this.transform.position = localPos;
     }
 
@@ -227,13 +233,14 @@ public class CardSingle : MonoBehaviour {
     {
         this.transform.localScale = oldScale;
         Vector3 localPos = this.transform.position;
-        localPos.z += 3.0f;
+        localPos.z = 0.0f;
         this.transform.position = localPos;
     }
 
     private void OnMouseUp()
     {
         ResetLoc();
+        if(this.GetComponent<BoxCollider2D>()!=null) this.GetComponent<BoxCollider2D>().size = this.colliderSize;
     }
 
     public void ResetLoc()
