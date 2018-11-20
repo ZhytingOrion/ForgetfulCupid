@@ -11,6 +11,7 @@ public class CardManager : MonoBehaviour {
 
     public float originCardSize = 1.0f;  //原始卡片大小
     public float mouseOnCardScale = 1.5f;   //鼠标悬浮时卡片缩放比例
+    public float inSlotCardSize = 0.4f;    //卡片置于槽中时的缩放比例
 
     public float showTypeTime = 3.0f;
 
@@ -33,6 +34,9 @@ public class CardManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+        Game.Instance.gameState = GameState.Play;
+        
         //初始化卡片
         InitialCards(cardsLocsLeft, out cardsLeft, cardsInfosLeft, true);
         InitialCards(cardsLocsRight, out cardsRight, cardsInfosRight, false);
@@ -57,6 +61,7 @@ public class CardManager : MonoBehaviour {
             card.transform.localScale = new Vector3(this.originCardSize, this.originCardSize, this.originCardSize);
             card.GetComponent<CardSingle>().cardInfo = cardsInfos[i];
             card.GetComponent<CardSingle>().mouseOnScaleSize = this.mouseOnCardScale;
+            card.GetComponent<CardSingle>().inSlotCardSize = this.inSlotCardSize;
             card.GetComponent<CardSingle>().showTypeTime = showTypeTime;
             card.GetComponent<CardSingle>().TypeTex = typeTexs[(int)cardsInfos[i].type];
             card.GetComponent<CardSingle>().ContentTex = isLeft ? contentTexsLeft[(int)cardsInfos[i].type] : contentTexsRight[(int)cardsInfos[i].type];

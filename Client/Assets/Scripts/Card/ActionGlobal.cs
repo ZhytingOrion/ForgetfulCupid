@@ -11,7 +11,7 @@ public class ActionGlobal : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetMouseButton(0))
+		if(Input.GetMouseButton(0) && Game.Instance.gameState == GameState.Play)
         {
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity);
             if(hit.collider != null)
@@ -27,6 +27,10 @@ public class ActionGlobal : MonoBehaviour {
                     card.GetComponent<BoxCollider2D>().size = new Vector2(2.0f, 0.5f);
                 }
             }
+        }
+        if(Input.GetMouseButtonDown(0) && Game.Instance.gameState == GameState.Result)  //结算按钮点击结算
+        {
+            GameObject.Find("_resultManager").GetComponent<LevelResultManager>().nextPage();
         }
 	}
 }

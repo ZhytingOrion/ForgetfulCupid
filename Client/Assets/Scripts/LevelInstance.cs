@@ -28,7 +28,7 @@ public class LevelInstance : MonoBehaviour {
 
     public List<GameObject> rightFlippedCards;
     public bool rightCanBeClick = true;
-
+    
 	// Use this for initialization
 	void Start () {
         this.remainLeftStep = levelInfo.leftStep;
@@ -39,12 +39,7 @@ public class LevelInstance : MonoBehaviour {
     {
         
     }
-
-    public void FlipACard(int a)
-    {
-
-    }
-
+    
     /// <summary>
     /// 将卡片都翻回来
     /// </summary>
