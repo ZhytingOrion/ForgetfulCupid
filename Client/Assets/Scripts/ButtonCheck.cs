@@ -27,5 +27,9 @@ public class ButtonCheck : MonoBehaviour {
             return;
         }
         //进入结算界面
+        else
+        {
+            Game.Instance.gameState = GameState.Result;
+        }
     }
 }

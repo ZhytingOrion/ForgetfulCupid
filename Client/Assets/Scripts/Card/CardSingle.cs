@@ -15,6 +15,7 @@ public class CardSingle : MonoBehaviour {
     private GameObject levelInstance;
     public float showTypeTime = 3.0f;
     public float mouseOnScaleSize = 1.5f;
+    public float inSlotCardSize = 0.4f;
 
     public bool isFlip;
     private GameObject slot = null;
@@ -41,6 +42,7 @@ public class CardSingle : MonoBehaviour {
         Debug.Log("平移动画：" + this.gameObject.name + " " + startLoc + " " + centerLoc + " " + newLoc);
         if (this.isFlip) FlipCard();
         yield return moveCardAnim(startLoc, centerLoc, moveTime);    //移动到中心位置
+        this.transform.localScale = oldScale;
         yield return new WaitForSeconds(stayTime);
         yield return moveCardAnim(centerLoc, newLoc, moveTime);
         if (this.cardInfo.AlwaysShowCard) FlipCard();
@@ -173,7 +175,7 @@ public class CardSingle : MonoBehaviour {
         this.setText(this.cardInfo.context);
     }
 
-    private void OnMouseDown()
+    private void onMouseDown()
     {
 
         //如果牌处于已翻开状态：不能再翻一次，返回
@@ -223,7 +225,8 @@ public class CardSingle : MonoBehaviour {
 
     private void OnMouseEnter()
     {
-        this.transform.localScale = oldScale * this.mouseOnScaleSize;
+        if (this.isInSlot && !this.cardInfo.AlwaysShowCard) return;
+        this.transform.localScale = this.transform.localScale * this.mouseOnScaleSize;
         Vector3 localPos = this.transform.position;
         localPos.z = -3.0f;
         this.transform.position = localPos;
@@ -231,7 +234,7 @@ public class CardSingle : MonoBehaviour {
 
     private void OnMouseExit()
     {
-        this.transform.localScale = oldScale;
+        this.transform.localScale = this.isInSlot ? oldScale * this.inSlotCardSize : oldScale;
         Vector3 localPos = this.transform.position;
         localPos.z = 0.0f;
         this.transform.position = localPos;
@@ -239,6 +242,9 @@ public class CardSingle : MonoBehaviour {
 
     private void OnMouseUp()
     {
+        Debug.Log("距离：" + Vector3.Distance(this.transform.position, this.oldLoc));
+        if (Vector3.Distance(this.transform.position, this.oldLoc) <= 1.5
+            ) onMouseDown();
         ResetLoc();
         if(this.GetComponent<BoxCollider2D>()!=null) this.GetComponent<BoxCollider2D>().size = this.colliderSize;
     }
@@ -248,13 +254,17 @@ public class CardSingle : MonoBehaviour {
         if (this.isDrag)
         {
             if (this.slot == null)
+            {
                 this.transform.position = this.oldLoc;
+                this.transform.localScale = this.oldScale;
+            }
             else  //置于槽中
             {
                 this.transform.position = this.slot.transform.position;
+                this.transform.localScale = new Vector3(this.inSlotCardSize, this.inSlotCardSize, 0);
                 this.slot.GetComponent<SlotCardInstance>().thisCard = this.gameObject;
                 this.isInSlot = true;
-                if (this.isFlip && !this.cardInfo.AlwaysShowCard) FlipCard(); 
+                if (this.isFlip && !this.cardInfo.AlwaysShowCard) FlipCard();
             }
         }
         this.isDrag = false;
