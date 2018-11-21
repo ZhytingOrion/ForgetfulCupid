@@ -105,11 +105,12 @@ public class CardSingle : MonoBehaviour {
 
     IEnumerator RotateSelf(float degree)
     {
+        Debug.Log("我翻了！" + this.cardInfo.cardID);
         Destroy(this.GetComponent<BoxCollider2D>());
 
         float rotateY = 0.0f;
         Vector3 loc = this.transform.position;
-        loc.z = -5.0f;
+        if(Game.Instance.gameState == GameState.Play) loc.z = -5.0f;
         this.transform.position = loc;
         for(int i = 0; i < 180 / Mathf.Abs(degree); i++)
         {
@@ -131,7 +132,7 @@ public class CardSingle : MonoBehaviour {
         }
         rotateY = degree < 0 ? -180 - rotateY : 180 - rotateY;
         this.transform.Rotate(new Vector3(0, 1, 0), rotateY);
-        loc.z = 0.0f;
+        if (Game.Instance.gameState == GameState.Play) loc.z = 0.0f;
         this.transform.position = loc;
 
         this.gameObject.AddComponent<BoxCollider2D>();
@@ -141,6 +142,7 @@ public class CardSingle : MonoBehaviour {
     public void FlipCard(float time = 3.0f)
     {
         this.isFlip = !this.isFlip;
+        Debug.Log("我要翻牌了！" + this.cardInfo.cardID);
         StartCoroutine(RotateSelf(time));
     }
 
@@ -225,6 +227,7 @@ public class CardSingle : MonoBehaviour {
 
     private void OnMouseEnter()
     {
+        if (Game.Instance.gameState != GameState.Play) return;
         if (this.isInSlot && !this.cardInfo.AlwaysShowCard) return;
         this.transform.localScale = this.transform.localScale * this.mouseOnScaleSize;
         Vector3 localPos = this.transform.position;
@@ -234,6 +237,7 @@ public class CardSingle : MonoBehaviour {
 
     private void OnMouseExit()
     {
+        if (Game.Instance.gameState != GameState.Play) return;
         this.transform.localScale = this.isInSlot ? oldScale * this.inSlotCardSize : oldScale;
         Vector3 localPos = this.transform.position;
         localPos.z = 0.0f;
@@ -242,6 +246,7 @@ public class CardSingle : MonoBehaviour {
 
     private void OnMouseUp()
     {
+        if(Game.Instance.gameState != GameState.Play) return;
         Debug.Log("距离：" + Vector3.Distance(this.transform.position, this.oldLoc));
         if (Vector3.Distance(this.transform.position, this.oldLoc) <= 1.5
             ) onMouseDown();

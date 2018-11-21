@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class LevelResultManager : MonoBehaviour {
 
-    private List<GameObject> slots = new List<GameObject>();
-    private int resultNum = 0;
+    public List<GameObject> slots = new List<GameObject>();
+    public int resultNum = -1;
 
 	// Use this for initialization
 	void Start () {
@@ -19,27 +19,47 @@ public class LevelResultManager : MonoBehaviour {
 
     public void ShowCardResult()
     {
-        if (slots == null) slots = GameObject.Find("_slotManager").GetComponent<SlotManager>().slots;
+        Debug.Log("我在结算界面" + this.resultNum);
+        if (slots.Count == 0) slots = GameObject.Find("_slotManager").GetComponent<SlotManager>().slots;
+        if (this.resultNum >= slots.Count) return;
+        if (this.resultNum > 0) slots[resultNum - 1].transform.position = new Vector3(0, 0, 0);
         GameObject slot = slots[resultNum];
-        Vector3 slotLoc = slot.transform.position;
-        slotLoc.z = -5;
-        slot.transform.position = slotLoc;
 
         GameObject leftCard = slot.transform.Find("LeftCard").GetComponent<SlotCardInstance>().thisCard;
         GameObject rightCard = slot.transform.Find("RightCard").GetComponent<SlotCardInstance>().thisCard;
+        leftCard.transform.parent = slot.transform;
+        rightCard.transform.parent = slot.transform;
 
+        Vector3 slotLoc = slot.transform.position;
+        slotLoc.z = -5;
+        slotLoc.y = 0;
+        slot.transform.position = slotLoc;
+        slot.transform.localScale = new Vector3(3.0f, 3.0f, 3.0f);
+        leftCard.transform.position = slot.transform.Find("LeftCard").transform.position;
+        rightCard.transform.position = slot.transform.Find("RightCard").transform.position;
         //leftCard.transform.localScale = leftCard.GetComponent<CardSingle>().
 
-        if (!leftCard.GetComponent<CardSingle>().cardInfo.AlwaysShowCard) leftCard.GetComponent<CardSingle>().FlipCard();
+        if (!leftCard.GetComponent<CardSingle>().cardInfo.AlwaysShowCard)
+        {
+            Debug.Log("卡片信息：" + leftCard.GetComponent<CardSingle>().cardInfo.cardID);
+            leftCard.GetComponent<CardSingle>().FlipCard();
+        }
         if (!rightCard.GetComponent<CardSingle>().cardInfo.AlwaysShowCard) rightCard.GetComponent<CardSingle>().FlipCard();
     }
 
     public void nextPage()
     {
         this.resultNum += 1;
-        if (this.slots == null || this.resultNum < this.slots.Count) ShowCardResult();
-        else Debug.Log("打印完啦");
-    }
-
-    
+        Debug.Log("ResultNum:" + this.resultNum + "/" + this.slots.Count);
+        if (this.resultNum < this.slots.Count)
+        {
+            Debug.Log("显示画面" + resultNum);
+            ShowCardResult();
+        }
+        else
+        {
+            Debug.Log("打印完啦");
+            //返回选关界面
+        }
+    }    
 }

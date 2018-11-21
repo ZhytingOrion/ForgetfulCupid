@@ -14,8 +14,9 @@ public class ButtonCheck : MonoBehaviour {
 		
 	}
     
-    private void OnMouseDown()
+    private void OnMouseUp()
     {
+        if (Game.Instance.gameState != GameState.Play) return;
         //变色
 
         //行程未被排满，提示需先将行程排满
@@ -29,7 +30,11 @@ public class ButtonCheck : MonoBehaviour {
         //进入结算界面
         else
         {
+            GameObject resultBG = Instantiate((GameObject)Resources.Load("Prefabs/ResultBackground"));
+            resultBG.transform.parent = GameObject.Find("Result").transform;
+            resultBG.transform.position = new Vector3(0, 0, -1);
             Game.Instance.gameState = GameState.Result;
+            GameObject.Find("_resultManager").GetComponent<LevelResultManager>().ShowCardResult();
         }
     }
 }
