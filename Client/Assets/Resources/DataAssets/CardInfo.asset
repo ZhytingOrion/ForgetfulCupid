@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: CardInfo
+  m_EditorClassIdentifier: Assembly-CSharp::CardInfoArray
+  dataArray:
+  - cardID: 101
+    type: 1
+    context: "\u6211\u2026\u6211\u662F\u9694\u58C14\u73ED\u7684\u5F20\u5FD7\u519B\u2026"
+    locType: 0
+    AlwaysShowCard: 0
+    AlwaysShowType: 0
+    stayTime: 3
+  - cardID: 102
+    type: 1
+    context: "\u5468\u4E94\u653E\u5B66\u540E14:30\uFF0C\u6211\u4F1A\u5728\u56FE\u4E66\u9986\u95E8\u53E3\u7B49\u4F60\u3002"
+    locType: 0
+    AlwaysShowCard: 0
+    AlwaysShowType: 0
+    stayTime: 3
+  - cardID: 103
+    type: 1
+    context: "\u4F60\u662F\u8C01\uFF1F"
+    locType: 1
+    AlwaysShowCard: 1
+    AlwaysShowType: 0
+    stayTime: 3
+  - cardID: 104
+    type: 1
+    context: "\u4F60\u5230\u5E95\u662F\u8C01\uFF1F"
+    locType: 1
+    AlwaysShowCard: 1
+    AlwaysShowType: 0
+    stayTime: 3
+  - cardID: 105
+    type: 1
+    context: "\u53EF\u4EE5\u554A\uFF0C\u90A3\u5C31\u653E\u5B66\u89C1\uFF01"
+    locType: 1
+    AlwaysShowCard: 0
+    AlwaysShowType: 0
+    stayTime: 3
+  - cardID: 106
+    type: 1
+    context: "\u62B1\u6B49\uFF0C\u6211\u5468\u4E94\u653E\u5B66\u6709\u4E8B\u2026"
+    locType: 1
+    AlwaysShowCard: 0
+    AlwaysShowType: 0
+    stayTime: 3
