@@ -46,6 +46,8 @@ public class CardInfoArray : ScriptableObject
 public class CardManagerInfo
 {
     public int levelID;
+    public int roleLeftID;
+    public int roleRightID;
     public int[] CardsLeftID;
     public int[] CardsRightID;
     public int[] CardsLeftLocs;
