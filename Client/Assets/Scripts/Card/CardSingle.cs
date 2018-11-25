@@ -6,6 +6,7 @@ public class CardSingle : MonoBehaviour {
 
     public Texture2D BackTex;
     public Texture2D ContentTex;
+    public Texture2D ContentTypeTex;
     public Texture2D TypeTex;
     private Vector3 oldScale;
     private Vector3 oldLoc;
@@ -22,6 +23,7 @@ public class CardSingle : MonoBehaviour {
     public bool isInSlot = false;
 
     private Vector2 colliderSize;
+    public Vector2 SpriteSize = new Vector2(190, 235);
 
     public void setLoc(Vector3 locs)
     {
@@ -166,8 +168,12 @@ public class CardSingle : MonoBehaviour {
     public void Init()
     {
         Debug.Log("myname is " + this.cardInfo.cardID + " and im init!");
+        //this.GetComponent<SpriteRenderer>().sprite = Sprite.Create(this.GetComponent<SpriteRenderer>().sprite.texture, new Rect(new Vector2(0,0), SpriteSize), new Vector2(0, 0));
         oldScale = this.transform.localScale;
         this.colliderSize = this.GetComponent<BoxCollider2D>().size;
+
+        //this.GetComponent<Renderer>().material.SetFloat("biasX", 2.0f);
+        //this.GetComponent<Renderer>().material.SetFloat("biasY", 2.0f);
         if (BackTex != null)
         {
             this.GetComponent<Renderer>().material.SetTexture("_MainTex", BackTex);
@@ -175,6 +181,7 @@ public class CardSingle : MonoBehaviour {
             this.GetComponent<SpriteRenderer>().sprite = sp;
         }
         if (ContentTex != null) this.GetComponent<Renderer>().material.SetTexture("_ContentTex", ContentTex);
+        if (ContentTypeTex != null) this.GetComponent<Renderer>().material.SetTexture("_ContentTypeTex", ContentTypeTex);
         if (TypeTex != null) this.GetComponent<Renderer>().material.SetTexture("_TypeTex", TypeTex);
         this.setText(this.cardInfo.context);
     }
@@ -236,7 +243,11 @@ public class CardSingle : MonoBehaviour {
     {
         if (Game.Instance.gameState != GameState.Play) return;
         if (this.isInSlot) return;
-        if (!this.isFlip) return;
+        if (!this.isFlip)
+        {
+            this.transform.Find("HighLight").gameObject.SetActive(true);
+            return;
+        }
         this.transform.localScale = this.transform.localScale * this.mouseOnScaleSize;
         Vector3 localPos = this.transform.position;
         localPos.z = -3.0f;
@@ -246,6 +257,12 @@ public class CardSingle : MonoBehaviour {
     private void OnMouseExit()
     {
         if (Game.Instance.gameState != GameState.Play) return;
+        if (this.isInSlot) return;
+        if (!this.isFlip)
+        {
+            this.transform.Find("HighLight").gameObject.SetActive(false);
+            return;
+        }
         this.transform.localScale = this.isInSlot ? oldScale * this.inSlotCardSize : oldScale;
         Vector3 localPos = this.transform.position;
         localPos.z = 0.0f;
@@ -272,7 +289,9 @@ public class CardSingle : MonoBehaviour {
             }
             else  //置于槽中
             {
-                this.transform.position = this.slot.transform.position;
+                Vector3 slotPos = this.slot.transform.position;
+                slotPos.z -= 0.5f;
+                this.transform.position = slotPos;
                 this.transform.localScale = new Vector3(this.inSlotCardSize, this.inSlotCardSize, 0);
                 this.slot.GetComponent<SlotCardInstance>().thisCard = this.gameObject;
                 this.isInSlot = true;

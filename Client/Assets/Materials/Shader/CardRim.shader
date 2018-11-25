@@ -4,12 +4,15 @@
 	{
 		_MainTex ("Texture Back", 2D) = "white" {}
 		_ContentTex("Texture with Words", 2D) = "white" {}
+		_ContentTypeTex("Type Texture with Words", 2D) = "white" {}
 		_TypeTex("Texture of Type", 2D) = "white" {}
 		_TypeDegree("Show Type", Float) = 0
 		_Color("Rim Color", Color) = (0,0.5,0.9,1)
 		_Width("Rim Width", Range(0,0.5)) = 0.4
 		_Degree("Rim Degree", Range(0,1)) = 0
 		_isBack("Show on witch side", Float) = 1
+		biasX("bias X", Float) = 1
+		biasY("bias Y", Float) = 1
 	}
 	SubShader
 	{
@@ -41,12 +44,16 @@
 			float4 _MainTex_ST;
 			sampler2D _ContentTex;
 			float4 _ContentTex_ST;
+			sampler2D _ContentTypeTex;
+			float4 _ContentTypeTex_ST;
 			float4 _Color;
 			float _Width;
 			float _Degree;
 			float _isBack;
 			float _TypeDegree;
 			sampler2D _TypeTex;
+			uniform float biasX;
+			uniform float biasY;
 			
 			v2f vert (appdata v)
 			{
@@ -59,11 +66,17 @@
 			fixed4 frag (v2f i) : SV_Target
 			{
 				// sample the texture
-				fixed4 typeCol = tex2D(_TypeTex, i.uv);
-				fixed4 backCol = typeCol * _TypeDegree + (1-_TypeDegree * typeCol.a) * tex2D(_MainTex, i.uv);
-				fixed4 col = _isBack > 0.5 ? backCol : tex2D(_ContentTex, float2(1-i.uv.x, i.uv.y));
-				fixed alpha = clamp((max(abs(i.uv.x - 0.5), abs(i.uv.y - 0.5)) - (0.5 - _Width)) * (1 / _Width ) - (1-_Degree), 0, 1);
+				fixed4 typeCol = tex2D(_TypeTex, float2(i.uv.x * biasX, i.uv.y * biasY));
+				fixed4 backCol = typeCol * _TypeDegree + (1-_TypeDegree * typeCol.a) * tex2D(_MainTex, float2(i.uv.x * biasX, i.uv.y * biasY));
+				fixed4 frontTypeCol = tex2D(_ContentTypeTex, float2(1 - i.uv.x * biasX, i.uv.y * biasY));
+				fixed4 frontCol = (1 - frontTypeCol.a) * tex2D(_ContentTex, float2(1 - i.uv.x * biasX, i.uv.y * biasY)) + frontTypeCol * frontTypeCol.a;
+				fixed4 col = _isBack > 0.5 ? backCol : frontCol;
+				fixed alpha = clamp((max(abs(i.uv.x * biasX - 0.5), abs(i.uv.y * biasY - 0.5)) - (0.5 - _Width)) * (1 / _Width ) - (1-_Degree), 0, 1);
 				col = col * (1 - alpha) + _Color * alpha;
+				if (col.a < 0.5f)
+				{
+					discard;
+				}
 				return col;
 			}
 			ENDCG

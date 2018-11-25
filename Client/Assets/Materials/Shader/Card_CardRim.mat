@@ -19,16 +19,27 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _ContentTex:
-        m_Texture: {fileID: 2800000, guid: 5438f0bfca7d4a24cb3e62c8795cb0fd, type: 3}
+        m_Texture: {fileID: 2800000, guid: 2e20b81f72f11e943a72eb5588d7b55c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ContentTypeTex:
+        m_Texture: {fileID: 2800000, guid: e2a4b5a9bb3c56b4ab337a8bd43b44d8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 5438f0bfca7d4a24cb3e62c8795cb0fd, type: 3}
+        m_Texture: {fileID: 2800000, guid: 4bc2e0c57ca726b499e65557b71a3a87, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TypeTex:
+        m_Texture: {fileID: 2800000, guid: 114364cda30143f46b205a567b6a17cc, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Degree: 0
+    - _TypeDegree: 0
     - _Width: 0.125
     - _isBack: 1
+    - biasX: 1
+    - biasY: 1
     m_Colors:
     - _Color: {r: 0, g: 0.49803922, b: 0.9019608, a: 1}

@@ -27,8 +27,9 @@ public class CardManager : MonoBehaviour {
 
     [Header("Type Texs")]
     public Texture2D[] typeTexs;
-    public Texture2D[] contentTexsLeft;
-    public Texture2D[] contentTexsRight;
+    public Texture2D[] typeFrontTexs;
+    public Texture2D contentTexsLeft;
+    public Texture2D contentTexsRight;
     public Texture2D leftBackTex;
     public Texture2D rightBackTex;
 
@@ -64,7 +65,8 @@ public class CardManager : MonoBehaviour {
             card.GetComponent<CardSingle>().inSlotCardSize = this.inSlotCardSize;
             card.GetComponent<CardSingle>().showTypeTime = showTypeTime;
             card.GetComponent<CardSingle>().TypeTex = typeTexs[(int)cardsInfos[i].type];
-            card.GetComponent<CardSingle>().ContentTex = isLeft ? contentTexsLeft[(int)cardsInfos[i].type] : contentTexsRight[(int)cardsInfos[i].type];
+            card.GetComponent<CardSingle>().ContentTypeTex = typeFrontTexs[(int)cardsInfos[i].type];
+            card.GetComponent<CardSingle>().ContentTex = isLeft ? contentTexsLeft : contentTexsRight;
             card.GetComponent<CardSingle>().BackTex = isLeft ? leftBackTex : rightBackTex;
             card.GetComponent<CardSingle>().Init();
 

@@ -43,6 +43,26 @@ public class CardInfoArray : ScriptableObject
 }
 
 [System.Serializable]
+public class RoleInfo
+{
+    public int roleID;  //人物ID
+    public string roleName;  //人物名字
+    public string description;  //人物性格等描述
+    public string rolePicAddr;  //人物头像图片地址
+}
+
+[System.Serializable]
+public class RoleInfoDic
+{
+    public Dictionary<int, RoleInfo> roleInfoDic = new Dictionary<int, RoleInfo>();
+}
+
+public class RoleInfoArray : ScriptableObject
+{
+    public RoleInfo[] dataArray;
+}
+
+[System.Serializable]
 public class CardManagerInfo
 {
     public int levelID;
