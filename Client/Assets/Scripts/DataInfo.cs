@@ -47,7 +47,8 @@ public class RoleInfo
 {
     public int roleID;  //人物ID
     public string roleName;  //人物名字
-    public string description;  //人物性格等描述
+    public string roleDesAddr;  //人物性格等描述图片地址
+    public string roleHeadPicAddr;  //人物头像图片地址
     public string rolePicAddr;  //人物头像图片地址
 }
 

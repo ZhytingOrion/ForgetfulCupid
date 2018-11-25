@@ -8,6 +8,12 @@ using System.Data;
 namespace EditorTool
 {
     public class ExcelTools {
+
+        /// <summary>
+        /// 读取CardInfoArray信息
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
         public static CardInfo[] CreateCardInfoArrayWithExcel(string filePath)
         {
             int col = 0, row = 0;
@@ -26,6 +32,30 @@ namespace EditorTool
                 cardInfo.stayTime = float.Parse(collect[i][5].ToString());
                 cardInfo.context = collect[i][6].ToString();
                 array[i - 1] = cardInfo;
+            }
+            return array;
+        } 
+        
+        /// <summary>
+        /// 读取RoleInfoArray信息
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
+        public static RoleInfo[] CreateRoleInfoArrayWithExcel(string filePath)
+        {
+            int col = 0, row = 0;
+            DataRowCollection collect = ReadExcel(filePath, ref col, ref row);
+
+            RoleInfo[] array = new RoleInfo[row - 1];
+            for (int i = 1; i<row; i++)
+            {
+                RoleInfo info = new RoleInfo();
+                info.roleID = int.Parse(collect[i][0].ToString());
+                info.roleName = collect[i][1].ToString();
+                info.roleDesAddr = collect[i][2].ToString();
+                info.roleHeadPicAddr = collect[i][3].ToString();
+                info.rolePicAddr = collect[i][4].ToString();
+                array[i - 1] = info;
             }
             return array;
         }
