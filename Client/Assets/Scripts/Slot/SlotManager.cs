@@ -8,13 +8,14 @@ public class SlotManager : MonoBehaviour {
     public List<GameObject> slots = new List<GameObject>();
     public Texture2D[] slotTypeTexs;
     public float spaceY = 1.5f;
+    public float offsetY = 0.0f;
 
     //[System.Serializable]
     public Dictionary<int, int> answers = new Dictionary<int, int>();
 
 	// Use this for initialization
 	void Start () {
-        float startY = (slotCardTypes.Length - 1) * 0.5f * this.spaceY;
+        float startY = (slotCardTypes.Length - 1) * 0.5f * this.spaceY + offsetY;
         for (int i = 0; i<slotCardTypes.Length; ++i)
         {
             GameObject slot = Instantiate((GameObject)Resources.Load("Prefabs/Slot"));

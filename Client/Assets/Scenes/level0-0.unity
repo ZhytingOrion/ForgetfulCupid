@@ -519,6 +519,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 197ca083219183b46a24ffcaee68f215, type: 3}
   - {fileID: 2800000, guid: 1823057fb9bc0e64991d203cec1207d8, type: 3}
   spaceY: 1.5
+  offsetY: -0.5
 --- !u!4 &1457943681
 Transform:
   m_ObjectHideFlags: 0
@@ -819,7 +820,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpaceX: 2
   SpaceY: 2.5
-  OffsetY: -1
+  OffsetY: -0.5
   StartX: 6
   originCardSize: 0.4
   mouseOnCardScale: 1.5
