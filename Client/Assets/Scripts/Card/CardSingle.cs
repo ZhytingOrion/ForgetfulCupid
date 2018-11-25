@@ -236,6 +236,7 @@ public class CardSingle : MonoBehaviour {
     {
         if (Game.Instance.gameState != GameState.Play) return;
         if (this.isInSlot) return;
+        if (!this.isFlip) return;
         this.transform.localScale = this.transform.localScale * this.mouseOnScaleSize;
         Vector3 localPos = this.transform.position;
         localPos.z = -3.0f;
