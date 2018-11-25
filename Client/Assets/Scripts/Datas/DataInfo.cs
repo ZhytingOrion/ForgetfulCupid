@@ -37,11 +37,6 @@ public class CardInfoDic
     public Dictionary<int, CardInfo> cardInfoDic = new Dictionary<int, CardInfo>();
 }
 
-public class CardInfoArray : ScriptableObject
-{
-    public CardInfo[] dataArray;
-}
-
 [System.Serializable]
 public class RoleInfo
 {
@@ -58,11 +53,6 @@ public class RoleInfoDic
     public Dictionary<int, RoleInfo> roleInfoDic = new Dictionary<int, RoleInfo>();
 }
 
-public class RoleInfoArray : ScriptableObject
-{
-    public RoleInfo[] dataArray;
-}
-
 [System.Serializable]
 public class CardManagerInfo
 {
@@ -75,16 +65,27 @@ public class CardManagerInfo
     public int[] CardsRightLocs;
     //如果每关的卡的图案都不同
     public string[] typeTexsAddrs;
-    public string[] contentTexsAddrsLeft;
-    public string[] contentTexsAddrsRight;
+    public string[] ContentTypeTexsAddrs;
+    public string contentTexsAddrsLeft;
+    public string contentTexsAddrsRight;
     public string backTexsAddrsLeft;
     public string backTexsAddrsRight;
 }
 
 [System.Serializable]
-public class CardResults
+public class CardManagerInfoDic
 {
-    public Dictionary<int, int> cardsRightResults = new Dictionary<int, int>();
+    public Dictionary<int, CardManagerInfo> cardManagerInfoDic = new Dictionary<int, CardManagerInfo>();
+}
+
+[System.Serializable]
+public class CardResultInfo
+{
+    public int leftCardID;
+    public int rightCardID;
+    public int Score;
+    public string SpecialEndName;
+    public int SpecialLevel;
 }
 
 

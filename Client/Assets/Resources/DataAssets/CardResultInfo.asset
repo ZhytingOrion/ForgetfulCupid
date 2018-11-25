@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfb79f820a1df9c49bef26f2cf5680a1, type: 3}
+  m_Name: CardResultInfo
+  m_EditorClassIdentifier: 
+  dataArray:
+  - leftCardID: 101
+    rightCardID: 103
+    Score: 10
+    SpecialEndName: 1
+    SpecialLevel: 1
+  - leftCardID: 101
+    rightCardID: 104
+    Score: 10
+    SpecialEndName: 1
+    SpecialLevel: 1
+  - leftCardID: 102
+    rightCardID: 105
+    Score: 20
+    SpecialEndName: 1
+    SpecialLevel: 1

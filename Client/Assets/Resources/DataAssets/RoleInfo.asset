@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1656b16250ec21242a4b823451bad782, type: 3}
+  m_Name: RoleInfo
+  m_EditorClassIdentifier: 
+  dataArray:
+  - roleID: 1
+    roleName: "\u5F20\u5FD7\u519B"
+    roleDesAddr: "Assets/Resources/Arts/Roles/\u2026"
+    roleHeadPicAddr: "Assets/Resources/Arts/Roles/\u2026"
+    rolePicAddr: "Assets/Resources/Arts/Roles/\u2026"
+  - roleID: 2
+    roleName: "\u7A0B\u654F\u654F"
+    roleDesAddr: "Assets/Resources/Arts/Roles/\u2026"
+    roleHeadPicAddr: "Assets/Resources/Arts/Roles/\u2026"
+    rolePicAddr: "Assets/Resources/Arts/Roles/\u2026"

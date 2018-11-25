@@ -35,8 +35,8 @@ public class LevelResultManager : MonoBehaviour {
         slotLoc.y = 0;
         slot.transform.position = slotLoc;
         slot.transform.localScale = new Vector3(3.0f, 3.0f, 3.0f);
-        leftCard.transform.position = slot.transform.Find("LeftCard").transform.position;
-        rightCard.transform.position = slot.transform.Find("RightCard").transform.position;
+        leftCard.transform.position = slot.transform.Find("LeftCard").transform.position - new Vector3(0,0,3);
+        rightCard.transform.position = slot.transform.Find("RightCard").transform.position - new Vector3(0, 0, 3);
         //leftCard.transform.localScale = leftCard.GetComponent<CardSingle>().
 
         if (!leftCard.GetComponent<CardSingle>().cardInfo.AlwaysShowCard)

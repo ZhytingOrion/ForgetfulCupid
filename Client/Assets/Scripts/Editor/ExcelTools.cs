@@ -52,9 +52,65 @@ namespace EditorTool
                 RoleInfo info = new RoleInfo();
                 info.roleID = int.Parse(collect[i][0].ToString());
                 info.roleName = collect[i][1].ToString();
-                info.roleDesAddr = collect[i][2].ToString();
+                info.roleDesAddr = collect[i][2].ToString();   
                 info.roleHeadPicAddr = collect[i][3].ToString();
                 info.rolePicAddr = collect[i][4].ToString();
+                array[i - 1] = info;
+            }
+            return array;
+        }
+
+        /// <summary>
+        /// 读取CardManagerInfoArray信息
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
+        public static CardManagerInfo[] CreateCardManagerInfoArrayWithExcel(string filePath)
+        {
+            int col = 0, row = 0;
+            DataRowCollection collect = ReadExcel(filePath, ref col, ref row);
+
+            CardManagerInfo[] array = new CardManagerInfo[row - 1];
+            for (int i = 1; i < row; i++)
+            {
+                CardManagerInfo info = new CardManagerInfo();
+                info.levelID = int.Parse(collect[i][0].ToString());
+                info.roleLeftID = int.Parse(collect[i][1].ToString());
+                info.roleRightID = int.Parse(collect[i][2].ToString());
+                info.CardsLeftID = getIntArrayFromString(collect[i][3].ToString(), ';');
+                info.CardsRightID = getIntArrayFromString(collect[i][4].ToString(), ';');
+                info.CardsLeftLocs = getIntArrayFromString(collect[i][5].ToString(), ';');
+                info.CardsRightLocs = getIntArrayFromString(collect[i][6].ToString(), ';');
+                info.typeTexsAddrs = collect[i][7].ToString().Split(';');
+                info.ContentTypeTexsAddrs = collect[i][8].ToString().Split(';');
+                info.contentTexsAddrsLeft = collect[i][9].ToString();
+                info.contentTexsAddrsRight = collect[i][10].ToString();
+                info.backTexsAddrsLeft= collect[i][11].ToString();
+                info.backTexsAddrsRight = collect[i][12].ToString();
+                array[i - 1] = info;
+            }
+            return array;
+        }
+
+        /// <summary>
+        /// 读取CardResultInfo信息
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
+        public static CardResultInfo[] CreateCardResultInfoArrayWithExcel(string filePath)
+        {
+            int col = 0, row = 0;
+            DataRowCollection collect = ReadExcel(filePath, ref col, ref row);
+
+            CardResultInfo[] array = new CardResultInfo[row - 1];
+            for (int i = 1; i < row; i++)
+            {
+                CardResultInfo info = new CardResultInfo();
+                info.leftCardID = int.Parse(collect[i][0].ToString());
+                info.rightCardID = int.Parse(collect[i][1].ToString());
+                info.Score = int.Parse(collect[i][2].ToString());
+                info.SpecialEndName = collect[i][3].ToString();
+                info.SpecialLevel = int.Parse(collect[i][4].ToString());
                 array[i - 1] = info;
             }
             return array;
@@ -77,6 +133,17 @@ namespace EditorTool
             columnNum = result.Tables[0].Columns.Count;
             rowNum = result.Tables[0].Rows.Count;
             return result.Tables[0].Rows;
+        }
+
+        private static int[] getIntArrayFromString(string s, char split)
+        {
+            List<int> array = new List<int>();
+            string[] stringArray = s.Split(split);
+            for(int i = 0;i < stringArray.Length; ++i)
+            {
+                array.Add(int.Parse(stringArray[i]));
+            }
+            return array.ToArray();
         }
 
 //--------------------- 

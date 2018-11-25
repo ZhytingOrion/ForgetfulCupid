@@ -30,6 +30,28 @@ namespace EditorTool
             BuildAssets(asset, "RoleInfo.asset");
         }
 
+        /// <summary>
+        /// 读取CardManagerInfo表格
+        /// </summary>
+        [MenuItem("CustomTools/Excel/CreateLevelInfoAsset")]
+        public static void CreateCardManagerInfoAsset()
+        {
+            CardManagerInfoArray asset = ScriptableObject.CreateInstance<CardManagerInfoArray>();
+            asset.dataArray = ExcelTools.CreateCardManagerInfoArrayWithExcel(ExcelConfig.excelsPath + "LevelInfo.xlsx");
+            BuildAssets(asset, "LevelInfo.asset");
+        }
+
+        /// <summary>
+        /// 读取CardResultInfo表格
+        /// </summary>
+        [MenuItem("CustomTools/Excel/CreateCardResultInfoAsset")]
+        public static void CreateCardResultInfoAsset()
+        {
+            CardResultInfoArray asset = ScriptableObject.CreateInstance<CardResultInfoArray>();
+            asset.dataArray = ExcelTools.CreateCardResultInfoArrayWithExcel(ExcelConfig.excelsPath + "CardResultInfo.xlsx");
+            BuildAssets(asset, "CardResultInfo.asset");
+        }
+
         private static void BuildAssets(Object assets, string assetName)
         {
             if (!Directory.Exists(ExcelConfig.assetPath))
