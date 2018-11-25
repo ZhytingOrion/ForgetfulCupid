@@ -186,7 +186,10 @@ MonoBehaviour:
     AlwaysShowType: 0
     stayTime: 3
   showTypeTime: 3
+  mouseOnScaleSize: 1.5
+  inSlotCardSize: 0.4
   isFlip: 0
+  isInSlot: 0
 --- !u!212 &212182186318368530
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -239,7 +242,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1671015147736104}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0.029}
+  m_LocalPosition: {x: 0, y: 0, z: 0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4170986102601634}

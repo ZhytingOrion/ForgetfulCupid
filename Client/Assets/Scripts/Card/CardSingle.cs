@@ -185,6 +185,8 @@ public class CardSingle : MonoBehaviour {
 
         if (this.isInSlot) return;  //如果牌已经置于槽中，返回
 
+        if (this.transform.position != this.oldLoc) this.transform.position = this.oldLoc;
+
         if (this.cardInfo.locType == LocType.Left)
         {
             if (!levelInstance.GetComponent<LevelInstance>().leftCanBeClick) return; //左边的牌正在恢复中，不能点击
@@ -225,10 +227,13 @@ public class CardSingle : MonoBehaviour {
         FlipCard(5.0f);
     }
 
+    /// <summary>
+    /// 卡面放大
+    /// </summary>
     private void OnMouseEnter()
     {
         if (Game.Instance.gameState != GameState.Play) return;
-        if (this.isInSlot && !this.cardInfo.AlwaysShowCard) return;
+        if (this.isInSlot) return;
         this.transform.localScale = this.transform.localScale * this.mouseOnScaleSize;
         Vector3 localPos = this.transform.position;
         localPos.z = -3.0f;
@@ -248,8 +253,7 @@ public class CardSingle : MonoBehaviour {
     {
         if(Game.Instance.gameState != GameState.Play) return;
         Debug.Log("距离：" + Vector3.Distance(this.transform.position, this.oldLoc));
-        if (Vector3.Distance(this.transform.position, this.oldLoc) <= 1.5
-            ) onMouseDown();
+        if (Vector3.Distance(this.transform.position, this.oldLoc) <= 1.5f) onMouseDown();
         ResetLoc();
         if(this.GetComponent<BoxCollider2D>()!=null) this.GetComponent<BoxCollider2D>().size = this.colliderSize;
     }
