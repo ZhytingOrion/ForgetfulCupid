@@ -109,9 +109,6 @@ public class CardSingle : MonoBehaviour {
         Destroy(this.GetComponent<BoxCollider2D>());
 
         float rotateY = 0.0f;
-        Vector3 loc = this.transform.position;
-        if(Game.Instance.gameState == GameState.Play) loc.z = -5.0f;
-        this.transform.position = loc;
         for(int i = 0; i < 180 / Mathf.Abs(degree); i++)
         {
             if (Mathf.Abs(rotateY) >= 90  &&  Mathf.Abs(rotateY)<=100)
@@ -132,6 +129,7 @@ public class CardSingle : MonoBehaviour {
         }
         rotateY = degree < 0 ? -180 - rotateY : 180 - rotateY;
         this.transform.Rotate(new Vector3(0, 1, 0), rotateY);
+        Vector3 loc = this.transform.position;
         if (Game.Instance.gameState == GameState.Play) loc.z = 0.0f;
         this.transform.position = loc;
 
@@ -143,6 +141,10 @@ public class CardSingle : MonoBehaviour {
     {
         this.isFlip = !this.isFlip;
         Debug.Log("我要翻牌了！" + this.cardInfo.cardID);
+
+        Vector3 loc = this.transform.position;
+        if (Game.Instance.gameState == GameState.Play) loc.z = -5.0f;
+        this.transform.position = loc;
         StartCoroutine(RotateSelf(time));
     }
 
