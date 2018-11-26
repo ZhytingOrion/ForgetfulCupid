@@ -4,26 +4,34 @@ using UnityEngine;
 
 public class CardSingle : MonoBehaviour {
 
+    [Header("卡片基本信息")]
+    public CardInfo cardInfo;
+
+    [Header("卡片图案")]
     public Texture2D BackTex;
     public Texture2D ContentTex;
     public Texture2D ContentTypeTex;
     public Texture2D TypeTex;
+
     private Vector3 oldScale;
     private Vector3 oldLoc;
-    public bool isDrag = false;
 
-    public CardInfo cardInfo;
-    private GameObject levelInstance;
+    [Header("卡片行动属性")]
+    public bool isDrag = false;
+    public bool isFlip = false;
+    public bool isInSlot = false;
+
+    [Header("卡片设置属性")]
+    public Vector2 SpriteSize = new Vector2(190, 235);
     public float showTypeTime = 3.0f;
     public float mouseOnScaleSize = 1.5f;
     public float inSlotCardSize = 0.4f;
+    public float textSize = 0.25f;
 
-    public bool isFlip;
     private GameObject slot = null;
-    public bool isInSlot = false;
+    private GameObject levelInstance;
 
     private Vector2 colliderSize;
-    public Vector2 SpriteSize = new Vector2(190, 235);
 
     public void setLoc(Vector3 locs)
     {
@@ -66,6 +74,7 @@ public class CardSingle : MonoBehaviour {
     public void setText(string text)
     {
         this.transform.Find("Text").GetComponent<TextMesh>().text = text.Replace("-", "\n");
+        this.transform.Find("Text").GetComponent<TextMesh>().characterSize = this.textSize;
     }
 
     public void ShowType(float time)
@@ -292,7 +301,7 @@ public class CardSingle : MonoBehaviour {
                 Vector3 slotPos = this.slot.transform.position;
                 slotPos.z -= 0.5f;
                 this.transform.position = slotPos;
-                this.transform.localScale = new Vector3(this.inSlotCardSize, this.inSlotCardSize, 0);
+                this.transform.localScale = new Vector3(this.inSlotCardSize, this.inSlotCardSize, this.inSlotCardSize);
                 this.slot.GetComponent<SlotCardInstance>().thisCard = this.gameObject;
                 this.isInSlot = true;
                 if (this.isFlip && !this.cardInfo.AlwaysShowCard) FlipCard();

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CardManager : MonoBehaviour {
 
+    [Header("卡片位置、尺寸、时间等控制属性")]
     public float SpaceX = 1.5f;
     public float SpaceY = 2.0f;
     public float OffsetY = 5.0f;
@@ -12,11 +13,14 @@ public class CardManager : MonoBehaviour {
     public float originCardSize = 1.0f;  //原始卡片大小
     public float mouseOnCardScale = 1.5f;   //鼠标悬浮时卡片缩放比例
     public float inSlotCardSize = 0.4f;    //卡片置于槽中时的缩放比例
+    public float textSize = 0.25f;
 
     public float showTypeTime = 3.0f;
-
+    
+    [HideInInspector]
     public bool isInit = true;
     
+    [Header("卡片内容属性")]
     public List<CardInfo> cardsInfosLeft = new List<CardInfo>();
     private List<GameObject> cardsLeft = new List<GameObject>();
     public List<int> cardsLocsLeft = new List<int>();
@@ -25,7 +29,7 @@ public class CardManager : MonoBehaviour {
     private List<GameObject> cardsRight = new List<GameObject>();
     public List<int> cardsLocsRight = new List<int>();
 
-    [Header("Type Texs")]
+    [Header("卡片图案属性")]
     public Texture2D[] typeTexs;
     public Texture2D[] typeFrontTexs;
     public Texture2D contentTexsLeft;
@@ -63,6 +67,7 @@ public class CardManager : MonoBehaviour {
             card.GetComponent<CardSingle>().cardInfo = cardsInfos[i];
             card.GetComponent<CardSingle>().mouseOnScaleSize = this.mouseOnCardScale;
             card.GetComponent<CardSingle>().inSlotCardSize = this.inSlotCardSize;
+            card.GetComponent<CardSingle>().textSize = this.textSize;
             card.GetComponent<CardSingle>().showTypeTime = showTypeTime;
             card.GetComponent<CardSingle>().TypeTex = typeTexs[(int)cardsInfos[i].type];
             card.GetComponent<CardSingle>().ContentTypeTex = typeFrontTexs[(int)cardsInfos[i].type];

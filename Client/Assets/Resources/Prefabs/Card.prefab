@@ -180,7 +180,7 @@ TextMesh:
   m_GameObject: {fileID: 1671015147736104}
   m_Text: "\u6211\u2026\u6211\u662F\u9694\u58C14\u73ED\n\u7684\u5F20\u5FD7\u519B\u2026"
   m_OffsetZ: 0
-  m_CharacterSize: 0.15
+  m_CharacterSize: 0.25
   m_LineSpacing: 1.2
   m_Anchor: 4
   m_Alignment: 0
