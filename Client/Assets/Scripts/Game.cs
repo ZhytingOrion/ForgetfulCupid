@@ -32,6 +32,9 @@ public class Game{
 
     public GameState gameState;
 
-
+    public int gameLevel
+    {
+        get; set;
+    }
 
 }

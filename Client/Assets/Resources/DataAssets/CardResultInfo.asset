@@ -12,17 +12,20 @@ MonoBehaviour:
   m_Name: CardResultInfo
   m_EditorClassIdentifier: 
   dataArray:
-  - leftCardID: 101
+  - levelID: 0
+    leftCardID: 101
     rightCardID: 103
     Score: 10
     SpecialEndName: 1
     SpecialLevel: 1
-  - leftCardID: 101
+  - levelID: 0
+    leftCardID: 101
     rightCardID: 104
     Score: 10
     SpecialEndName: 1
     SpecialLevel: 1
-  - leftCardID: 102
+  - levelID: 0
+    leftCardID: 102
     rightCardID: 105
     Score: 20
     SpecialEndName: 1

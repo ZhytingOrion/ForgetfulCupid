@@ -87,6 +87,10 @@ namespace EditorTool
                 info.contentTexsAddrsRight = collect[i][10].ToString();
                 info.backTexsAddrsLeft= collect[i][11].ToString();
                 info.backTexsAddrsRight = collect[i][12].ToString();
+                info.leftStep = int.Parse(collect[i][13].ToString());
+                info.rightStep = int.Parse(collect[i][14].ToString());
+                info.slotTypeTexsAddrs = collect[i][15].ToString().Split(';');
+                info.slotTypes = getIntArrayFromString(collect[i][16].ToString(), ';');
                 array[i - 1] = info;
             }
             return array;
@@ -106,11 +110,12 @@ namespace EditorTool
             for (int i = 1; i < row; i++)
             {
                 CardResultInfo info = new CardResultInfo();
-                info.leftCardID = int.Parse(collect[i][0].ToString());
-                info.rightCardID = int.Parse(collect[i][1].ToString());
-                info.Score = int.Parse(collect[i][2].ToString());
-                info.SpecialEndName = collect[i][3].ToString();
-                info.SpecialLevel = int.Parse(collect[i][4].ToString());
+                info.levelID = int.Parse(collect[i][0].ToString());
+                info.leftCardID = int.Parse(collect[i][1].ToString());
+                info.rightCardID = int.Parse(collect[i][2].ToString());
+                info.Score = int.Parse(collect[i][3].ToString());
+                info.SpecialEndName = collect[i][4].ToString();
+                info.SpecialLevel = int.Parse(collect[i][5].ToString());
                 array[i - 1] = info;
             }
             return array;

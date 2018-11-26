@@ -30,10 +30,86 @@ public class LevelInstance : MonoBehaviour {
     public bool rightCanBeClick = true;
     
 	// Use this for initialization
-	void Start () {
-        this.remainLeftStep = levelInfo.leftStep;
-        this.remainRightStep = levelInfo.rightStep;
-	}
+	void Awake () {
+
+        ///
+        /// levelInstance的信息：
+        /// 
+        int level = Game.Instance.gameLevel;
+        CardManagerInfo cardManagerInfo = GameObject.Find("_dataAssets").GetComponent<ReadAssets>().levelInfoDic.cardManagerInfoDic[level];
+
+        levelInfo.leftStep = cardManagerInfo.leftStep;
+        levelInfo.rightStep = cardManagerInfo.rightStep;
+        levelInfo.levelIndex = level;
+
+        this.remainLeftStep = cardManagerInfo.leftStep;
+        this.remainRightStep = cardManagerInfo.rightStep;
+
+        ///
+        /// CardManager信息
+        ///
+        GameObject cardManager = GameObject.Find("_cardManager");
+        CardInfoDic cardInfoDic = GameObject.Find("_dataAssets").GetComponent<ReadAssets>().cardInfoDic;
+        
+        //卡片信息：
+        List<CardInfo> leftCardInfo = new List<CardInfo>();
+        for(int i = 0; i<cardManagerInfo.CardsLeftID.Length; ++i)
+        {
+            leftCardInfo.Add(cardInfoDic.cardInfoDic[cardManagerInfo.CardsLeftID[i]]);
+        }
+        cardManager.GetComponent<CardManager>().cardsInfosLeft = leftCardInfo;
+        List<CardInfo> rightCardInfo = new List<CardInfo>();
+        for(int i = 0; i<cardManagerInfo.CardsRightID.Length; ++i)
+        {
+            rightCardInfo.Add(cardInfoDic.cardInfoDic[cardManagerInfo.CardsRightID[i]]);
+        }
+        cardManager.GetComponent<CardManager>().cardsInfosRight = rightCardInfo;
+
+        //卡片位置信息：
+        cardManager.GetComponent<CardManager>().cardsLocsLeft = new List<int>(cardManagerInfo.CardsLeftLocs);
+        cardManager.GetComponent<CardManager>().cardsLocsRight = new List<int>(cardManagerInfo.CardsRightLocs);
+
+        //卡面图案信息：
+        cardManager.GetComponent<CardManager>().contentTexsLeft = (Texture2D)Resources.Load(cardManagerInfo.contentTexsAddrsLeft);
+        cardManager.GetComponent<CardManager>().contentTexsRight = (Texture2D)Resources.Load(cardManagerInfo.contentTexsAddrsRight);
+        cardManager.GetComponent<CardManager>().leftBackTex = (Texture2D)Resources.Load(cardManagerInfo.backTexsAddrsLeft);
+        cardManager.GetComponent<CardManager>().rightBackTex = (Texture2D)Resources.Load(cardManagerInfo.backTexsAddrsRight);
+        Texture2D[] typeFrontTexs = new Texture2D[cardManagerInfo.ContentTypeTexsAddrs.Length];
+        for(int i = 0; i<cardManagerInfo.ContentTypeTexsAddrs.Length; ++i)
+        {
+            typeFrontTexs[i] = (Texture2D)Resources.Load(cardManagerInfo.ContentTypeTexsAddrs[i]);
+        }
+        cardManager.GetComponent<CardManager>().typeFrontTexs = typeFrontTexs;
+        Texture2D[] typeTexs = new Texture2D[cardManagerInfo.typeTexsAddrs.Length];
+        for (int i = 0; i < cardManagerInfo.typeTexsAddrs.Length; ++i)
+        {
+            typeTexs[i] = (Texture2D)Resources.Load(cardManagerInfo.typeTexsAddrs[i]);
+        }
+        cardManager.GetComponent<CardManager>().typeTexs = typeTexs;
+
+        ///
+        /// SlotManager的信息
+        /// 
+        GameObject slotManager = GameObject.Find("_slotManager");
+        List<CardResultInfo> cardResultInfoArray = new List<CardResultInfo>(GameObject.Find("_dataAssets").GetComponent<ReadAssets>().cardResultInfoArray.dataArray).FindAll(x => x.levelID == level);
+        slotManager.GetComponent<SlotManager>().answers = cardResultInfoArray;
+        Texture2D[] slotTypeTexs = new Texture2D[cardManagerInfo.slotTypeTexsAddrs.Length];
+        for (int i = 0; i < cardManagerInfo.slotTypeTexsAddrs.Length; ++i)
+        {
+            slotTypeTexs[i] = (Texture2D)Resources.Load(cardManagerInfo.slotTypeTexsAddrs[i]);
+        }
+        slotManager.GetComponent<SlotManager>().slotTypeTexs = slotTypeTexs;
+        CardType[] slotCardTypes = new CardType[cardManagerInfo.slotTypes.Length];
+        for(int i = 0;i<cardManagerInfo.slotTypes.Length; ++i)
+        {
+            slotCardTypes[i] = (CardType)cardManagerInfo.slotTypes[i];
+        }
+        slotManager.GetComponent<SlotManager>().slotCardTypes = slotCardTypes;
+
+        ///
+        /// 角色身份信息
+        ///
+    }
 
     private void OnEnable()
     {

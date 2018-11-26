@@ -11,7 +11,7 @@ public class SlotManager : MonoBehaviour {
     public float offsetY = 0.0f;
 
     //[System.Serializable]
-    public Dictionary<int, int> answers = new Dictionary<int, int>();
+    public List<CardResultInfo> answers = new List<CardResultInfo>();
 
 	// Use this for initialization
 	void Start () {

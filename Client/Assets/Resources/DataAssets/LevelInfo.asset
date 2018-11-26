@@ -20,19 +20,24 @@ MonoBehaviour:
     CardsLeftLocs: 02000000
     CardsRightLocs: 0200000002000000
     typeTexsAddrs:
-    - Assets/Resources/Arts/Card/Type/type0.png
-    - Assets/Resources/Arts/Card/Type/type1.png
-    - Assets/Resources/Arts/Card/Type/type2.png
-    - 
+    - Arts/ImagesNew/CardAttri_time_back
+    - Arts/ImagesNew/CardAttri_dialo_back
+    - Arts/ImagesNew/CardAttri_action_back
     ContentTypeTexsAddrs:
-    - Assets/Resources/Arts/Card/Type/typeFront0.png
-    - Assets/Resources/Arts/Card/Type/typeFront1.png
-    - Assets/Resources/Arts/Card/Type/typeFront2.png
-    - 
-    contentTexsAddrsLeft: Assets/Resources/Arts/Card/Texs/Front0.png
-    contentTexsAddrsRight: Assets/Resources/Arts/Card/Texs/Front0.png
-    backTexsAddrsLeft: Assets/Resources/Arts/Card/Texs/Back0.png
-    backTexsAddrsRight: Assets/Resources/Arts/Card/Texs/Back0.png
+    - Arts/ImagesNew/CardAttri_time_front
+    - Arts/ImagesNew/CardAttri_dialo_front
+    - Arts/ImagesNew/CardAttri_action_front
+    contentTexsAddrsLeft: Arts/ImagesNew/CardFront
+    contentTexsAddrsRight: Arts/ImagesNew/CardFront
+    backTexsAddrsLeft: Arts/ImagesNew/CardBack
+    backTexsAddrsRight: Arts/ImagesNew/CardBack
+    leftStep: 1
+    rightStep: 1
+    slotTypeTexsAddrs:
+    - Arts/ImagesNew/Attribute_time
+    - Arts/ImagesNew/Attribute_dialo
+    - Arts/ImagesNew/Attribute_action
+    slotTypes: 0100000001000000
   - levelID: 1
     roleLeftID: 1
     roleRightID: 2
@@ -41,19 +46,24 @@ MonoBehaviour:
     CardsLeftLocs: 02000000
     CardsRightLocs: 0200000002000000
     typeTexsAddrs:
-    - Assets/Resources/Arts/Card/Type/type0.png
-    - Assets/Resources/Arts/Card/Type/type1.png
-    - Assets/Resources/Arts/Card/Type/type2.png
-    - 
+    - Arts/Card/Type/type0.png
+    - Arts/Card/Type/type1.png
+    - Arts/Card/Type/type2.png
     ContentTypeTexsAddrs:
-    - Assets/Resources/Arts/Card/Type/typeFront0.png
-    - Assets/Resources/Arts/Card/Type/typeFront1.png
-    - Assets/Resources/Arts/Card/Type/typeFront2.png
-    - 
-    contentTexsAddrsLeft: Assets/Resources/Arts/Card/Texs/Front0.png
-    contentTexsAddrsRight: Assets/Resources/Arts/Card/Texs/Front0.png
-    backTexsAddrsLeft: Assets/Resources/Arts/Card/Texs/Back0.png
-    backTexsAddrsRight: Assets/Resources/Arts/Card/Texs/Back0.png
+    - Arts/Card/Type/type0.png
+    - Arts/Card/Type/type1.png
+    - Arts/Card/Type/type2.png
+    contentTexsAddrsLeft: Arts/Card/Texs/type3.png
+    contentTexsAddrsRight: Arts/Card/Texs/type3.png
+    backTexsAddrsLeft: Arts/Card/Texs/type3.png
+    backTexsAddrsRight: Arts/Card/Texs/type4.png
+    leftStep: 1
+    rightStep: 1
+    slotTypeTexsAddrs:
+    - Arts/Card/SlotType/type0.png
+    - Arts/Card/SlotType/type1.png
+    - Arts/Card/SlotType/type3.png
+    slotTypes: 00000000
   - levelID: 2
     roleLeftID: 1
     roleRightID: 2
@@ -62,16 +72,21 @@ MonoBehaviour:
     CardsLeftLocs: 02000000
     CardsRightLocs: 0200000002000000
     typeTexsAddrs:
-    - Assets/Resources/Arts/Card/Type/type0.png
-    - Assets/Resources/Arts/Card/Type/type1.png
-    - Assets/Resources/Arts/Card/Type/type2.png
-    - 
+    - Arts/Card/Type/type0.png
+    - Arts/Card/Type/type1.png
+    - Arts/Card/Type/type2.png
     ContentTypeTexsAddrs:
-    - Assets/Resources/Arts/Card/Type/typeFront0.png
-    - Assets/Resources/Arts/Card/Type/typeFront1.png
-    - Assets/Resources/Arts/Card/Type/typeFront2.png
-    - 
-    contentTexsAddrsLeft: Assets/Resources/Arts/Card/Texs/Front0.png
-    contentTexsAddrsRight: Assets/Resources/Arts/Card/Texs/Front0.png
-    backTexsAddrsLeft: Assets/Resources/Arts/Card/Texs/Back0.png
-    backTexsAddrsRight: Assets/Resources/Arts/Card/Texs/Back0.png
+    - Arts/Card/Type/type0.png
+    - Arts/Card/Type/type1.png
+    - Arts/Card/Type/type2.png
+    contentTexsAddrsLeft: Arts/Card/Texs/type3.png
+    contentTexsAddrsRight: Arts/Card/Texs/type3.png
+    backTexsAddrsLeft: Arts/Card/Texs/type3.png
+    backTexsAddrsRight: Arts/Card/Texs/type5.png
+    leftStep: 1
+    rightStep: 1
+    slotTypeTexsAddrs:
+    - Arts/Card/SlotType/type0.png
+    - Arts/Card/SlotType/type1.png
+    - Arts/Card/SlotType/type4.png
+    slotTypes: 00000000

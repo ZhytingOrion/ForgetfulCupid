@@ -266,10 +266,13 @@ public class CardSingle : MonoBehaviour {
     private void OnMouseExit()
     {
         if (Game.Instance.gameState != GameState.Play) return;
-        if (this.isInSlot) return;
+        this.transform.Find("HighLight").gameObject.SetActive(false);
+        if (this.isInSlot)
+        {
+            return;
+        }
         if (!this.isFlip)
         {
-            this.transform.Find("HighLight").gameObject.SetActive(false);
             return;
         }
         this.transform.localScale = this.isInSlot ? oldScale * this.inSlotCardSize : oldScale;
@@ -299,6 +302,7 @@ public class CardSingle : MonoBehaviour {
             else  //置于槽中
             {
                 Vector3 slotPos = this.slot.transform.position;
+                this.transform.Find("HighLight").gameObject.SetActive(false);
                 slotPos.z -= 0.5f;
                 this.transform.position = slotPos;
                 this.transform.localScale = new Vector3(this.inSlotCardSize, this.inSlotCardSize, this.inSlotCardSize);

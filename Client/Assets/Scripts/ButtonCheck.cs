@@ -2,11 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonCheck : MonoBehaviour {
-
-    public Sprite originTex;
-    public Sprite mouseOnTex;
-    
+public class ButtonCheck : ButtonClass {
+        
 	// Use this for initialization
 	void Start () {
 		
@@ -41,13 +38,5 @@ public class ButtonCheck : MonoBehaviour {
         }
     }
 
-    private void OnMouseEnter()
-    {
-        this.GetComponent<SpriteRenderer>().sprite = mouseOnTex;
-    }
-
-    private void OnMouseExit()
-    {
-        this.GetComponent<SpriteRenderer>().sprite = originTex;
-    }
+    
 }

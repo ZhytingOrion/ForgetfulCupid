@@ -14,11 +14,11 @@ MonoBehaviour:
   dataArray:
   - roleID: 1
     roleName: "\u5F20\u5FD7\u519B"
-    roleDesAddr: "Assets/Resources/Arts/Roles/\u2026"
-    roleHeadPicAddr: "Assets/Resources/Arts/Roles/\u2026"
-    rolePicAddr: "Assets/Resources/Arts/Roles/\u2026"
+    roleDesAddr: "Arts/Roles/\u2026"
+    roleHeadPicAddr: "Arts/Roles/\u2026"
+    rolePicAddr: "Arts/Roles/\u2026"
   - roleID: 2
     roleName: "\u7A0B\u654F\u654F"
-    roleDesAddr: "Assets/Resources/Arts/Roles/\u2026"
-    roleHeadPicAddr: "Assets/Resources/Arts/Roles/\u2026"
-    rolePicAddr: "Assets/Resources/Arts/Roles/\u2026"
+    roleDesAddr: "Arts/Roles/\u2026"
+    roleHeadPicAddr: "Arts/Roles/\u2026"
+    rolePicAddr: "Arts/Roles/\u2026"

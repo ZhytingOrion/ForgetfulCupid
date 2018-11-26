@@ -70,6 +70,12 @@ public class CardManagerInfo
     public string contentTexsAddrsRight;
     public string backTexsAddrsLeft;
     public string backTexsAddrsRight;
+    //行动点数
+    public int leftStep;
+    public int rightStep;
+    //槽
+    public string[] slotTypeTexsAddrs;
+    public int[] slotTypes;
 }
 
 [System.Serializable]
@@ -81,11 +87,14 @@ public class CardManagerInfoDic
 [System.Serializable]
 public class CardResultInfo
 {
+    public int levelID;
     public int leftCardID;
     public int rightCardID;
     public int Score;
     public string SpecialEndName;
     public int SpecialLevel;
 }
+
+
 
 
