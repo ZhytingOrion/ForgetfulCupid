@@ -96,14 +96,20 @@ public class CardSingle : MonoBehaviour {
         StartCoroutine(ChangeRimDegree(-0.02f));
     }
 
+    public void HideTypeImediately()
+    {
+        this.GetComponent<Renderer>().material.SetFloat("_TypeDegree", 0);
+    }
+
     IEnumerator ChangeRimDegree(float delta)
     {
         Material mat = this.GetComponent<Renderer>().material;
         for (int i = 0; i < 1 / Mathf.Abs(delta); i++)
         {
             float degree = mat.GetFloat("_TypeDegree") + delta;
-            if(degree <= 1 && degree >= 0)
+            if (degree <= 1 && degree >= 0)
                 mat.SetFloat("_TypeDegree", degree);
+            else break;
             yield return null;
         }
     }
@@ -267,7 +273,7 @@ public class CardSingle : MonoBehaviour {
     {
         if (Game.Instance.gameState != GameState.Play) return;
         this.transform.Find("HighLight").gameObject.SetActive(false);        
-        this.transform.localScale = this.isInSlot ? oldScale * this.inSlotCardSize : oldScale;
+        this.transform.localScale = this.isInSlot ? new Vector3(this.inSlotCardSize, this.inSlotCardSize, this.inSlotCardSize) : oldScale;
         if (this.isInSlot)
         {
             return;
@@ -284,8 +290,11 @@ public class CardSingle : MonoBehaviour {
     private void OnMouseUp()
     {
         if(Game.Instance.gameState != GameState.Play) return;
-        Debug.Log("距离：" + Vector3.Distance(this.transform.position, this.oldLoc));
-        if (Vector3.Distance(this.transform.position, this.oldLoc) <= 1.5f) onMouseDown();
+        if (!this.isInSlot)
+        {
+            Debug.Log("距离：" + Vector3.Distance(this.transform.position, this.oldLoc));
+            if (Vector3.Distance(this.transform.position, this.oldLoc) <= 1.5f) onMouseDown();
+        }
         ResetLoc();
         if(this.GetComponent<BoxCollider2D>()!=null) this.GetComponent<BoxCollider2D>().size = this.colliderSize;
     }

@@ -133,6 +133,7 @@ public class CardManager : MonoBehaviour {
         {
             Debug.Log("numbers.Count" + numbers.Count);
             int random = Random.Range(0, numbers.Count);
+            cards[numbers[random]].GetComponent<CardSingle>().HideTypeImediately();
             resetCards.Add(cards[numbers[random]]);
             numbers.RemoveAt(random);
             Debug.Log("random" + random);
