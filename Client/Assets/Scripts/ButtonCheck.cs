@@ -34,7 +34,10 @@ public class ButtonCheck : ButtonClass {
             resultBG.transform.parent = GameObject.Find("Result").transform;
             resultBG.transform.position = new Vector3(0, 0, -1);
             Game.Instance.gameState = GameState.Result;
-            GameObject.Find("_resultManager").GetComponent<LevelResultManager>().ShowCardResult();
+
+            //GameObject.Find("Result").SetActive(true);
+
+            GameObject.Find("_resultManager").GetComponent<LevelResultManager>().ResultSceneInit();
         }
     }
 

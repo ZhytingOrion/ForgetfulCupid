@@ -28,7 +28,10 @@ public class LevelInstance : MonoBehaviour {
 
     public List<GameObject> rightFlippedCards;
     public bool rightCanBeClick = true;
-    
+
+    public RoleInfo leftRole;
+    public RoleInfo rightRole;
+
 	// Use this for initialization
 	void Awake () {
 
@@ -107,8 +110,16 @@ public class LevelInstance : MonoBehaviour {
         slotManager.GetComponent<SlotManager>().slotCardTypes = slotCardTypes;
 
         ///
-        /// 角色身份信息
+        /// RoleInfo信息
         ///
+        leftRole = GameObject.Find("_dataAssets").GetComponent<ReadAssets>().roleInfoDic.roleInfoDic[cardManagerInfo.roleLeftID];
+        rightRole = GameObject.Find("_dataAssets").GetComponent<ReadAssets>().roleInfoDic.roleInfoDic[cardManagerInfo.roleRightID];
+
+        ///
+        /// CardResult信息
+        /// 
+        List<CardResultInfo> cardResultInfos = new List<CardResultInfo>(GameObject.Find("_dataAssets").GetComponent<ReadAssets>().cardResultInfoArray.dataArray);
+        GameObject.Find("_resultManager").GetComponent<LevelResultManager>().cardResultInfo = cardResultInfos.FindAll(x => x.levelID == level);
     }
 
     private void OnEnable()

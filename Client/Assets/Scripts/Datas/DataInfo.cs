@@ -97,9 +97,19 @@ public class CardResultInfo
 
 public class DataInfo
 {
+    private static DataInfo instance;
+    public static DataInfo Instance
+    {
+        get
+        {
+            if (instance == null)
+                instance = new DataInfo();
+            return instance;
+        }
+    }
+
     public string[] CardTypeName = { "时间", "对话", "行动" };
 }
-
 
 
 
