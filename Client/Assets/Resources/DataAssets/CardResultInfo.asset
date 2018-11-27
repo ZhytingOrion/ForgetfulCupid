@@ -16,17 +16,17 @@ MonoBehaviour:
     leftCardID: 101
     rightCardID: 103
     Score: 10
-    SpecialEndName: 1
+    SpecialEndName: "\u7ED3\u7B97\u8BED\u53E51"
     SpecialLevel: 1
   - levelID: 0
     leftCardID: 101
     rightCardID: 104
     Score: 10
-    SpecialEndName: 1
+    SpecialEndName: "\u7F16\u4E0D\u4E0B\u53BB\u4E86"
     SpecialLevel: 1
   - levelID: 0
     leftCardID: 102
     rightCardID: 105
     Score: 20
-    SpecialEndName: 1
+    SpecialEndName: "\u60F3\u4E0D\u51FA\u6765\u4E86"
     SpecialLevel: 1

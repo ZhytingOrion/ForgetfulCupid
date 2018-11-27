@@ -12,7 +12,6 @@ public enum CardType
     Act,
 }
 
-
 [System.Serializable]
 public enum LocType
 {
@@ -91,8 +90,14 @@ public class CardResultInfo
     public int leftCardID;
     public int rightCardID;
     public int Score;
+    public string resultString;
     public string SpecialEndName;
     public int SpecialLevel;
+}
+
+public class DataInfo
+{
+    public string[] CardTypeName = { "时间", "对话", "行动" };
 }
 
 

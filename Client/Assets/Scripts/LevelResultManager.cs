@@ -6,6 +6,7 @@ public class LevelResultManager : MonoBehaviour {
 
     public List<GameObject> slots = new List<GameObject>();
     public int resultNum = -1;
+    public int lineNum = -1;
 
 	// Use this for initialization
 	void Start () {
@@ -54,6 +55,7 @@ public class LevelResultManager : MonoBehaviour {
         if (this.resultNum < this.slots.Count)
         {
             Debug.Log("显示画面" + resultNum);
+            this.lineNum = -1;
             ShowCardResult();
         }
         else
@@ -62,4 +64,9 @@ public class LevelResultManager : MonoBehaviour {
             //返回选关界面
         }
     }    
+
+    public void nextLine()
+    {
+        this.lineNum += 1;
+    }
 }

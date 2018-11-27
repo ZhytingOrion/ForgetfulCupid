@@ -114,8 +114,9 @@ namespace EditorTool
                 info.leftCardID = int.Parse(collect[i][1].ToString());
                 info.rightCardID = int.Parse(collect[i][2].ToString());
                 info.Score = int.Parse(collect[i][3].ToString());
-                info.SpecialEndName = collect[i][4].ToString();
-                info.SpecialLevel = int.Parse(collect[i][5].ToString());
+                info.resultString = collect[i][4].ToString();
+                info.SpecialEndName = collect[i][5].ToString();
+                info.SpecialLevel = int.Parse(collect[i][6].ToString());
                 array[i - 1] = info;
             }
             return array;
