@@ -21,7 +21,7 @@ public class SlotManager : MonoBehaviour {
             GameObject slot = Instantiate((GameObject)Resources.Load("Prefabs/Slot"));
             Sprite sp = Sprite.Create(slotTypeTexs[(int)slotCardTypes[i]], slot.transform.Find("Type").GetComponent<SpriteRenderer>().sprite.textureRect, new Vector2(0.5f, 0.5f));
             slot.transform.Find("Type").GetComponent<SpriteRenderer>().sprite = sp;
-            slot.transform.position = new Vector3(0, startY - i * this.spaceY, 0);
+            slot.transform.position = new Vector3(0, startY - i * this.spaceY, 2);
             slot.transform.parent = GameObject.Find("Slots").transform;
             slots.Add(slot);
         }

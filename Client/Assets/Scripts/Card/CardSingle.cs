@@ -266,7 +266,8 @@ public class CardSingle : MonoBehaviour {
     private void OnMouseExit()
     {
         if (Game.Instance.gameState != GameState.Play) return;
-        this.transform.Find("HighLight").gameObject.SetActive(false);
+        this.transform.Find("HighLight").gameObject.SetActive(false);        
+        this.transform.localScale = this.isInSlot ? oldScale * this.inSlotCardSize : oldScale;
         if (this.isInSlot)
         {
             return;
@@ -275,7 +276,6 @@ public class CardSingle : MonoBehaviour {
         {
             return;
         }
-        this.transform.localScale = this.isInSlot ? oldScale * this.inSlotCardSize : oldScale;
         Vector3 localPos = this.transform.position;
         localPos.z = 0.0f;
         this.transform.position = localPos;
