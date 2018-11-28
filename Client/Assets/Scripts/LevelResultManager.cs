@@ -17,9 +17,9 @@ public class LevelResultManager : MonoBehaviour {
     // Use this for initialization
     void Start () {
         leftRole = GameObject.Find("_levelManager").GetComponent<LevelInstance>().leftRole;
-        GameObject.Find("ResultUI/LeftRolePic").GetComponent<SpriteRenderer>().sprite = (Sprite)Resources.Load(leftRole.rolePicAddr);
+        GameObject.Find("ResultUI/LeftRolePic").GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(leftRole.rolePicAddr);
         rightRole = GameObject.Find("_levelManager").GetComponent<LevelInstance>().rightRole;
-        GameObject.Find("ResultUI/RightRolePic").GetComponent<SpriteRenderer>().sprite = (Sprite)Resources.Load(rightRole.rolePicAddr);
+        GameObject.Find("ResultUI/RightRolePic").GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(rightRole.rolePicAddr);
         GameObject.Find("ResultUI").SetActive(false);
 
         CardTypeName = DataInfo.Instance.CardTypeName;
@@ -33,7 +33,7 @@ public class LevelResultManager : MonoBehaviour {
     public void ResultSceneInit()
     {
         isFail = false;
-        GameObject.Find("Result").SetActive(true);
+        GameObject.Find("Result").transform.Find("ResultUI").gameObject.SetActive(true);
         if (slots.Count == 0) slots = GameObject.Find("_slotManager").GetComponent<SlotManager>().slots;
         //动画在这里设置
 
@@ -56,9 +56,9 @@ public class LevelResultManager : MonoBehaviour {
 
         Vector3 slotLoc = slot.transform.position;
         slotLoc.z = -5;
-        slotLoc.y = 0;
+        slotLoc.y = 2;
         slot.transform.position = slotLoc;
-        slot.transform.localScale = new Vector3(3.0f, 3.0f, 3.0f);
+        slot.transform.localScale = new Vector3(2.0f, 2.0f, 2.0f);
         leftCard.transform.position = slot.transform.Find("LeftCard").transform.position - new Vector3(0,0,3);
         rightCard.transform.position = slot.transform.Find("RightCard").transform.position - new Vector3(0, 0, 3);
         //leftCard.transform.localScale = leftCard.GetComponent<CardSingle>().

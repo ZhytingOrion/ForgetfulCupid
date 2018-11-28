@@ -30,9 +30,6 @@ public class ButtonCheck : ButtonClass {
         //进入结算界面
         else
         {
-            GameObject resultBG = Instantiate((GameObject)Resources.Load("Prefabs/ResultBackground"));
-            resultBG.transform.parent = GameObject.Find("Result").transform;
-            resultBG.transform.position = new Vector3(0, 0, -1);
             Game.Instance.gameState = GameState.Result;
 
             //GameObject.Find("Result").SetActive(true);
