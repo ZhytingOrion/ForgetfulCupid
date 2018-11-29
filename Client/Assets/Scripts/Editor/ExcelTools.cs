@@ -19,19 +19,19 @@ namespace EditorTool
             int col = 0, row = 0;
             DataRowCollection collect = ReadExcel(filePath, ref col, ref row);
 
-            CardInfo[] array = new CardInfo[row - 1];
-            for (int i = 1; i<row; i++)
+            CardInfo[] array = new CardInfo[row - 2];
+            for (int i = 2; i<row; i++)
             {
                 CardInfo cardInfo = new CardInfo();
                 cardInfo.cardID = int.Parse(collect[i][0].ToString());
                 cardInfo.locType = LocType.Left;
-                if (collect[i][1].ToString() == "R") cardInfo.locType = LocType.Right;
-                cardInfo.type = (CardType)int.Parse(collect[i][2].ToString());
-                cardInfo.AlwaysShowCard = collect[i][3].ToString() == "Y" ? true : false;
-                cardInfo.AlwaysShowType = collect[i][4].ToString() == "Y" ? true : false; ;
-                cardInfo.stayTime = float.Parse(collect[i][5].ToString());
-                cardInfo.context = collect[i][6].ToString();
-                array[i - 1] = cardInfo;
+                if (collect[i][2].ToString() == "R") cardInfo.locType = LocType.Right;
+                cardInfo.type = (CardType)int.Parse(collect[i][3].ToString());
+                cardInfo.AlwaysShowCard = collect[i][4].ToString() == "Y" ? true : false;
+                cardInfo.AlwaysShowType = collect[i][5].ToString() == "Y" ? true : false; ;
+                cardInfo.stayTime = float.Parse(collect[i][6].ToString());
+                cardInfo.context = collect[i][7].ToString();
+                array[i - 2] = cardInfo;
             }
             return array;
         } 
@@ -70,8 +70,8 @@ namespace EditorTool
             int col = 0, row = 0;
             DataRowCollection collect = ReadExcel(filePath, ref col, ref row);
 
-            CardManagerInfo[] array = new CardManagerInfo[row - 1];
-            for (int i = 1; i < row; i++)
+            CardManagerInfo[] array = new CardManagerInfo[row - 2];
+            for (int i = 2; i < row; i++)
             {
                 CardManagerInfo info = new CardManagerInfo();
                 info.levelID = int.Parse(collect[i][0].ToString());
@@ -91,7 +91,7 @@ namespace EditorTool
                 info.rightStep = int.Parse(collect[i][14].ToString());
                 info.slotTypeTexsAddrs = collect[i][15].ToString().Split(';');
                 info.slotTypes = getIntArrayFromString(collect[i][16].ToString(), ';');
-                array[i - 1] = info;
+                array[i - 2] = info;
             }
             return array;
         }
