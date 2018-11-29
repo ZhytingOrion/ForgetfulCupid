@@ -6,7 +6,7 @@ namespace EditorTool
 {
     public class ExcelConfig
     {
-        public static readonly string excelsPath = Application.dataPath + "/Excels/";
+        public static readonly string excelsPath = Application.dataPath + "/Editor/Excels/";
         public static readonly string assetPath = "Assets/Resources/DataAssets/";
     }    
 }
