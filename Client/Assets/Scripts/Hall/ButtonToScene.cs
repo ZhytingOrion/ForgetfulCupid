@@ -12,6 +12,6 @@ public class ButtonToScene : ButtonClass {
         SceneManager.LoadScene(SceneName);
 
         //to delete:
-        Game.Instance.gameLevel = 0;
+        Game.Instance.gameLevel = 101;
     }
 }

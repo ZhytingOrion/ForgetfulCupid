@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Name: LevelInfo
   m_EditorClassIdentifier: 
   dataArray:
-  - levelID: 0
-    roleLeftID: 1
-    roleRightID: 2
+  - levelID: 101
+    roleLeftID: 101
+    roleRightID: 102
     CardsLeftID: 6500000066000000
     CardsRightID: 6700000068000000690000006a000000
     CardsLeftLocs: 02000000
@@ -38,9 +38,9 @@ MonoBehaviour:
     - Arts/ImagesNew/Attribute_dialo
     - Arts/ImagesNew/Attribute_action
     slotTypes: 0100000001000000
-  - levelID: 1
-    roleLeftID: 1
-    roleRightID: 2
+  - levelID: 102
+    roleLeftID: 101
+    roleRightID: 102
     CardsLeftID: 6500000066000000
     CardsRightID: 6700000068000000690000006a000000
     CardsLeftLocs: 02000000
@@ -64,9 +64,9 @@ MonoBehaviour:
     - Arts/Card/SlotType/type1.png
     - Arts/Card/SlotType/type3.png
     slotTypes: 00000000
-  - levelID: 2
-    roleLeftID: 1
-    roleRightID: 2
+  - levelID: 103
+    roleLeftID: 101
+    roleRightID: 102
     CardsLeftID: 6500000066000000
     CardsRightID: 6700000068000000690000006a000000
     CardsLeftLocs: 02000000

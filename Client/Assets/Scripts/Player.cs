@@ -4,19 +4,22 @@ using UnityEngine;
 
 public class Player{
 
-    private int actPoint
+    private static Player _instance = null;
+    public static Player Instance
+    {
+        get
+        {
+            if(_instance == null)
+            {
+                _instance = new Player();
+            }
+            return _instance;
+        }
+    }
+
+    public int heartValue
     {
         get;
         set;
     }
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

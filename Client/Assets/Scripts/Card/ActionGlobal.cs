@@ -31,7 +31,6 @@ public class ActionGlobal : MonoBehaviour {
         }
         else if(Input.GetMouseButtonDown(0) && Game.Instance.gameState == GameState.Result)  //结算按钮点击结算
         {
-            Debug.Log("我们去下一页吧");
             GameObject.Find("_resultManager").GetComponent<LevelResultManager>().nextLine();
         }
 	}

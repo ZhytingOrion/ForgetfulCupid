@@ -12,13 +12,33 @@ MonoBehaviour:
   m_Name: RoleInfo
   m_EditorClassIdentifier: 
   dataArray:
-  - roleID: 1
-    roleName: "\u5F20\u5FD7\u519B"
+  - roleID: 101
+    roleName: "\u5F20\u667A\u541B"
     roleDesAddr: Arts/ImagesNew/LeftChar01
     roleHeadPicAddr: Arts/ImagesNew/LeftChar101
     rolePicAddr: Arts/ImagesNew/LeftChar101
-  - roleID: 2
+  - roleID: 102
     roleName: "\u7A0B\u654F\u654F"
     roleDesAddr: Arts/ImagesNew/LeftChar101
     roleHeadPicAddr: Arts/ImagesNew/LeftChar101
     rolePicAddr: Arts/ImagesNew/RightChar101
+  - roleID: 103
+    roleName: "\u8881\u5955\u5BB8"
+    roleDesAddr: 
+    roleHeadPicAddr: 
+    rolePicAddr: 
+  - roleID: 104
+    roleName: "\u53F6\u6E05\u51E1"
+    roleDesAddr: 
+    roleHeadPicAddr: 
+    rolePicAddr: 
+  - roleID: 105
+    roleName: "\u94B1\u626C"
+    roleDesAddr: 
+    roleHeadPicAddr: 
+    rolePicAddr: 
+  - roleID: 106
+    roleName: "\u82CF\u4F73"
+    roleDesAddr: 
+    roleHeadPicAddr: 
+    rolePicAddr: 
