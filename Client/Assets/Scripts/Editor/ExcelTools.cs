@@ -31,6 +31,7 @@ namespace EditorTool
                 cardInfo.AlwaysShowType = collect[i][5].ToString() == "Y" ? true : false; ;
                 cardInfo.stayTime = float.Parse(collect[i][6].ToString());
                 cardInfo.context = collect[i][7].ToString();
+                cardInfo.bindInfoID = int.Parse(collect[i][8].ToString());
                 array[i - 2] = cardInfo;
             }
             return array;
@@ -106,18 +107,45 @@ namespace EditorTool
             int col = 0, row = 0;
             DataRowCollection collect = ReadExcel(filePath, ref col, ref row);
 
-            CardResultInfo[] array = new CardResultInfo[row - 1];
-            for (int i = 1; i < row; i++)
+            CardResultInfo[] array = new CardResultInfo[row - 2];
+            for (int i = 2; i < row; i++)
             {
                 CardResultInfo info = new CardResultInfo();
                 info.levelID = int.Parse(collect[i][0].ToString());
                 info.leftCardID = int.Parse(collect[i][1].ToString());
                 info.rightCardID = int.Parse(collect[i][2].ToString());
-                info.Score = int.Parse(collect[i][3].ToString());
-                info.resultString = collect[i][4].ToString();
-                info.SpecialEndName = collect[i][5].ToString();
-                info.SpecialLevel = int.Parse(collect[i][6].ToString());
-                array[i - 1] = info;
+                info.rightFirst = int.Parse(collect[i][3].ToString()) == 1 ? true : false;
+                info.Score = int.Parse(collect[i][4].ToString());
+                info.resultString = collect[i][5].ToString();
+                info.SpecialEndID = int.Parse(collect[i][6].ToString());
+                info.SpecialEndName = collect[i][7].ToString();
+                info.EndPic = collect[i][8].ToString();
+                array[i - 2] = info;
+            }
+            return array;
+        }
+
+        /// <summary>
+        /// 读取LevelResultInfo信息
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
+        public static LevelResultInfo[] CreateLevelResultInfoArrayWithExcel(string filePath)
+        {
+            int col = 0, row = 0;
+            DataRowCollection collect = ReadExcel(filePath, ref col, ref row);
+
+            LevelResultInfo[] array = new LevelResultInfo[row - 2];
+            for (int i = 2; i < row; i++)
+            {
+                LevelResultInfo info = new LevelResultInfo();
+                info.levelID = int.Parse(collect[i][0].ToString());
+                info.passScore = int.Parse(collect[i][1].ToString());
+                info.maxScore = int.Parse(collect[i][2].ToString());
+                info.endID = int.Parse(collect[i][3].ToString());
+                info.endName = collect[i][4].ToString();
+                info.endPic = collect[i][5].ToString();
+                array[i - 2] = info;
             }
             return array;
         }

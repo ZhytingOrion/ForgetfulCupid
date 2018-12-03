@@ -174,7 +174,9 @@ public class LevelResultManager : MonoBehaviour {
             cardResult.Score = 0;
             cardResult.resultString = "什么都没有发生……";
             cardResult.SpecialEndName = null;
-            cardResult.SpecialLevel = -1;
+            cardResult.rightFirst = false;
+            cardResult.SpecialEndID = -1;
+            cardResult.EndPic = null;
         }
 
         if(!this.isMarked[resultNum])

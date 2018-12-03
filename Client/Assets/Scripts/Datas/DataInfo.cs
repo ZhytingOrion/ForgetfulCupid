@@ -28,6 +28,7 @@ public class CardInfo {
     public bool AlwaysShowCard;
     public bool AlwaysShowType;
     public float stayTime = 3.0f;
+    public int bindInfoID;
 }
 
 [System.Serializable]
@@ -89,10 +90,44 @@ public class CardResultInfo
     public int levelID;
     public int leftCardID;
     public int rightCardID;
+    public bool rightFirst;
     public int Score;
     public string resultString;
+    public int SpecialEndID;
     public string SpecialEndName;
-    public int SpecialLevel;
+    public string EndPic;
+}
+
+[System.Serializable]
+public class LevelResultInfo
+{
+    public int levelID;
+    public int passScore;
+    public int maxScore;
+    public int endID;
+    public string endName;
+    public string endPic;
+}
+
+public class LevelResultInfoDic
+{
+    public Dictionary<int, LevelResultInfo> dic = new Dictionary<int, LevelResultInfo>();
+}
+
+[System.Serializable]
+public class SelectInfo
+{
+    public int messageID;
+    public int levelID;
+    public int timeAttr;
+    public int leftRoleID;
+    public int rightRoleID;
+    public string message;
+}
+
+public class SelectInfoDic
+{
+    public Dictionary<int, SelectInfo> dic = new Dictionary<int, SelectInfo>();
 }
 
 public class DataInfo

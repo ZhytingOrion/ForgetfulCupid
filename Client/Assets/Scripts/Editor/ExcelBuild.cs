@@ -52,6 +52,17 @@ namespace EditorTool
             BuildAssets(asset, "CardResultInfo.asset");
         }
 
+        /// <summary>
+        /// 读取CardResultInfo表格
+        /// </summary>
+        [MenuItem("CustomTools/Excel/CreateLevelResultInfoAsset")]
+        public static void CreateLevelResultInfoAsset()
+        {
+            LevelResultInfoArray asset = ScriptableObject.CreateInstance<LevelResultInfoArray>();
+            asset.dataArray = ExcelTools.CreateLevelResultInfoArrayWithExcel(ExcelConfig.excelsPath + "LevelResultInfo.xlsx");
+            BuildAssets(asset, "LevelResultInfo.asset");
+        }
+
         private static void BuildAssets(Object assets, string assetName)
         {
             if (!Directory.Exists(ExcelConfig.assetPath))
