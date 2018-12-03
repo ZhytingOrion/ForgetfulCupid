@@ -149,6 +149,31 @@ namespace EditorTool
             }
             return array;
         }
+        
+        /// <summary>
+        /// 读取SelectInfo信息
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
+        public static SelectInfo[] CreateSelectInfoArrayWithExcel(string filePath)
+        {
+            int col = 0, row = 0;
+            DataRowCollection collect = ReadExcel(filePath, ref col, ref row);
+
+            SelectInfo[] array = new SelectInfo[row - 2];
+            for (int i = 2; i < row; i++)
+            {
+                SelectInfo info = new SelectInfo();
+                info.messageID = int.Parse(collect[i][0].ToString());
+                info.levelID = int.Parse(collect[i][1].ToString());
+                info.timeAttr = int.Parse(collect[i][2].ToString());
+                info.leftRoleID = int.Parse(collect[i][3].ToString());
+                info.rightRoleID = int.Parse(collect[i][4].ToString());
+                info.message = collect[i][5].ToString();
+                array[i - 2] = info;
+            }
+            return array;
+        }
 
         /// <summary>
         /// 读取excel文件内容

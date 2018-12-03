@@ -63,6 +63,16 @@ namespace EditorTool
             BuildAssets(asset, "LevelResultInfo.asset");
         }
 
+        /// <summary>
+        /// 读取SelectInfo表格
+        /// </summary>
+        [MenuItem("CustomTools/Excel/CreateSelectInfoAsset")]
+        public static void CreateSelectInfoAsset()
+        {
+            SelectInfoArray asset = ScriptableObject.CreateInstance<SelectInfoArray>();
+            asset.dataArray = ExcelTools.CreateSelectInfoArrayWithExcel(ExcelConfig.excelsPath + "SelectInfo.xlsx");
+            BuildAssets(asset, "SelectInfo.asset");
+        }
         private static void BuildAssets(Object assets, string assetName)
         {
             if (!Directory.Exists(ExcelConfig.assetPath))
