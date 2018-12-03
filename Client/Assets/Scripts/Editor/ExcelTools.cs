@@ -18,7 +18,7 @@ namespace EditorTool
         {
             int col = 0, row = 0;
             DataRowCollection collect = ReadExcel(filePath, ref col, ref row);
-
+            
             CardInfo[] array = new CardInfo[row - 2];
             for (int i = 2; i<row; i++)
             {

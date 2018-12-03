@@ -37,56 +37,134 @@ MonoBehaviour:
     - Arts/ImagesNew/Attribute_time
     - Arts/ImagesNew/Attribute_dialo
     - Arts/ImagesNew/Attribute_action
-    slotTypes: 0100000001000000
+    slotTypes: 0100000000000000
   - levelID: 102
     roleLeftID: 101
     roleRightID: 102
-    CardsLeftID: 6500000066000000
-    CardsRightID: 6700000068000000690000006a000000
-    CardsLeftLocs: 02000000
-    CardsRightLocs: 0200000002000000
+    CardsLeftID: 6b0000006c0000006d0000006e0000006f000000700000007100000072000000
+    CardsRightID: 730000007400000075000000760000007700000078000000790000007a000000
+    CardsLeftLocs: 030000000200000003000000
+    CardsRightLocs: 030000000200000003000000
     typeTexsAddrs:
-    - Arts/Card/Type/type0.png
-    - Arts/Card/Type/type1.png
-    - Arts/Card/Type/type2.png
+    - Arts/ImagesNew/CardAttri_time_back
+    - Arts/ImagesNew/CardAttri_dialo_back
+    - Arts/ImagesNew/CardAttri_action_back
     ContentTypeTexsAddrs:
-    - Arts/Card/Type/type0.png
-    - Arts/Card/Type/type1.png
-    - Arts/Card/Type/type2.png
-    contentTexsAddrsLeft: Arts/Card/Texs/type3.png
-    contentTexsAddrsRight: Arts/Card/Texs/type3.png
-    backTexsAddrsLeft: Arts/Card/Texs/type3.png
-    backTexsAddrsRight: Arts/Card/Texs/type4.png
+    - Arts/ImagesNew/CardAttri_time_front
+    - Arts/ImagesNew/CardAttri_dialo_front
+    - Arts/ImagesNew/CardAttri_action_front
+    contentTexsAddrsLeft: Arts/ImagesNew/CardFront
+    contentTexsAddrsRight: Arts/ImagesNew/CardFront
+    backTexsAddrsLeft: Arts/ImagesNew/CardBack
+    backTexsAddrsRight: Arts/ImagesNew/CardBack
     leftStep: 1
     rightStep: 1
     slotTypeTexsAddrs:
-    - Arts/Card/SlotType/type0.png
-    - Arts/Card/SlotType/type1.png
-    - Arts/Card/SlotType/type3.png
-    slotTypes: 00000000
+    - Arts/ImagesNew/Attribute_time
+    - Arts/ImagesNew/Attribute_dialo
+    - Arts/ImagesNew/Attribute_action
+    slotTypes: 000000000100000002000000
   - levelID: 103
     roleLeftID: 101
     roleRightID: 102
-    CardsLeftID: 6500000066000000
-    CardsRightID: 6700000068000000690000006a000000
-    CardsLeftLocs: 02000000
-    CardsRightLocs: 0200000002000000
+    CardsLeftID: 7b0000007c0000007d0000007e0000007f000000
+    CardsRightID: 8000000081000000820000008300000084000000
+    CardsLeftLocs: 0200000003000000
+    CardsRightLocs: 0200000003000000
     typeTexsAddrs:
-    - Arts/Card/Type/type0.png
-    - Arts/Card/Type/type1.png
-    - Arts/Card/Type/type2.png
+    - Arts/ImagesNew/CardAttri_time_back
+    - Arts/ImagesNew/CardAttri_dialo_back
+    - Arts/ImagesNew/CardAttri_action_back
     ContentTypeTexsAddrs:
-    - Arts/Card/Type/type0.png
-    - Arts/Card/Type/type1.png
-    - Arts/Card/Type/type2.png
-    contentTexsAddrsLeft: Arts/Card/Texs/type3.png
-    contentTexsAddrsRight: Arts/Card/Texs/type3.png
-    backTexsAddrsLeft: Arts/Card/Texs/type3.png
-    backTexsAddrsRight: Arts/Card/Texs/type5.png
+    - Arts/ImagesNew/CardAttri_time_front
+    - Arts/ImagesNew/CardAttri_dialo_front
+    - Arts/ImagesNew/CardAttri_action_front
+    contentTexsAddrsLeft: Arts/ImagesNew/CardFront
+    contentTexsAddrsRight: Arts/ImagesNew/CardFront
+    backTexsAddrsLeft: Arts/ImagesNew/CardBack
+    backTexsAddrsRight: Arts/ImagesNew/CardBack
     leftStep: 1
     rightStep: 1
     slotTypeTexsAddrs:
-    - Arts/Card/SlotType/type0.png
-    - Arts/Card/SlotType/type1.png
-    - Arts/Card/SlotType/type4.png
-    slotTypes: 00000000
+    - Arts/ImagesNew/Attribute_time
+    - Arts/ImagesNew/Attribute_dialo
+    - Arts/ImagesNew/Attribute_action
+    slotTypes: 0100000002000000
+  - levelID: 104
+    roleLeftID: 103
+    roleRightID: 102
+    CardsLeftID: 85000000860000008700000088000000
+    CardsRightID: 890000008a0000008b0000008c000000
+    CardsLeftLocs: 0200000002000000
+    CardsRightLocs: 0200000002000000
+    typeTexsAddrs:
+    - Arts/ImagesNew/CardAttri_time_back
+    - Arts/ImagesNew/CardAttri_dialo_back
+    - Arts/ImagesNew/CardAttri_action_back
+    ContentTypeTexsAddrs:
+    - Arts/ImagesNew/CardAttri_time_front
+    - Arts/ImagesNew/CardAttri_dialo_front
+    - Arts/ImagesNew/CardAttri_action_front
+    contentTexsAddrsLeft: Arts/ImagesNew/CardFront
+    contentTexsAddrsRight: Arts/ImagesNew/CardFront
+    backTexsAddrsLeft: Arts/ImagesNew/CardBack
+    backTexsAddrsRight: Arts/ImagesNew/CardBack
+    leftStep: 1
+    rightStep: 1
+    slotTypeTexsAddrs:
+    - Arts/ImagesNew/Attribute_time
+    - Arts/ImagesNew/Attribute_dialo
+    - Arts/ImagesNew/Attribute_action
+    slotTypes: 0200000001000000
+  - levelID: 105
+    roleLeftID: 103
+    roleRightID: 102
+    CardsLeftID: 8d0000008e0000008f00000090000000910000009200000093000000
+    CardsRightID: 9400000095000000960000009700000098000000990000009a000000
+    CardsLeftLocs: 020000000300000002000000
+    CardsRightLocs: 020000000300000002000000
+    typeTexsAddrs:
+    - Arts/ImagesNew/CardAttri_time_back
+    - Arts/ImagesNew/CardAttri_dialo_back
+    - Arts/ImagesNew/CardAttri_action_back
+    ContentTypeTexsAddrs:
+    - Arts/ImagesNew/CardAttri_time_front
+    - Arts/ImagesNew/CardAttri_dialo_front
+    - Arts/ImagesNew/CardAttri_action_front
+    contentTexsAddrsLeft: Arts/ImagesNew/CardFront
+    contentTexsAddrsRight: Arts/ImagesNew/CardFront
+    backTexsAddrsLeft: Arts/ImagesNew/CardBack
+    backTexsAddrsRight: Arts/ImagesNew/CardBack
+    leftStep: 1
+    rightStep: 1
+    slotTypeTexsAddrs:
+    - Arts/ImagesNew/Attribute_time
+    - Arts/ImagesNew/Attribute_dialo
+    - Arts/ImagesNew/Attribute_action
+    slotTypes: 000000000100000002000000
+  - levelID: 106
+    roleLeftID: 103
+    roleRightID: 102
+    CardsLeftID: 9b0000009c0000009d0000009e0000009f000000
+    CardsRightID: a0000000a1000000a2000000a3000000a4000000
+    CardsLeftLocs: 0200000003000000
+    CardsRightLocs: 0200000003000000
+    typeTexsAddrs:
+    - Arts/ImagesNew/CardAttri_time_back
+    - Arts/ImagesNew/CardAttri_dialo_back
+    - Arts/ImagesNew/CardAttri_action_back
+    ContentTypeTexsAddrs:
+    - Arts/ImagesNew/CardAttri_time_front
+    - Arts/ImagesNew/CardAttri_dialo_front
+    - Arts/ImagesNew/CardAttri_action_front
+    contentTexsAddrsLeft: Arts/ImagesNew/CardFront
+    contentTexsAddrsRight: Arts/ImagesNew/CardFront
+    backTexsAddrsLeft: Arts/ImagesNew/CardBack
+    backTexsAddrsRight: Arts/ImagesNew/CardBack
+    leftStep: 1
+    rightStep: 1
+    slotTypeTexsAddrs:
+    - Arts/ImagesNew/Attribute_time
+    - Arts/ImagesNew/Attribute_dialo
+    - Arts/ImagesNew/Attribute_action
+    slotTypes: 0100000002000000

@@ -28,11 +28,18 @@ public class Game{
     private Game()
     {
         gameState = GameState.Start;
+        gameLevel = -1;
+        timeAttr = 0;
     }
 
     public GameState gameState;
 
     public int gameLevel
+    {
+        get; set;
+    }
+
+    public int timeAttr
     {
         get; set;
     }

@@ -20,6 +20,14 @@ public enum LocType
 }
 
 [System.Serializable]
+public enum MessageState
+{
+    Pass,
+    Overtimed,
+    Normal,
+}
+
+[System.Serializable]
 public class CardInfo {
     public int cardID;
     public CardType type;
