@@ -235,7 +235,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 99bb86f802a76684585549a06ebdb581, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b9c4dc03db9c1b64d93caf6858efcbfc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -384,7 +384,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dda3d5c965fae6042943b3dda27adafd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b8715a1264a889941ad34e40d28bf113, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -458,7 +458,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dda3d5c965fae6042943b3dda27adafd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b8715a1264a889941ad34e40d28bf113, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -554,7 +554,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 5a6b65c0977ff674ab24fca602bd1017, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9191143e94837314dbed157649477d0e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -951,7 +951,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6260b8ae64a2afb4ca5e782fccb0067d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 054751fb4d1b1714b896f1d6b76b0bdf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1157,8 +1157,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f13e636f98fb62498a6d809d0483c5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originTex: {fileID: 21300000, guid: 76083bc8b35ce114c9c7f770eeee7950, type: 3}
-  mouseOnTex: {fileID: 21300000, guid: 76083bc8b35ce114c9c7f770eeee7950, type: 3}
+  originTex: {fileID: 21300000, guid: e937205db56cabb41b555347b7e8a568, type: 3}
+  mouseOnTex: {fileID: 21300000, guid: e937205db56cabb41b555347b7e8a568, type: 3}
   highlight: {fileID: 0}
   nextPage: -1
 --- !u!212 &981050983
@@ -1196,7 +1196,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 76083bc8b35ce114c9c7f770eeee7950, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e937205db56cabb41b555347b7e8a568, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1260,7 +1260,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 5a6b65c0977ff674ab24fca602bd1017, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9191143e94837314dbed157649477d0e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1398,7 +1398,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d61ccee4e3cb9634d9aadbc3bba3da21, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b4e499945af337a4f8db238a4e3f574a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1462,7 +1462,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 5a6b65c0977ff674ab24fca602bd1017, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9191143e94837314dbed157649477d0e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1647,8 +1647,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f13e636f98fb62498a6d809d0483c5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originTex: {fileID: 21300000, guid: 6d277f34fc9d52c4c85fd3e8cd7464f2, type: 3}
-  mouseOnTex: {fileID: 21300000, guid: 6d277f34fc9d52c4c85fd3e8cd7464f2, type: 3}
+  originTex: {fileID: 21300000, guid: 23cb0468bd568004a87e62cfc0654480, type: 3}
+  mouseOnTex: {fileID: 21300000, guid: 23cb0468bd568004a87e62cfc0654480, type: 3}
   highlight: {fileID: 0}
   nextPage: 1
 --- !u!212 &1458072309
@@ -1686,7 +1686,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6d277f34fc9d52c4c85fd3e8cd7464f2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 23cb0468bd568004a87e62cfc0654480, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2172,6 +2172,7 @@ MonoBehaviour:
     AlwaysShowCard: 0
     AlwaysShowType: 0
     stayTime: 3
+    bindInfoID: 0
   - cardID: 102
     type: 1
     context: "\u6211\u2026\u6211\u662F\u9694\u58C14\u73ED-\u7684\u5F20\u5FD7\u519B\u2026"
@@ -2179,6 +2180,7 @@ MonoBehaviour:
     AlwaysShowCard: 0
     AlwaysShowType: 0
     stayTime: 3
+    bindInfoID: 0
   cardsLocsLeft: 02000000
   cardsInfosRight:
   - cardID: 103
@@ -2188,6 +2190,7 @@ MonoBehaviour:
     AlwaysShowCard: 1
     AlwaysShowType: 0
     stayTime: 3
+    bindInfoID: 0
   - cardID: 104
     type: 1
     context: "\u4F60\u5230\u5E95\u662F\u8C01\uFF1F"
@@ -2195,6 +2198,7 @@ MonoBehaviour:
     AlwaysShowCard: 1
     AlwaysShowType: 0
     stayTime: 3
+    bindInfoID: 0
   - cardID: 105
     type: 1
     context: "\u53EF\u4EE5\u554A\uFF0C -\u90A3\u5C31\u653E\u5B66\u89C1\uFF01"
@@ -2202,6 +2206,7 @@ MonoBehaviour:
     AlwaysShowCard: 0
     AlwaysShowType: 0
     stayTime: 3
+    bindInfoID: 0
   - cardID: 106
     type: 1
     context: "\u62B1\u6B49\uFF0C\u6211\u5468\u4E94-\u653E\u5B66\u6709\u4E8B\u2026"
@@ -2209,6 +2214,7 @@ MonoBehaviour:
     AlwaysShowCard: 0
     AlwaysShowType: 0
     stayTime: 3
+    bindInfoID: 0
   cardsLocsRight: 0200000002000000
   typeTexs:
   - {fileID: 2800000, guid: d92a6da8d07b2274581b59882f85b39d, type: 3}
