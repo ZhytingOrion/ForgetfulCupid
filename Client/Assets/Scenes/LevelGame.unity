@@ -2704,8 +2704,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8edc12da585c6334f8cfe2d5f86b6c6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originTex: {fileID: 21300000, guid: c6f5a7a3642ac18428520ad358d047fd, type: 3}
-  mouseOnTex: {fileID: 21300000, guid: c6f5a7a3642ac18428520ad358d047fd, type: 3}
+  originTex: {fileID: 21300000, guid: 939a6f5b38268724d8ef977018b22736, type: 3}
+  mouseOnTex: {fileID: 21300000, guid: 939a6f5b38268724d8ef977018b22736, type: 3}
   highlight: {fileID: 1509834251}
 --- !u!212 &1877442403
 SpriteRenderer:
@@ -2742,7 +2742,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 23cb0468bd568004a87e62cfc0654480, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 939a6f5b38268724d8ef977018b22736, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2858,7 +2858,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 23cb0468bd568004a87e62cfc0654480, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f5845c846df137d49a242de91e9c2438, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
