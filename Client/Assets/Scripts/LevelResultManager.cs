@@ -119,8 +119,8 @@ public class LevelResultManager : MonoBehaviour {
         if(!firstCard.GetComponent<CardSingle>().isFlip)
         {
             firstCard.GetComponent<CardSingle>().FlipCard(3.0f);
-        }
-        yield return new WaitForSeconds(3.0f);
+            yield return new WaitForSeconds(3.0f);
+        }        
         if (!lastCard.GetComponent<CardSingle>().isFlip) lastCard.GetComponent<CardSingle>().FlipCard(3.0f);
     }
 
@@ -248,12 +248,6 @@ public class LevelResultManager : MonoBehaviour {
             cardResult.SpecialEndID = -1;
             cardResult.EndPic = null;
         }
-
-        if(!this.isMarked[resultNum])
-        {
-            this.isMarked[resultNum] = true;
-            this.HeartValue += cardResult.Score;
-        }
         
         switch (this.lineNum)
         {
@@ -291,14 +285,19 @@ public class LevelResultManager : MonoBehaviour {
                 line = "心动值增加：" + cardResult.Score + "\n";
                 canvas.transform.Find("TextHeartValue").GetComponent<Text>().text = line;
 
-                //触发特殊结局
-                if (cardResult.Score != -1) HeartValue += cardResult.Score;
-                else
+                if (!this.isMarked[resultNum])
                 {
-                    this.EndID = cardResult.SpecialEndID;
+                    this.isMarked[resultNum] = true;
+                    //触发特殊结局
+                    if (cardResult.Score != -1) HeartValue += cardResult.Score;
+                    else
+                    {
+                        this.EndID = cardResult.SpecialEndID;
+                    }
                 }
 
                 //显示Button
+                Debug.Log("关卡信息：" + levelResultInfo.levelID + "/" + levelResultInfo.endID);
                 if (this.resultNum < this.slots.Count - 1) {
                     setButtons(this.resultNum > 0 ? ButtonState.LastPage : ButtonState.None, ButtonState.None, ButtonState.NextPage);
                 }
