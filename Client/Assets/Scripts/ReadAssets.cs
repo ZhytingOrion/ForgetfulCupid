@@ -10,6 +10,8 @@ public class ReadAssets : MonoBehaviour {
     public CardInfoDic cardInfoDic;
     public RoleInfoDic roleInfoDic;
     public CardResultInfoArray cardResultInfoArray;
+    public LevelResultInfoDic levelResultInfoDic;
+    public SelectInfoDic selectInfoDic;
 
     // Use this for initialization
     void Awake () {
@@ -45,6 +47,22 @@ public class ReadAssets : MonoBehaviour {
 
             //CardResultInfo
             cardResultInfoArray = (CardResultInfoArray)Resources.Load("DataAssets/CardResultInfo");
+
+            //LevelResultInfo
+            LevelResultInfoArray levelResultInfoArray = (LevelResultInfoArray)Resources.Load("DataAssets/LevelResultInfo");
+            for(int i = 0; i<levelResultInfoArray.dataArray.Length; ++i)
+            {
+                LevelResultInfo levelResultInfo = levelResultInfoArray.dataArray[i];
+                levelResultInfoDic.dic.Add(levelResultInfo.levelID, levelResultInfo);
+            }
+
+            //SelectInfo
+            SelectInfoArray selectInfoArray = (SelectInfoArray)Resources.Load("DataAssets/SelectInfo");
+            for (int i = 0; i < selectInfoArray.dataArray.Length; ++i)
+            {
+                SelectInfo selectInfo = selectInfoArray.dataArray[i];
+                selectInfoDic.dic.Add(selectInfo.messageID, selectInfo);
+            }            
         }
 	}
 }

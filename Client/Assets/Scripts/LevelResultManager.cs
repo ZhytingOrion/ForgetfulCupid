@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LevelResultManager : MonoBehaviour {
 
@@ -11,6 +12,7 @@ public class LevelResultManager : MonoBehaviour {
 
     public string[] CardTypeName = { "时间", "对话", "行动" };
     public List<CardResultInfo> cardResultInfo = new List<CardResultInfo>();
+    public LevelResultInfo levelResultInfo = new LevelResultInfo();
     public RoleInfo leftRole;
     public RoleInfo rightRole;
     private bool isFail = false;
@@ -23,12 +25,33 @@ public class LevelResultManager : MonoBehaviour {
     private bool[] isMarked;
     private int HeartValue = 0;
 
+    private int EndID = -1;
+
+    private enum ButtonState
+    {
+        LastPage,
+        NextPage,
+        ReturnToSelect,
+        NextLevel,
+        None,
+    }
+
+    //Buttons
+    private GameObject buttonLastPage;
+    private GameObject buttonNextPage;
+    private GameObject buttonNextLevel;
+    private GameObject buttonReturnToSelect;
+
     // Use this for initialization
     void Start() {
         leftRole = GameObject.Find("_levelManager").GetComponent<LevelInstance>().leftRole;
         GameObject.Find("ResultUI/LeftRolePic").GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(leftRole.rolePicAddr);
         rightRole = GameObject.Find("_levelManager").GetComponent<LevelInstance>().rightRole;
         GameObject.Find("ResultUI/RightRolePic").GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(rightRole.rolePicAddr);
+        buttonLastPage = GameObject.Find("ResultUI/ButtonLastPage").gameObject;
+        buttonNextPage = GameObject.Find("ResultUI/ButtonNextPage").gameObject;
+        buttonNextLevel = GameObject.Find("ResultUI/ButtonNextLevel").gameObject;
+        buttonReturnToSelect = GameObject.Find("ResultUI/ButtonReturnToSelect").gameObject;
         GameObject.Find("ResultUI").SetActive(false);
 
         CardTypeName = DataInfo.Instance.CardTypeName;
@@ -56,7 +79,7 @@ public class LevelResultManager : MonoBehaviour {
         nextLine();
     }
 
-    public void ShowCardResult()
+    public void ShowCardResult(bool rightFirst)
     {
         if (isFail) return;
         Debug.Log("我在结算界面" + this.resultNum);
@@ -84,12 +107,21 @@ public class LevelResultManager : MonoBehaviour {
         slot.transform.Find("Type").gameObject.SetActive(false);    //去掉属性信息   NOTICE:如果之后加上复原关卡的话，要把Type先Active！
         //leftCard.transform.localScale = leftCard.GetComponent<CardSingle>().
 
-        if (!leftCard.GetComponent<CardSingle>().isFlip)
+        if (rightFirst)
         {
-            Debug.Log("卡片信息：" + leftCard.GetComponent<CardSingle>().cardInfo.cardID);
-            leftCard.GetComponent<CardSingle>().FlipCard();
+            StartCoroutine(flipCards(rightCard, leftCard));
         }
-        if (!rightCard.GetComponent<CardSingle>().isFlip) rightCard.GetComponent<CardSingle>().FlipCard();
+        else StartCoroutine(flipCards(leftCard, rightCard));
+    }
+
+    private IEnumerator flipCards(GameObject firstCard, GameObject lastCard)
+    {
+        if(!firstCard.GetComponent<CardSingle>().isFlip)
+        {
+            firstCard.GetComponent<CardSingle>().FlipCard(3.0f);
+        }
+        yield return new WaitForSeconds(3.0f);
+        if (!lastCard.GetComponent<CardSingle>().isFlip) lastCard.GetComponent<CardSingle>().FlipCard(3.0f);
     }
 
     public void resetPage(int page)
@@ -142,8 +174,9 @@ public class LevelResultManager : MonoBehaviour {
     public void resetUI()
     {
         //按钮状态
+        setButtons(ButtonState.None, ButtonState.None, ButtonState.None);
 
-        //文字状态
+        //文字状态 & 小箭头状态
         canvas.transform.Find("TextCardType").GetComponent<Text>().text = "";
         canvas.transform.Find("TextCardType/Click").gameObject.SetActive(false);
         canvas.transform.Find("TextCardContext").GetComponent<Text>().text = "";
@@ -151,13 +184,50 @@ public class LevelResultManager : MonoBehaviour {
         canvas.transform.Find("TextResult").GetComponent<Text>().text = "";
         canvas.transform.Find("TextResult/Click").gameObject.SetActive(false);
         canvas.transform.Find("TextHeartValue").GetComponent<Text>().text = "";
+    }
 
-        //小箭头状态
+    private void setButtons(ButtonState left, ButtonState middle, ButtonState right)
+    {
+        switch(left)
+        {
+            case ButtonState.LastPage:
+                buttonLastPage.SetActive(true);
+                break;
+            default:
+                buttonLastPage.SetActive(false);
+                break;
+        }
+        switch(right)
+        {
+            case ButtonState.ReturnToSelect:
+                buttonNextPage.SetActive(false);
+                buttonNextLevel.SetActive(false);
+                buttonReturnToSelect.SetActive(true);
+                break;
+            case ButtonState.NextLevel:
+                buttonNextPage.SetActive(false);
+                buttonNextLevel.SetActive(true);
+                buttonReturnToSelect.SetActive(false);
+                break;
+            case ButtonState.NextPage:
+                buttonNextPage.SetActive(true);
+                buttonNextLevel.SetActive(false);
+                buttonReturnToSelect.SetActive(false);
+                break;
+            default:
+                break;
+        }
     }
 
     public void nextLine()
     {
         if (this.isFail) return;
+        if(this.EndID != -1)   //进入结局界面
+        {
+            Game.Instance.gameResultID = this.EndID;
+            SceneManager.LoadScene("ResultScene");
+        }
+
         this.lineNum -= 1;
         if (this.lineNum < 0 || this.lineNum > 3) return;
         if (this.resultNum < 0 || this.resultNum >= this.slots.Count) return;
@@ -188,7 +258,7 @@ public class LevelResultManager : MonoBehaviour {
         switch (this.lineNum)
         {
             case 3:
-                ShowCardResult();
+                ShowCardResult(cardResult.rightFirst);
                 line = "卡牌属性为“" + CardTypeName[(int)leftCard.type] + "”和“" + CardTypeName[(int)rightCard.type] + "”；\n";
                 if (leftCard.type == rightCard.type)
                 {
@@ -200,6 +270,7 @@ public class LevelResultManager : MonoBehaviour {
                     line += "匹配失败；\n";
                     this.lineNum = 0;
                     isFail = true;
+                    setButtons(this.resultNum > 0 ? ButtonState.LastPage : ButtonState.None, ButtonState.None, ButtonState.ReturnToSelect);
                 }
                 canvas.transform.Find("TextCardType").GetComponent<Text>().text = line;
                 break;
@@ -219,6 +290,27 @@ public class LevelResultManager : MonoBehaviour {
             case 0:
                 line = "心动值增加：" + cardResult.Score + "\n";
                 canvas.transform.Find("TextHeartValue").GetComponent<Text>().text = line;
+
+                //触发特殊结局
+                if (cardResult.Score != -1) HeartValue += cardResult.Score;
+                else
+                {
+                    this.EndID = cardResult.SpecialEndID;
+                }
+
+                //显示Button
+                if (this.resultNum < this.slots.Count - 1) {
+                    setButtons(this.resultNum > 0 ? ButtonState.LastPage : ButtonState.None, ButtonState.None, ButtonState.NextPage);
+                }
+                else if(levelResultInfo.endID == -1)
+                {
+                    setButtons(this.resultNum > 0 ? ButtonState.LastPage : ButtonState.None, ButtonState.None, this.HeartValue >= levelResultInfo.passScore ? ButtonState.NextLevel : ButtonState.ReturnToSelect);
+                }
+                else
+                {
+                    //还没有分成功和失败的结局  TODO
+                    this.EndID = levelResultInfo.endID;
+                }
                 break;
             default: break;
         }

@@ -34,7 +34,7 @@ public class Game{
 
     public GameState gameState;
 
-    public int gameLevel
+    public int gameLevel   //游戏关卡
     {
         get; set;
     }
@@ -44,4 +44,8 @@ public class Game{
         get; set;
     }
 
+    public int gameResultID  //进入的结局关卡
+    {
+        get; set;
+    }
 }
