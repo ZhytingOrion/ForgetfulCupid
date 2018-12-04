@@ -24,7 +24,7 @@ public class ActionGlobal : MonoBehaviour {
                     mousePos.z = -1.0f;
                     card.transform.position = mousePos;
                     card.GetComponent<CardSingle>().isDrag = true;
-                    card.GetComponent<BoxCollider2D>().size = new Vector2(4.0f,1.0f);
+                    card.GetComponent<BoxCollider2D>().size = new Vector2(4.0f,2.0f);
                 }
             }
         }
