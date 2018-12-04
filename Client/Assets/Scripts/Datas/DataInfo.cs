@@ -66,7 +66,9 @@ public class CardManagerInfo
 {
     public int levelID;
     public int roleLeftID;
+    public string roleLeftPic;
     public int roleRightID;
+    public string roleRightPic;
     public int[] CardsLeftID;
     public int[] CardsRightID;
     public int[] CardsLeftLocs;

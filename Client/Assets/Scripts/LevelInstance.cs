@@ -89,6 +89,8 @@ public class LevelInstance : MonoBehaviour {
             typeTexs[i] = (Texture2D)Resources.Load(cardManagerInfo.typeTexsAddrs[i]);
         }
         cardManager.GetComponent<CardManager>().typeTexs = typeTexs;
+        cardManager.GetComponent<CardManager>().LeftRolePic = cardManagerInfo.roleLeftPic;
+        cardManager.GetComponent<CardManager>().RightRolePic = cardManagerInfo.roleRightPic;
 
         ///
         /// SlotManager的信息

@@ -14,7 +14,9 @@ MonoBehaviour:
   dataArray:
   - levelID: 101
     roleLeftID: 101
+    roleLeftPic: Arts/ImagesNew/dp_unknown
     roleRightID: 102
+    roleRightPic: Arts/ImagesNew/dp_chengmm
     CardsLeftID: 6500000066000000
     CardsRightID: 6700000068000000690000006a000000
     CardsLeftLocs: 02000000
@@ -40,7 +42,9 @@ MonoBehaviour:
     slotTypes: 0100000000000000
   - levelID: 102
     roleLeftID: 101
+    roleLeftPic: Arts/ImagesNew/dp_zhangzj
     roleRightID: 102
+    roleRightPic: Arts/ImagesNew/dp_chengmm
     CardsLeftID: 6b0000006c0000006d0000006e0000006f000000700000007100000072000000
     CardsRightID: 730000007400000075000000760000007700000078000000790000007a000000
     CardsLeftLocs: 030000000200000003000000
@@ -66,7 +70,9 @@ MonoBehaviour:
     slotTypes: 000000000100000002000000
   - levelID: 103
     roleLeftID: 101
+    roleLeftPic: Arts/ImagesNew/dp_zhangzj
     roleRightID: 102
+    roleRightPic: Arts/ImagesNew/dp_chengmm
     CardsLeftID: 7b0000007c0000007d0000007e0000007f000000
     CardsRightID: 8000000081000000820000008300000084000000
     CardsLeftLocs: 0200000003000000
@@ -92,7 +98,9 @@ MonoBehaviour:
     slotTypes: 0100000002000000
   - levelID: 104
     roleLeftID: 103
+    roleLeftPic: Arts/ImagesNew/dp_unknown
     roleRightID: 102
+    roleRightPic: Arts/ImagesNew/dp_chengmm
     CardsLeftID: 85000000860000008700000088000000
     CardsRightID: 890000008a0000008b0000008c000000
     CardsLeftLocs: 0200000002000000
@@ -118,7 +126,9 @@ MonoBehaviour:
     slotTypes: 0200000001000000
   - levelID: 105
     roleLeftID: 103
+    roleLeftPic: Arts/ImagesNew/dp_unknown
     roleRightID: 102
+    roleRightPic: Arts/ImagesNew/dp_chengmm
     CardsLeftID: 8d0000008e0000008f00000090000000910000009200000093000000
     CardsRightID: 9400000095000000960000009700000098000000990000009a000000
     CardsLeftLocs: 020000000300000002000000
@@ -144,7 +154,9 @@ MonoBehaviour:
     slotTypes: 000000000100000002000000
   - levelID: 106
     roleLeftID: 103
+    roleLeftPic: Arts/ImagesNew/dp_unknown
     roleRightID: 102
+    roleRightPic: Arts/ImagesNew/dp_chengmm
     CardsLeftID: 9b0000009c0000009d0000009e0000009f000000
     CardsRightID: a0000000a1000000a2000000a3000000a4000000
     CardsLeftLocs: 0200000003000000
