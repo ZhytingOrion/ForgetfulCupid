@@ -29,7 +29,6 @@ public class SlotCardInstance : MonoBehaviour {
             //判断slot是否有牌了
             if (this.thisCard != null) return;
 
-
             card.GetComponent<CardSingle>().setSlot(this.gameObject);
         }
     }

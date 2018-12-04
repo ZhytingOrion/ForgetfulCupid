@@ -119,7 +119,7 @@ public class LevelResultManager : MonoBehaviour {
         if(!firstCard.GetComponent<CardSingle>().isFlip)
         {
             firstCard.GetComponent<CardSingle>().FlipCard(3.0f);
-            yield return new WaitForSeconds(3.0f);
+            yield return new WaitForSeconds(1.0f);
         }        
         if (!lastCard.GetComponent<CardSingle>().isFlip) lastCard.GetComponent<CardSingle>().FlipCard(3.0f);
     }
@@ -272,8 +272,16 @@ public class LevelResultManager : MonoBehaviour {
                 canvas.transform.Find("TextCardType").GetComponent<Text>().text = line;
                 break;
             case 2:
-                line = leftRole.roleName + "：" + leftCard.context.Replace('-',' ') + "\n";
-                line += rightRole.roleName + "：" + rightCard.context.Replace('-', ' ') + "\n";
+                if (cardResult.rightFirst)
+                {
+                    line += rightRole.roleName + "：" + rightCard.context.Replace("-", "") + "\n";
+                    line = leftRole.roleName + "：" + leftCard.context.Replace("-", "") + "\n";
+                }
+                else
+                {
+                    line = leftRole.roleName + "：" + leftCard.context.Replace("-", "") + "\n";
+                    line += rightRole.roleName + "：" + rightCard.context.Replace("-", "") + "\n";
+                }
                 line += "\n";
                 canvas.transform.Find("TextCardContext").GetComponent<Text>().text = line;
                 canvas.transform.Find("TextCardContext/Click").gameObject.SetActive(true);
@@ -311,7 +319,10 @@ public class LevelResultManager : MonoBehaviour {
                 else
                 {
                     if (this.HeartValue >= levelResultInfo.passScore)
+                    {
                         this.EndID = levelResultInfo.successEndID;
+                        Game.Instance.addCP(leftRole.roleID, rightRole.roleID);
+                    }
                     else this.EndID = levelResultInfo.failEndID;
                 }
                 break;

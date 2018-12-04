@@ -34,6 +34,9 @@ public class ButtonCheck : ButtonClass {
 
             //GameObject.Find("Result").SetActive(true);
 
+            Vector3 pos = GameObject.Find("Cards").transform.position;
+            pos.z = 10;
+            GameObject.Find("Cards").transform.position = pos;
             GameObject.Find("_resultManager").GetComponent<LevelResultManager>().ResultSceneInit();
         }
     }

@@ -29,6 +29,7 @@ public class Game{
     {
         gameState = GameState.Start;
         gameLevel = -1;
+        gameResultID = -1;
         timeAttr = 0;
     }
 
@@ -47,5 +48,19 @@ public class Game{
     public int gameResultID  //进入的结局关卡
     {
         get; set;
+    }
+
+    public Dictionary<int, int> rolePairs = new Dictionary<int, int>();
+
+    public void addCP(int leftRoleID, int rightRoleID)
+    {
+        rolePairs.Add(leftRoleID, rightRoleID);
+        rolePairs.Add(rightRoleID, leftRoleID);
+    }
+
+    public bool hasCP(int roleID)
+    {
+        if (rolePairs.ContainsKey(roleID)) return true;
+        return false;
     }
 }
