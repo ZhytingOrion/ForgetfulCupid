@@ -142,9 +142,12 @@ namespace EditorTool
                 info.levelID = int.Parse(collect[i][0].ToString());
                 info.passScore = int.Parse(collect[i][1].ToString());
                 info.maxScore = int.Parse(collect[i][2].ToString());
-                info.endID = int.Parse(collect[i][3].ToString());
-                info.endName = collect[i][4].ToString();
-                info.endPic = collect[i][5].ToString();
+                info.successEndID = int.Parse(collect[i][3].ToString());
+                info.successEndName = collect[i][4].ToString();
+                info.successEndPic = collect[i][5].ToString();
+                info.failEndID = int.Parse(collect[i][6].ToString());
+                info.failEndName = collect[i][7].ToString();
+                info.failEndPic = collect[i][8].ToString();
                 array[i - 2] = info;
             }
             return array;
@@ -170,6 +173,28 @@ namespace EditorTool
                 info.leftRoleID = int.Parse(collect[i][3].ToString());
                 info.rightRoleID = int.Parse(collect[i][4].ToString());
                 info.message = collect[i][5].ToString();
+                array[i - 2] = info;
+            }
+            return array;
+        }
+        
+        /// <summary>
+        /// 读取EndInfo信息
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
+        public static EndInfo[] CreateEndInfoArrayWithExcel(string filePath)
+        {
+            int col = 0, row = 0;
+            DataRowCollection collect = ReadExcel(filePath, ref col, ref row);
+
+            EndInfo[] array = new EndInfo[row - 2];
+            for (int i = 2; i < row; i++)
+            {
+                EndInfo info = new EndInfo();
+                info.endID = int.Parse(collect[i][0].ToString());
+                info.endName = collect[i][1].ToString();
+                info.endPic = collect[i][2].ToString();
                 array[i - 2] = info;
             }
             return array;

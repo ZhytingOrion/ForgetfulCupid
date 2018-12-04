@@ -215,6 +215,9 @@ public class LevelResultManager : MonoBehaviour {
                 buttonReturnToSelect.SetActive(false);
                 break;
             default:
+                buttonNextPage.SetActive(false);
+                buttonNextLevel.SetActive(false);
+                buttonReturnToSelect.SetActive(false);
                 break;
         }
     }
@@ -297,18 +300,19 @@ public class LevelResultManager : MonoBehaviour {
                 }
 
                 //显示Button
-                Debug.Log("关卡信息：" + levelResultInfo.levelID + "/" + levelResultInfo.endID);
+                Debug.Log("关卡信息：" + levelResultInfo.levelID + "/" + levelResultInfo.successEndID);
                 if (this.resultNum < this.slots.Count - 1) {
                     setButtons(this.resultNum > 0 ? ButtonState.LastPage : ButtonState.None, ButtonState.None, ButtonState.NextPage);
                 }
-                else if(levelResultInfo.endID == -1)
+                else if(levelResultInfo.successEndID == -1)
                 {
                     setButtons(this.resultNum > 0 ? ButtonState.LastPage : ButtonState.None, ButtonState.None, this.HeartValue >= levelResultInfo.passScore ? ButtonState.NextLevel : ButtonState.ReturnToSelect);
                 }
                 else
                 {
-                    //还没有分成功和失败的结局  TODO
-                    this.EndID = levelResultInfo.endID;
+                    if (this.HeartValue >= levelResultInfo.passScore)
+                        this.EndID = levelResultInfo.successEndID;
+                    else this.EndID = levelResultInfo.failEndID;
                 }
                 break;
             default: break;

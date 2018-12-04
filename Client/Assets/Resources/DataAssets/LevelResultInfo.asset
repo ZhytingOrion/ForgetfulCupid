@@ -15,48 +15,54 @@ MonoBehaviour:
   - levelID: 101
     passScore: 20
     maxScore: 20
-    endID: -1
-    endName: ' '
-    endPic: 
+    successEndID: -1
+    successEndName: ' '
+    successEndPic: 
+    failEndID: -1
+    failEndName: ' '
+    failEndPic: 
   - levelID: 102
     passScore: 50
     maxScore: 80
-    endID: -1
-    endName: ' '
-    endPic: 
+    successEndID: -1
+    successEndName: ' '
+    successEndPic: 
+    failEndID: -1
+    failEndName: ' '
+    failEndPic: 
   - levelID: 103
     passScore: 20
     maxScore: 55
-    endID: 6
-    endName: "\u52C7\u6C14\u662F\u4E00\u5207\u7684\u5F00\u59CB"
-    endPic: 
-  - levelID: 103
-    passScore: 20
-    maxScore: 55
-    endID: 7
-    endName: "\u5355\u604B\u7684\u7EC8\u7ED3"
-    endPic: 
+    successEndID: 12
+    successEndName: "\u52C7\u6C14\u662F\u4E00\u5207\u7684\u5F00\u59CB"
+    successEndPic: 
+    failEndID: 13
+    failEndName: "\u5355\u604B\u7684\u7EC8\u7ED3"
+    failEndPic: 
   - levelID: 104
     passScore: 25
     maxScore: 25
-    endID: -1
-    endName: ' '
-    endPic: 
+    successEndID: -1
+    successEndName: ' '
+    successEndPic: 
+    failEndID: -1
+    failEndName: ' '
+    failEndPic: 
   - levelID: 105
     passScore: 45
     maxScore: 75
-    endID: -1
-    endName: ' '
-    endPic: 
+    successEndID: -1
+    successEndName: ' '
+    successEndPic: 
+    failEndID: -1
+    failEndName: ' '
+    failEndPic: 
   - levelID: 106
     passScore: 30
     maxScore: 50
-    endID: 12
-    endName: "\u6C38\u6052\u7684\u53CB\u8C0A"
-    endPic: 
-  - levelID: 106
-    passScore: 30
-    maxScore: 50
-    endID: 13
-    endName: "\u6E10\u884C\u6E10\u8FDC"
-    endPic: 
+    successEndID: 14
+    successEndName: "\u6C38\u6052\u7684\u53CB\u8C0A"
+    successEndPic: 
+    failEndID: 15
+    failEndName: "\u6E10\u884C\u6E10\u8FDC"
+    failEndPic: 

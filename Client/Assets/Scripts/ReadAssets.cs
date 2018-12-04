@@ -12,6 +12,7 @@ public class ReadAssets : MonoBehaviour {
     public CardResultInfoArray cardResultInfoArray;
     public LevelResultInfoDic levelResultInfoDic;
     public SelectInfoDic selectInfoDic;
+    public EndInfoDic endInfoDic;
 
     // Use this for initialization
     void Awake () {
@@ -62,6 +63,14 @@ public class ReadAssets : MonoBehaviour {
             {
                 SelectInfo selectInfo = selectInfoArray.dataArray[i];
                 selectInfoDic.dic.Add(selectInfo.messageID, selectInfo);
+            }            
+            
+            //EndInfo
+            EndInfoArray endInfoArray  = (EndInfoArray)Resources.Load("DataAssets/EndInfo");
+            for (int i = 0; i < endInfoArray.dataArray.Length; ++i)
+            {
+                EndInfo endInfo = endInfoArray.dataArray[i];
+                endInfoDic.dic.Add(endInfo.endID, endInfo);
             }            
         }
 	}

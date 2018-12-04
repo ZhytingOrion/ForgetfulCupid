@@ -112,11 +112,15 @@ public class LevelResultInfo
     public int levelID;
     public int passScore;
     public int maxScore;
-    public int endID;
-    public string endName;
-    public string endPic;
+    public int successEndID;
+    public string successEndName;
+    public string successEndPic;
+    public int failEndID;
+    public string failEndName;
+    public string failEndPic;
 }
 
+[System.Serializable]
 public class LevelResultInfoDic
 {
     public Dictionary<int, LevelResultInfo> dic = new Dictionary<int, LevelResultInfo>();
@@ -133,9 +137,24 @@ public class SelectInfo
     public string message;
 }
 
+[System.Serializable]
 public class SelectInfoDic
 {
     public Dictionary<int, SelectInfo> dic = new Dictionary<int, SelectInfo>();
+}
+
+[System.Serializable]
+public class EndInfo
+{
+    public int endID;
+    public string endName;
+    public string endPic;
+}
+
+[System.Serializable]
+public class EndInfoDic
+{
+    public Dictionary<int, EndInfo> dic = new Dictionary<int, EndInfo>();
 }
 
 public class DataInfo

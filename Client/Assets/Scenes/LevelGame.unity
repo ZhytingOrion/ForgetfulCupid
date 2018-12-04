@@ -859,9 +859,12 @@ MonoBehaviour:
     levelID: 0
     passScore: 0
     maxScore: 0
-    endID: 0
-    endName: 
-    endPic: 
+    successEndID: 0
+    successEndName: 
+    successEndPic: 
+    failEndID: 0
+    failEndName: 
+    failEndPic: 
   leftRole:
     roleID: 0
     roleName: 
@@ -2448,8 +2451,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1877442400}
   - component: {fileID: 1877442403}
-  - component: {fileID: 1877442402}
   - component: {fileID: 1877442401}
+  - component: {fileID: 1877442402}
   m_Layer: 0
   m_Name: ButtonNextLevel
   m_TagString: Untagged
@@ -2504,13 +2507,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1877442399}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f13e636f98fb62498a6d809d0483c5e, type: 3}
+  m_Script: {fileID: 11500000, guid: 8edc12da585c6334f8cfe2d5f86b6c6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originTex: {fileID: 21300000, guid: 23cb0468bd568004a87e62cfc0654480, type: 3}
-  mouseOnTex: {fileID: 21300000, guid: 23cb0468bd568004a87e62cfc0654480, type: 3}
-  highlight: {fileID: 0}
-  nextPage: 1
+  originTex: {fileID: 21300000, guid: c6f5a7a3642ac18428520ad358d047fd, type: 3}
+  mouseOnTex: {fileID: 21300000, guid: c6f5a7a3642ac18428520ad358d047fd, type: 3}
+  highlight: {fileID: 1509834251}
 --- !u!212 &1877442403
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2564,8 +2566,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1931020293}
   - component: {fileID: 1931020296}
-  - component: {fileID: 1931020295}
   - component: {fileID: 1931020294}
+  - component: {fileID: 1931020295}
   m_Layer: 0
   m_Name: ButtonReturnToSelect
   m_TagString: Untagged
@@ -2620,13 +2622,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1931020292}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f13e636f98fb62498a6d809d0483c5e, type: 3}
+  m_Script: {fileID: 11500000, guid: 22fcbc84eff1bf34b95ac615180a5a97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originTex: {fileID: 21300000, guid: 23cb0468bd568004a87e62cfc0654480, type: 3}
-  mouseOnTex: {fileID: 21300000, guid: 23cb0468bd568004a87e62cfc0654480, type: 3}
-  highlight: {fileID: 0}
-  nextPage: 1
+  originTex: {fileID: 21300000, guid: f5845c846df137d49a242de91e9c2438, type: 3}
+  mouseOnTex: {fileID: 21300000, guid: f5845c846df137d49a242de91e9c2438, type: 3}
+  highlight: {fileID: 1163134890}
 --- !u!212 &1931020296
 SpriteRenderer:
   m_ObjectHideFlags: 0

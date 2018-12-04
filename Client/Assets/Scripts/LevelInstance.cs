@@ -121,7 +121,12 @@ public class LevelInstance : MonoBehaviour {
         List<CardResultInfo> cardResultInfos = new List<CardResultInfo>(GameObject.Find("_dataAssets").GetComponent<ReadAssets>().cardResultInfoArray.dataArray);
         LevelResultInfoDic levelresultInfoDic = GameObject.Find("_dataAssets").GetComponent<ReadAssets>().levelResultInfoDic;
         GameObject.Find("_resultManager").GetComponent<LevelResultManager>().cardResultInfo = cardResultInfos.FindAll(x => x.levelID == level);
+
+        ///
+        /// LevelResult信息
+        /// 
         GameObject.Find("_resultManager").GetComponent<LevelResultManager>().levelResultInfo = levelresultInfoDic.dic[level];
+        Debug.Log("LevelInstance获取到的关卡信息：" + levelresultInfoDic.dic[level].levelID);
     }
 
     private void OnEnable()

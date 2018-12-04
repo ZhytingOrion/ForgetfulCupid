@@ -13,7 +13,6 @@ public class ActionGlobal : MonoBehaviour {
 	void Update () {
 		if(Input.GetMouseButton(0) && Game.Instance.gameState == GameState.Play)
         {
-            Debug.Log("我被点击了妈欸！！！！我还在打游戏" + Time.time);
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity);
             if(hit.collider != null)
             {

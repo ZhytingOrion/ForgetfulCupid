@@ -157,7 +157,6 @@ public class CardSingle : MonoBehaviour {
     public void FlipCard(float time = 3.0f)
     {
         this.isFlip = !this.isFlip;
-        Debug.Log("我要翻牌了！" + this.cardInfo.cardID);
 
         Vector3 loc = this.transform.position;
         if (Game.Instance.gameState == GameState.Play) loc.z = -5.0f;
@@ -167,8 +166,6 @@ public class CardSingle : MonoBehaviour {
 
     private void Start()
     {
-
-        Debug.Log("myname is " + this.cardInfo.cardID + " and im start!");
         this.transform.position = oldLoc;
         this.isFlip = false;
         if(this.cardInfo.AlwaysShowCard)
@@ -182,7 +179,6 @@ public class CardSingle : MonoBehaviour {
     
     public void Init()
     {
-        Debug.Log("myname is " + this.cardInfo.cardID + " and im init!");
         //this.GetComponent<SpriteRenderer>().sprite = Sprite.Create(this.GetComponent<SpriteRenderer>().sprite.texture, new Rect(new Vector2(0,0), SpriteSize), new Vector2(0, 0));
         oldScale = this.transform.localScale;
         this.colliderSize = this.GetComponent<BoxCollider2D>().size;

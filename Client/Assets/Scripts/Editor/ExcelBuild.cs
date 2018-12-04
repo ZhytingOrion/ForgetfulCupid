@@ -73,6 +73,18 @@ namespace EditorTool
             asset.dataArray = ExcelTools.CreateSelectInfoArrayWithExcel(ExcelConfig.excelsPath + "SelectInfo.xlsx");
             BuildAssets(asset, "SelectInfo.asset");
         }
+        
+        /// <summary>
+        /// 读取EndInfo表格
+        /// </summary>
+        [MenuItem("CustomTools/Excel/CreateEndInfoAsset")]
+        public static void CreateEndInfoAsset()
+        {
+            EndInfoArray asset = ScriptableObject.CreateInstance<EndInfoArray>();
+            asset.dataArray = ExcelTools.CreateEndInfoArrayWithExcel(ExcelConfig.excelsPath + "EndInfo.xlsx");
+            BuildAssets(asset, "EndInfo.asset");
+        }
+
         private static void BuildAssets(Object assets, string assetName)
         {
             if (!Directory.Exists(ExcelConfig.assetPath))
