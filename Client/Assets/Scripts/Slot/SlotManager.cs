@@ -15,6 +15,8 @@ public class SlotManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        offsetY = (slotCardTypes.Length - 2) * -0.3f - 0.4f;
+
         float startY = (slotCardTypes.Length - 1) * 0.5f * this.spaceY + offsetY;
         for (int i = 0; i<slotCardTypes.Length; ++i)
         {

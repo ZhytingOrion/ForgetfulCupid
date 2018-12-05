@@ -94,6 +94,11 @@ namespace EditorTool
                 info.rightStep = int.Parse(collect[i][16].ToString());
                 info.slotTypeTexsAddrs = collect[i][17].ToString().Split(';');
                 info.slotTypes = getIntArrayFromString(collect[i][18].ToString(), ';');
+                info.levelName = collect[i][19].ToString();
+                info.roleLeftName = collect[i][20].ToString();
+                info.roleRightName = collect[i][21].ToString();
+                info.roleLeftDesPic = collect[i][22].ToString();
+                info.roleRightDesPic = collect[i][23].ToString();
                 array[i - 2] = info;
             }
             return array;

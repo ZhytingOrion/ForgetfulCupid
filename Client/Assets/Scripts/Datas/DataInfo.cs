@@ -65,10 +65,15 @@ public class RoleInfoDic
 public class CardManagerInfo
 {
     public int levelID;
+    public string levelName;
     public int roleLeftID;
     public string roleLeftPic;
+    public string roleLeftName;
+    public string roleLeftDesPic;
     public int roleRightID;
     public string roleRightPic;
+    public string roleRightName;
+    public string roleRightDesPic;
     public int[] CardsLeftID;
     public int[] CardsRightID;
     public int[] CardsLeftLocs;

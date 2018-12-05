@@ -9,6 +9,6 @@ public class ButtonEndSceneBackToSelect : ButtonClass {
     {
         //该结局已达成的成就
         
-        SceneManager.LoadScene("LevelSelect");
+        SceneManager.LoadScene("LevelSelection");
     }
 }

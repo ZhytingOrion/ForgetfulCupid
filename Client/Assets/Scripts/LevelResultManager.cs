@@ -229,6 +229,7 @@ public class LevelResultManager : MonoBehaviour {
         {
             Game.Instance.gameResultID = this.EndID;
             SceneManager.LoadScene("ResultScene");
+            return;
         }
 
         this.lineNum -= 1;
@@ -274,8 +275,8 @@ public class LevelResultManager : MonoBehaviour {
             case 2:
                 if (cardResult.rightFirst)
                 {
-                    line += rightRole.roleName + "：" + rightCard.context.Replace("-", "") + "\n";
-                    line = leftRole.roleName + "：" + leftCard.context.Replace("-", "") + "\n";
+                    line = rightRole.roleName + "：" + rightCard.context.Replace("-", "") + "\n";
+                    line += leftRole.roleName + "：" + leftCard.context.Replace("-", "") + "\n";
                 }
                 else
                 {
@@ -285,6 +286,8 @@ public class LevelResultManager : MonoBehaviour {
                 line += "\n";
                 canvas.transform.Find("TextCardContext").GetComponent<Text>().text = line;
                 canvas.transform.Find("TextCardContext/Click").gameObject.SetActive(true);
+                if (cardResult.Score == -1)
+                    this.EndID = cardResult.SpecialEndID;
                 break;
             case 1:
                 line = cardResult.resultString.Replace('-', '\n');
@@ -294,7 +297,6 @@ public class LevelResultManager : MonoBehaviour {
                 break;
             case 0:
                 line = "心动值增加：" + cardResult.Score + "\n";
-                canvas.transform.Find("TextHeartValue").GetComponent<Text>().text = line;
 
                 if (!this.isMarked[resultNum])
                 {
@@ -314,7 +316,16 @@ public class LevelResultManager : MonoBehaviour {
                 }
                 else if(levelResultInfo.successEndID == -1)
                 {
-                    setButtons(this.resultNum > 0 ? ButtonState.LastPage : ButtonState.None, ButtonState.None, this.HeartValue >= levelResultInfo.passScore ? ButtonState.NextLevel : ButtonState.ReturnToSelect);
+                    if(this.HeartValue >= levelResultInfo.passScore)
+                    {
+                        setButtons(this.resultNum > 0 ? ButtonState.LastPage : ButtonState.None, ButtonState.None, ButtonState.NextLevel);
+                        line += "心动值达标，解锁下一阶段。\n";
+                    }
+                    else
+                    {
+                        setButtons(this.resultNum > 0 ? ButtonState.LastPage : ButtonState.None, ButtonState.None, ButtonState.ReturnToSelect);
+                        line += "心动值未达标，配对失败。\n";
+                    }
                 }
                 else
                 {
@@ -323,8 +334,15 @@ public class LevelResultManager : MonoBehaviour {
                         this.EndID = levelResultInfo.successEndID;
                         Game.Instance.addCP(leftRole.roleID, rightRole.roleID);
                     }
-                    else this.EndID = levelResultInfo.failEndID;
+                    else
+                    { 
+                        line += "心动值未达标，配对失败。\n";
+                        this.EndID = levelResultInfo.failEndID;
+                    }
                 }
+
+                canvas.transform.Find("TextHeartValue").GetComponent<Text>().text = line;
+
                 break;
             default: break;
         }

@@ -36,20 +36,26 @@ public class CardManager : MonoBehaviour {
     public Texture2D contentTexsRight;
     public Texture2D leftBackTex;
     public Texture2D rightBackTex;
-    public string LeftRolePic;
-    public string RightRolePic;
+    //public string LeftRolePic;
+    //public string RightRolePic;
 
 	// Use this for initialization
 	void Start () {
 
         Game.Instance.gameState = GameState.Play;
+
+        int max = 0;
+        for(int i = 0; i<cardsLocsLeft.Count; ++i)
+        {
+            if (cardsLocsLeft[i] > max) max = cardsLocsLeft[i];
+        }
+
+        this.StartX = 7 + 1.35f * (max - 2);
+        this.OffsetY = -0.7f - 0.4f * (Mathf.Max(cardsLocsLeft.Count, cardsLocsRight.Count) - 2);
         
         //初始化卡片
         InitialCards(cardsLocsLeft, out cardsLeft, cardsInfosLeft, true);
         InitialCards(cardsLocsRight, out cardsRight, cardsInfosRight, false);
-
-        GameObject.Find("LeftRolePic").GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(LeftRolePic);
-        GameObject.Find("RightRolePic").GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(RightRolePic);
 
         isInit = false;
     }

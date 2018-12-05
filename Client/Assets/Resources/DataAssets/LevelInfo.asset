@@ -13,10 +13,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dataArray:
   - levelID: 101
+    levelName: "\u6295\u7A3F\u4EBA\uFF1A\u9694\u58C1\u73ED\u7684\u67D0\u4EBA-\u7B2C1\u9636\u6BB5"
     roleLeftID: 101
     roleLeftPic: Arts/ImagesNew/dp_unknown
+    roleLeftName: "\uFF1F\uFF1F\uFF1F"
+    roleLeftDesPic: Arts/ImagesNew/dialo_101L
     roleRightID: 102
     roleRightPic: Arts/ImagesNew/dp_chengmm
+    roleRightName: "\u7A0B\u654F\u654F"
+    roleRightDesPic: Arts/ImagesNew/dialo_101R
     CardsLeftID: 6500000066000000
     CardsRightID: 6700000068000000690000006a000000
     CardsLeftLocs: 02000000
@@ -41,10 +46,15 @@ MonoBehaviour:
     - Arts/ImagesNew/Attribute_action
     slotTypes: 0100000000000000
   - levelID: 102
+    levelName: "\u6295\u7A3F\u4EBA\uFF1A\u9694\u58C1\u73ED\u7684\u67D0\u4EBA-\u7B2C2\u9636\u6BB5"
     roleLeftID: 101
     roleLeftPic: Arts/ImagesNew/dp_zhangzj
+    roleLeftName: "\u5F20\u667A\u541B"
+    roleLeftDesPic: Arts/ImagesNew/dialo_102L
     roleRightID: 102
     roleRightPic: Arts/ImagesNew/dp_chengmm
+    roleRightName: "\u7A0B\u654F\u654F"
+    roleRightDesPic: Arts/ImagesNew/dialo_102R
     CardsLeftID: 6b0000006c0000006d0000006e0000006f000000700000007100000072000000
     CardsRightID: 730000007400000075000000760000007700000078000000790000007a000000
     CardsLeftLocs: 030000000200000003000000
@@ -69,10 +79,15 @@ MonoBehaviour:
     - Arts/ImagesNew/Attribute_action
     slotTypes: 000000000100000002000000
   - levelID: 103
+    levelName: "\u6295\u7A3F\u4EBA\uFF1A\u9694\u58C1\u73ED\u7684\u67D0\u4EBA-\u7B2C3\u9636\u6BB5"
     roleLeftID: 101
     roleLeftPic: Arts/ImagesNew/dp_zhangzj
+    roleLeftName: "\u5F20\u667A\u541B"
+    roleLeftDesPic: Arts/ImagesNew/dialo_103L
     roleRightID: 102
     roleRightPic: Arts/ImagesNew/dp_chengmm
+    roleRightName: "\u7A0B\u654F\u654F"
+    roleRightDesPic: Arts/ImagesNew/dialo_103R
     CardsLeftID: 7b0000007c0000007d0000007e0000007f000000
     CardsRightID: 8000000081000000820000008300000084000000
     CardsLeftLocs: 0200000003000000
@@ -97,10 +112,15 @@ MonoBehaviour:
     - Arts/ImagesNew/Attribute_action
     slotTypes: 0100000002000000
   - levelID: 104
+    levelName: "\u6295\u7A3F\u4EBA\uFF1A\u654F\u54E5\u7684\u5C0F\u5F1F-\u7B2C1\u9636\u6BB5"
     roleLeftID: 103
-    roleLeftPic: Arts/ImagesNew/dp_unknown
+    roleLeftPic: Arts/ImagesNew/dp_yuanyc
+    roleLeftName: "\u8881\u5955\u5BB8"
+    roleLeftDesPic: Arts/ImagesNew/dialo_104L
     roleRightID: 102
     roleRightPic: Arts/ImagesNew/dp_chengmm
+    roleRightName: "\u7A0B\u654F\u654F"
+    roleRightDesPic: Arts/ImagesNew/dialo_104R
     CardsLeftID: 85000000860000008700000088000000
     CardsRightID: 890000008a0000008b0000008c000000
     CardsLeftLocs: 0200000002000000
@@ -125,10 +145,15 @@ MonoBehaviour:
     - Arts/ImagesNew/Attribute_action
     slotTypes: 0200000001000000
   - levelID: 105
+    levelName: "\u6295\u7A3F\u4EBA\uFF1A\u654F\u54E5\u7684\u5C0F\u5F1F-\u7B2C2\u9636\u6BB5"
     roleLeftID: 103
-    roleLeftPic: Arts/ImagesNew/dp_unknown
+    roleLeftPic: Arts/ImagesNew/dp_yuanyc
+    roleLeftName: "\u8881\u5955\u5BB8"
+    roleLeftDesPic: Arts/ImagesNew/dialo_105L
     roleRightID: 102
     roleRightPic: Arts/ImagesNew/dp_chengmm
+    roleRightName: "\u7A0B\u654F\u654F"
+    roleRightDesPic: Arts/ImagesNew/dialo_105R
     CardsLeftID: 8d0000008e0000008f00000090000000910000009200000093000000
     CardsRightID: 9400000095000000960000009700000098000000990000009a000000
     CardsLeftLocs: 020000000300000002000000
@@ -153,10 +178,15 @@ MonoBehaviour:
     - Arts/ImagesNew/Attribute_action
     slotTypes: 000000000100000002000000
   - levelID: 106
+    levelName: "\u6295\u7A3F\u4EBA\uFF1A\u654F\u54E5\u7684\u5C0F\u5F1F-\u7B2C3\u9636\u6BB5"
     roleLeftID: 103
-    roleLeftPic: Arts/ImagesNew/dp_unknown
+    roleLeftPic: Arts/ImagesNew/dp_yuanyc
+    roleLeftName: "\u8881\u5955\u5BB8"
+    roleLeftDesPic: Arts/ImagesNew/dialo_106L
     roleRightID: 102
     roleRightPic: Arts/ImagesNew/dp_chengmm
+    roleRightName: "\u7A0B\u654F\u654F"
+    roleRightDesPic: Arts/ImagesNew/dialo_106R
     CardsLeftID: 9b0000009c0000009d0000009e0000009f000000
     CardsRightID: a0000000a1000000a2000000a3000000a4000000
     CardsLeftLocs: 0200000003000000
