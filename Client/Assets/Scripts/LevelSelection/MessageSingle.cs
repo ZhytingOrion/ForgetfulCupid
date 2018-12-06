@@ -37,6 +37,7 @@ public class MessageSingle : MonoBehaviour {
     private void OnMouseDown()
     {
         Game.Instance.gameLevel = this.selectInfo.levelID;
+        Game.Instance.gameMessageID = this.selectInfo.messageID;
         SceneManager.LoadScene("LevelGame");
     }
 }

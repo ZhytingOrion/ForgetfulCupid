@@ -333,6 +333,7 @@ public class LevelResultManager : MonoBehaviour {
                     {
                         this.EndID = levelResultInfo.successEndID;
                         Game.Instance.addCP(leftRole.roleID, rightRole.roleID);
+                        Game.Instance.finishMessage(Game.Instance.gameMessageID);
                     }
                     else
                     { 
