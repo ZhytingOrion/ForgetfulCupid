@@ -15,6 +15,7 @@ public class EndManager : MonoBehaviour {
 
         //Game时间+1
         Game.Instance.timeAttr += 1;
+        Game.Instance.finishMessage(Game.Instance.gameMessageID);   //设置为已结束
     }
 	
 	// Update is called once per frame

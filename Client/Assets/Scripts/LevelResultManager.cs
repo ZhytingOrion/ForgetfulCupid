@@ -44,14 +44,14 @@ public class LevelResultManager : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        leftRole = GameObject.Find("_levelManager").GetComponent<LevelInstance>().leftRole;
-        GameObject.Find("ResultUI/LeftRolePic").GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(leftRole.rolePicAddr);
-        rightRole = GameObject.Find("_levelManager").GetComponent<LevelInstance>().rightRole;
-        GameObject.Find("ResultUI/RightRolePic").GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(rightRole.rolePicAddr);
+
         buttonLastPage = GameObject.Find("ResultUI/ButtonLastPage").gameObject;
         buttonNextPage = GameObject.Find("ResultUI/ButtonNextPage").gameObject;
         buttonNextLevel = GameObject.Find("ResultUI/ButtonNextLevel").gameObject;
         buttonReturnToSelect = GameObject.Find("ResultUI/ButtonReturnToSelect").gameObject;
+
+        GameObject.Find("ResultUI/ResultLeftRolePic").GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(leftRole.rolePicAddr);
+        GameObject.Find("ResultUI/ResultRightRolePic").GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(rightRole.rolePicAddr);
         GameObject.Find("ResultUI").SetActive(false);
 
         CardTypeName = DataInfo.Instance.CardTypeName;
@@ -333,7 +333,6 @@ public class LevelResultManager : MonoBehaviour {
                     {
                         this.EndID = levelResultInfo.successEndID;
                         Game.Instance.addCP(leftRole.roleID, rightRole.roleID);
-                        Game.Instance.finishMessage(Game.Instance.gameMessageID);
                     }
                     else
                     { 

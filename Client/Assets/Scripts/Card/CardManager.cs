@@ -36,8 +36,8 @@ public class CardManager : MonoBehaviour {
     public Texture2D contentTexsRight;
     public Texture2D leftBackTex;
     public Texture2D rightBackTex;
-    //public string LeftRolePic;
-    //public string RightRolePic;
+    public string LeftRolePic;
+    public string RightRolePic;
 
 	// Use this for initialization
 	void Start () {
@@ -56,6 +56,10 @@ public class CardManager : MonoBehaviour {
         //初始化卡片
         InitialCards(cardsLocsLeft, out cardsLeft, cardsInfosLeft, true);
         InitialCards(cardsLocsRight, out cardsRight, cardsInfosRight, false);
+
+        Debug.Log("左边人物图片" + this.LeftRolePic);
+        GameObject.Find("LeftRolePic").GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(this.LeftRolePic);
+        GameObject.Find("RightRolePic").GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(this.RightRolePic);
 
         isInit = false;
     }

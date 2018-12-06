@@ -255,7 +255,7 @@ GameObject:
   - component: {fileID: 164934745}
   - component: {fileID: 164934746}
   m_Layer: 0
-  m_Name: LeftRolePic
+  m_Name: ResultLeftRolePic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1103,7 +1103,7 @@ GameObject:
   - component: {fileID: 816074102}
   - component: {fileID: 816074103}
   m_Layer: 0
-  m_Name: RightRolePic
+  m_Name: ResultRightRolePic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2904,6 +2904,8 @@ MonoBehaviour:
   contentTexsRight: {fileID: 2800000, guid: 6f15ae65361136142b3aa7082cde035f, type: 3}
   leftBackTex: {fileID: 2800000, guid: fd6abee45e6f4724abefa41bc9202ea6, type: 3}
   rightBackTex: {fileID: 2800000, guid: fd6abee45e6f4724abefa41bc9202ea6, type: 3}
+  LeftRolePic: 
+  RightRolePic: 
 --- !u!4 &1762570262
 Transform:
   m_ObjectHideFlags: 0

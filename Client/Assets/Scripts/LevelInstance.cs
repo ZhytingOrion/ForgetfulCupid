@@ -89,10 +89,8 @@ public class LevelInstance : MonoBehaviour {
             typeTexs[i] = (Texture2D)Resources.Load(cardManagerInfo.typeTexsAddrs[i]);
         }
         cardManager.GetComponent<CardManager>().typeTexs = typeTexs;
-        //cardManager.GetComponent<CardManager>().LeftRolePic = cardManagerInfo.roleLeftPic;
-        //cardManager.GetComponent<CardManager>().RightRolePic = cardManagerInfo.roleRightPic;
-        GameObject.Find("LeftRolePic").GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(cardManagerInfo.roleLeftPic);
-        GameObject.Find("RightRolePic").GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(cardManagerInfo.roleRightPic);
+        cardManager.GetComponent<CardManager>().LeftRolePic = cardManagerInfo.roleLeftPic;
+        cardManager.GetComponent<CardManager>().RightRolePic = cardManagerInfo.roleRightPic;
         GameObject.Find("LeftDesPic").GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(cardManagerInfo.roleLeftDesPic);
         GameObject.Find("RightDesPic").GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(cardManagerInfo.roleRightDesPic);
         GameObject.Find("LeftRoleName").GetComponent<TextMesh>().text = cardManagerInfo.roleLeftName;
@@ -135,6 +133,8 @@ public class LevelInstance : MonoBehaviour {
         /// LevelResult信息
         /// 
         GameObject.Find("_resultManager").GetComponent<LevelResultManager>().levelResultInfo = levelresultInfoDic.dic[level];
+        GameObject.Find("_resultManager").GetComponent<LevelResultManager>().leftRole = leftRole;
+        GameObject.Find("_resultManager").GetComponent<LevelResultManager>().rightRole = rightRole;
         Debug.Log("LevelInstance获取到的关卡信息：" + levelresultInfoDic.dic[level].levelID);
     }
     
