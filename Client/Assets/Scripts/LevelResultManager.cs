@@ -271,6 +271,7 @@ public class LevelResultManager : MonoBehaviour {
                     setButtons(this.resultNum > 0 ? ButtonState.LastPage : ButtonState.None, ButtonState.None, ButtonState.ReturnToSelect);
                 }
                 canvas.transform.Find("TextCardType").GetComponent<Text>().text = line;
+                if (isMarked[this.resultNum]) nextLine();
                 break;
             case 2:
                 if (cardResult.rightFirst)
@@ -288,12 +289,14 @@ public class LevelResultManager : MonoBehaviour {
                 canvas.transform.Find("TextCardContext/Click").gameObject.SetActive(true);
                 if (cardResult.Score == -1)
                     this.EndID = cardResult.SpecialEndID;
+                if (isMarked[this.resultNum]) nextLine();
                 break;
             case 1:
                 line = cardResult.resultString.Replace('-', '\n');
                 line += "\n";
                 canvas.transform.Find("TextResult").GetComponent<Text>().text = line;
                 canvas.transform.Find("TextResult/Click").gameObject.SetActive(true);
+                if (isMarked[this.resultNum]) nextLine();
                 break;
             case 0:
                 line = "心动值增加：" + cardResult.Score + "\n";
