@@ -16,6 +16,7 @@ public class MessageManager : MonoBehaviour {
 	void Start () {
         selectInfoDic = GameObject.Find("_dataAssets").GetComponent<ReadAssets>().selectInfoDic;
         SelectInfoArray selectInfoArray = (SelectInfoArray)Resources.Load("DataAssets/SelectInfo");
+        Debug.Log("时间属性："+ Game.Instance.timeAttr);
         for(int i = 0; i<selectInfoArray.dataArray.Length; ++i)
         {
             SelectInfo selectInfo = selectInfoArray.dataArray[i];
@@ -25,7 +26,8 @@ public class MessageManager : MonoBehaviour {
                 {
                     if (Game.Instance.hasCP(selectInfo.leftRoleID) || Game.Instance.hasCP(selectInfo.rightRoleID))    //有CP
                     {
-                        Game.Instance.messageShowMap[selectInfo.messageID] = MessageState.Overtimed;    //已过期
+                        if(Game.Instance.messageShowMap[selectInfo.messageID] != MessageState.Pass)
+                            Game.Instance.messageShowMap[selectInfo.messageID] = MessageState.Overtimed;    //已过期
                         messageList.Add(selectInfo);
                     }
                     else   //无CP
@@ -66,4 +68,13 @@ public class MessageManager : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public void SlideMessages(float diffY)
+    {
+        float MaxY = messageInstance[messageInstance.Count - 1].transform.position.y - messageInstance[0].transform.position.y;
+        for(int i = 0; i<messageInstance.Count; ++i)
+        {
+            messageInstance[i].transform.position += new Vector3(0, diffY * MaxY, 0);
+        }
+    }
 }

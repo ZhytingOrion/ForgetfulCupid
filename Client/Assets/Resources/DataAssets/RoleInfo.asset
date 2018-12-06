@@ -15,30 +15,30 @@ MonoBehaviour:
   - roleID: 101
     roleName: "\u5F20\u667A\u541B"
     roleDesAddr: Arts/ImagesNew/LeftChar101
-    roleHeadPicAddr: Arts/ImagesNew/LeftChar101
+    roleHeadPicAddr: Arts/ImagesNew/dp_zhangzj
     rolePicAddr: Arts/ImagesNew/LeftChar101
   - roleID: 102
     roleName: "\u7A0B\u654F\u654F"
     roleDesAddr: Arts/ImagesNew/RightChar101
-    roleHeadPicAddr: Arts/ImagesNew/RightChar101
-    rolePicAddr: Arts/ImagesNew/RightChar101
+    roleHeadPicAddr: Arts/ImagesNew/dp_chengmm
+    rolePicAddr: Arts/ImagesNew/RightChar102
   - roleID: 103
     roleName: "\u8881\u5955\u5BB8"
     roleDesAddr: Arts/ImagesNew/LeftChar102
-    roleHeadPicAddr: Arts/ImagesNew/LeftChar102
-    rolePicAddr: Arts/ImagesNew/RightChar102
+    roleHeadPicAddr: Arts/ImagesNew/dp_yuanyc
+    rolePicAddr: Arts/ImagesNew/LeftChar103
   - roleID: 104
     roleName: "\u53F6\u6E05\u51E1"
-    roleDesAddr: Arts/ImagesNew/LeftChar103
-    roleHeadPicAddr: Arts/ImagesNew/LeftChar103
-    rolePicAddr: Arts/ImagesNew/RightChar103
+    roleDesAddr: Arts/ImagesNew/
+    roleHeadPicAddr: Arts/ImagesNew/
+    rolePicAddr: Arts/ImagesNew/
   - roleID: 105
     roleName: "\u94B1\u626C"
-    roleDesAddr: Arts/ImagesNew/LeftChar104
-    roleHeadPicAddr: Arts/ImagesNew/LeftChar104
-    rolePicAddr: Arts/ImagesNew/RightChar104
+    roleDesAddr: Arts/ImagesNew/
+    roleHeadPicAddr: Arts/ImagesNew/
+    rolePicAddr: Arts/ImagesNew/
   - roleID: 106
     roleName: "\u82CF\u4F73"
-    roleDesAddr: Arts/ImagesNew/LeftChar105
-    roleHeadPicAddr: Arts/ImagesNew/LeftChar105
-    rolePicAddr: Arts/ImagesNew/RightChar105
+    roleDesAddr: Arts/ImagesNew/
+    roleHeadPicAddr: Arts/ImagesNew/
+    rolePicAddr: Arts/ImagesNew/

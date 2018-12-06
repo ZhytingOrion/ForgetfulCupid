@@ -24,7 +24,7 @@ public class ButtonLevelSelectionReset : MonoBehaviour {
 
     private void OnMouseExit()
     {
-        StopCoroutine(rotateItself());
+        StopAllCoroutines();
         this.transform.Rotate(new Vector3(0, 0, 1), -rotateAngle);
         rotateAngle = 0.0f;
     }
@@ -33,8 +33,8 @@ public class ButtonLevelSelectionReset : MonoBehaviour {
     {
         while(true)
         {
-            this.transform.Rotate(new Vector3(0, 0, 1), 1.0f);
-            rotateAngle += 1;
+            this.transform.Rotate(new Vector3(0, 0, 1), -5.0f);
+            rotateAngle -= 5;
             yield return null;
         }
     }

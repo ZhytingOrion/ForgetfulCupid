@@ -26,6 +26,7 @@ public class MessageSingle : MonoBehaviour {
 
     private void OnMouseEnter()
     {
+        if (this.state != MessageState.Normal) return;
         this.transform.Find("HighLight").gameObject.SetActive(true);
     }
 
@@ -36,6 +37,7 @@ public class MessageSingle : MonoBehaviour {
 
     private void OnMouseDown()
     {
+        if (this.state != MessageState.Normal) return;
         Game.Instance.gameLevel = this.selectInfo.levelID;
         Game.Instance.gameMessageID = this.selectInfo.messageID;
         SceneManager.LoadScene("LevelGame");

@@ -12,6 +12,9 @@ public class EndManager : MonoBehaviour {
         GameObject.Find("EndPic").GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(endInfo.endPic);
         GameObject.Find("EndName").GetComponent<TextMesh>().text = "达成  结局" + endInfo.endID;
         GameObject.Find("EndString").GetComponent<TextMesh>().text = "“" + endInfo.endName + "”";
+
+        //Game时间+1
+        Game.Instance.timeAttr += 1;
     }
 	
 	// Update is called once per frame
