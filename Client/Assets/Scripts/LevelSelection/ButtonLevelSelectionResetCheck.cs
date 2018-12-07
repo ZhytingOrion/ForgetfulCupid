@@ -19,5 +19,6 @@ public class ButtonLevelSelectionResetCheck : MonoBehaviour {
         //重置时间
 
         this.transform.parent.gameObject.SetActive(false);
+        GameObject.Find("_messageManager").GetComponent<MessageManager>().ResetMessages();
     }
 }

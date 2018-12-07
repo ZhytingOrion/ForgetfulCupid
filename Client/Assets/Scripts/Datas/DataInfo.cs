@@ -164,6 +164,20 @@ public class EndInfoDic
     public Dictionary<int, EndInfo> dic = new Dictionary<int, EndInfo>();
 }
 
+[System.Serializable]
+public class CPpair
+{
+    public int roleIDL;
+    public int roleIDR;
+}
+
+[System.Serializable]
+public class messageMap
+{
+    public int ID;
+    public MessageState State;
+}
+
 public class DataInfo
 {
     private static DataInfo instance;

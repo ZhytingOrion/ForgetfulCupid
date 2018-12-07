@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MessageManager : MonoBehaviour {
 
-    public SelectInfoDic selectInfoDic;
     public List<SelectInfo> messageList = new List<SelectInfo>();
     public List<GameObject> messageInstance = new List<GameObject>();
     public Sprite overtimedTex;
@@ -12,21 +11,37 @@ public class MessageManager : MonoBehaviour {
     public float startY = 1.15f;
     public float spaceY = 3.3f;
 
-	// Use this for initialization
-	void Start () {
+    private SelectInfoDic selectInfoDic;
+    private SelectInfoArray selectInfoArray;
+
+    // Use this for initialization
+    void Start () {
         selectInfoDic = GameObject.Find("_dataAssets").GetComponent<ReadAssets>().selectInfoDic;
-        SelectInfoArray selectInfoArray = (SelectInfoArray)Resources.Load("DataAssets/SelectInfo");
-        Debug.Log("时间属性："+ Game.Instance.timeAttr);
-        for(int i = 0; i<selectInfoArray.dataArray.Length; ++i)
+        selectInfoArray = (SelectInfoArray)Resources.Load("DataAssets/SelectInfo");
+        ResetMessages();
+    }
+	
+	// Update is called once per frame
+	void Update () {
+		
+	}
+
+    public void ResetMessages()
+    {
+        messageList.Clear();
+        messageInstance.Clear();
+
+        Debug.Log("时间属性：" + Game.Instance.timeAttr);
+        for (int i = 0; i < selectInfoArray.dataArray.Length; ++i)
         {
             SelectInfo selectInfo = selectInfoArray.dataArray[i];
-            if(selectInfo.timeAttr<=Game.Instance.timeAttr)
+            if (selectInfo.timeAttr <= Game.Instance.timeAttr)
             {
-                if(Game.Instance.messageShowMap.ContainsKey(selectInfo.messageID))   //这关之前已经存在：
+                if (Game.Instance.messageShowMap.ContainsKey(selectInfo.messageID))   //这关之前已经存在：
                 {
                     if (Game.Instance.hasCP(selectInfo.leftRoleID) || Game.Instance.hasCP(selectInfo.rightRoleID))    //有CP
                     {
-                        if(Game.Instance.messageShowMap[selectInfo.messageID] != MessageState.Pass)
+                        if (Game.Instance.messageShowMap[selectInfo.messageID] != MessageState.Pass)
                             Game.Instance.messageShowMap[selectInfo.messageID] = MessageState.Overtimed;    //已过期
                         messageList.Add(selectInfo);
                     }
@@ -51,7 +66,7 @@ public class MessageManager : MonoBehaviour {
         }
         messageList.Sort((x, y) => { return -x.timeAttr.CompareTo(y.timeAttr); });   //按时间顺序排序
 
-        for(int i = 0; i<messageList.Count; ++i)
+        for (int i = 0; i < messageList.Count; ++i)
         {
             GameObject message = Instantiate((GameObject)Resources.Load("Prefabs/AMessage"));
             message.transform.position = new Vector3(0.0f, startY - spaceY * i, -0.1f);
@@ -63,11 +78,6 @@ public class MessageManager : MonoBehaviour {
             messageInstance.Add(message);
         }
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     public void SlideMessages(float diffY)
     {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public enum GameState
 {
     Start,
@@ -38,6 +39,47 @@ public class Game{
     ~Game()
     {
         //Wrtie CP Files and Message Files
+        GameProcessSaver saver = new GameProcessSaver();
+        saver.gameState = this.gameState;
+        saver.gameLevel = this.gameLevel;
+        saver.gameResultID = this.gameResultID;
+        saver.gameMessageID = this.gameMessageID;
+        saver.timeAttr = this.timeAttr;
+        foreach (KeyValuePair<int, int> pair in rolePairs)
+        {
+            CPpair cp = new CPpair();
+            cp.roleIDL = pair.Key;
+            cp.roleIDR = pair.Value;
+            saver.cpPairs.Add(cp);
+        }
+        foreach (KeyValuePair<int, MessageState> pair in messageShowMap)
+        {
+            messageMap map = new messageMap();
+            map.ID = pair.Key;
+            map.State = pair.Value;
+            saver.messMap.Add(map);
+        }
+
+        //还没有保存，考虑json
+        ////json转string
+        //JsonSerializer serializer = new JsonSerializer();
+        //string text = JsonConvert.SerializeObject(saver, Formatting.Indented, new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Serialize });
+        //////UnityEngine.Debug.Log(text);
+
+        ////写入文件
+        //string path = Application.dataPath + "/TexturePackerTest/TexturePackerSaver.txt";
+        //StreamWriter sw = new StreamWriter(path);
+        ////byte[] btext = System.Convert.FromBase64String(text);
+        //sw.Write(text);
+
+        ////UnityEngine.Debug.Log("Save Models Done.");
+        //sw.Close();
+
+        ////读取Json
+        //string path = Application.dataPath + "/TexturePackerTest/TexturePackerSaver.txt";
+        //string jsonString = TexturePackerAutoTool.LoadFromFile(path);
+        //if (jsonString == null) return;
+        //TexturePackerAutoToolSaver saver = JsonConvert.DeserializeObject<TexturePackerAutoToolSaver>(jsonString);
     }
 
     public void GameReset()
