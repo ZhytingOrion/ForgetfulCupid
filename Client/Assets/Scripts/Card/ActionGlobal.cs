@@ -13,6 +13,7 @@ public class ActionGlobal : MonoBehaviour {
 	void Update () {
 		if(Input.GetMouseButton(0) && Game.Instance.gameState == GameState.Play)
         {
+            /*
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity);
             if(hit.collider != null)
             {
@@ -27,6 +28,7 @@ public class ActionGlobal : MonoBehaviour {
                     card.GetComponent<BoxCollider2D>().size = new Vector2(4.0f,2.0f);
                 }
             }
+            */
         }
         else if(Input.GetMouseButtonDown(0) && Game.Instance.gameState == GameState.Result)  //结算按钮点击结算
         {

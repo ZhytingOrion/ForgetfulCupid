@@ -17,6 +17,18 @@ public class SlotCardInstance : MonoBehaviour {
 		
 	}
 
+    public bool setCard(GameObject card)
+    {
+        //判断Card类型/左右
+        if (!(card.GetComponent<CardSingle>().cardInfo.locType == this.slotLocType)) return false;   //不是同一侧的            
+
+        //判断slot是否有牌了
+        if (this.thisCard != null) return false;
+        
+        return true;
+    }
+
+    /*
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Card")
@@ -40,7 +52,7 @@ public class SlotCardInstance : MonoBehaviour {
             GameObject card = collision.gameObject;
             card.GetComponent<CardSingle>().setSlot(null);
         }
-    }
+    }*/
 
     public void resetSlot()
     {

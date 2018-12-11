@@ -28,10 +28,14 @@ public class CardSingle : MonoBehaviour {
     public float inSlotCardSize = 0.4f;
     public float textSize = 0.25f;
 
+    [Header("卡槽吸附属性")]
+    public float DistanceX = 1.5f;
+
     private GameObject slot = null;
     private GameObject levelInstance;
 
     private Vector2 colliderSize;
+    private GameObject[] slots;
 
     public void setLoc(Vector3 locs)
     {
@@ -175,8 +179,37 @@ public class CardSingle : MonoBehaviour {
         ShowType(this.showTypeTime);
         //FlipCard(3);
         levelInstance = GameObject.Find("_levelManager");
+        slots = GameObject.FindGameObjectsWithTag("Slot");
     }
-    
+
+    private void Update()
+    {
+        if (Game.Instance.gameState != GameState.Play)
+            return;
+        if (this.isDrag)
+        {
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePos.z = -1.0f;
+            this.transform.position = mousePos;
+            float minY = 100.0f;
+            int index = -1;
+            for(int i = 0; i<slots.Length; ++i)
+            {
+                if(Mathf.Abs(slots[i].transform.position.x - this.transform.position.x)<=DistanceX)
+                {
+                    float diffY = Mathf.Abs(slots[i].transform.position.y - this.transform.position.y);
+                    if (diffY < minY)
+                    {
+                        minY = diffY;
+                        index = i;
+                    }
+                }
+            }
+            if (index != -1  && slots[index].GetComponent<SlotCardInstance>().setCard(this.gameObject)) this.setSlot(slots[index]);
+            else this.setSlot(null);
+        }
+    }
+
     public void Init()
     {
         //this.GetComponent<SpriteRenderer>().sprite = Sprite.Create(this.GetComponent<SpriteRenderer>().sprite.texture, new Rect(new Vector2(0,0), SpriteSize), new Vector2(0, 0));
@@ -195,6 +228,12 @@ public class CardSingle : MonoBehaviour {
         if (ContentTypeTex != null) this.GetComponent<Renderer>().material.SetTexture("_ContentTypeTex", ContentTypeTex);
         if (TypeTex != null) this.GetComponent<Renderer>().material.SetTexture("_TypeTex", TypeTex);
         this.setText(this.cardInfo.context);
+    }
+
+    private void OnMouseDown()
+    {
+        if (this.isInSlot) return;
+        this.isDrag = true;
     }
 
     private void onMouseDown()
