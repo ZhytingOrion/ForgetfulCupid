@@ -7,27 +7,35 @@ using UnityEngine;
 public class LevelInfo
 {
     public int levelIndex;
-    public int leftStep;
-    public int rightStep;
+    //public int leftStep;
+    //public int rightStep;
+    public int stepNum;
 }
 
 public class LevelInstance : MonoBehaviour {
 
     public LevelInfo levelInfo;
-    public int remainLeftStep
+    public int remainStepNum
     {
-        get;set;
+        get; set;
     }
-    public int remainRightStep
-    {
-        get;set;
-    }
+    public List<GameObject> flippedCards;
+    public bool CanBeClick = true;
 
-    public List<GameObject> leftFlippedCards;
-    public bool leftCanBeClick = true;
+    //public int remainLeftStep
+    //{
+    //    get;set;
+    //}
+    //public int remainRightStep
+    //{
+    //    get;set;
+    //}
 
-    public List<GameObject> rightFlippedCards;
-    public bool rightCanBeClick = true;
+    //public List<GameObject> leftFlippedCards;
+    //public bool leftCanBeClick = true;
+
+    //public List<GameObject> rightFlippedCards;
+    //public bool rightCanBeClick = true;
 
     public RoleInfo leftRole;
     public RoleInfo rightRole;
@@ -41,12 +49,14 @@ public class LevelInstance : MonoBehaviour {
         int level = Game.Instance.gameLevel;
         CardManagerInfo cardManagerInfo = GameObject.Find("_dataAssets").GetComponent<ReadAssets>().levelInfoDic.cardManagerInfoDic[level];
 
-        levelInfo.leftStep = cardManagerInfo.leftStep;
-        levelInfo.rightStep = cardManagerInfo.rightStep;
+        //levelInfo.leftStep = cardManagerInfo.leftStep;
+        //levelInfo.rightStep = cardManagerInfo.rightStep;
+        levelInfo.stepNum = cardManagerInfo.leftStep + cardManagerInfo.rightStep;
         levelInfo.levelIndex = level;
 
-        this.remainLeftStep = cardManagerInfo.leftStep;
-        this.remainRightStep = cardManagerInfo.rightStep;
+        //this.remainLeftStep = cardManagerInfo.leftStep;
+        //this.remainRightStep = cardManagerInfo.rightStep;
+        this.remainStepNum = levelInfo.stepNum;
 
         ///
         /// CardManager信息
@@ -148,42 +158,49 @@ public class LevelInstance : MonoBehaviour {
     /// </summary>
     /// <param name="isLeft"> 需要翻回来的卡片是否是左边的 </param>
     /// <param name="time"> 翻回来前停留的时间 </param>
-    public void FlipCards(bool isLeft, float time)
+    public void FlipCards(float time)
     {
-        if (isLeft) leftCanBeClick = false;
-        else rightCanBeClick = false;
-        StartCoroutine(flipCards(isLeft, time));
+        //if (isLeft) leftCanBeClick = false;
+        //else rightCanBeClick = false;
+        CanBeClick = false;
+        StartCoroutine(flipCards(time));
     }
 
-    IEnumerator flipCards(bool isLeft, float time)
+    IEnumerator flipCards(float time)
     {
         yield return new WaitForSeconds(time);
-        List<GameObject> cards2Flip = isLeft ? leftFlippedCards : rightFlippedCards;
-        for(int i = 0; i<cards2Flip.Count; ++i)
+        // List<GameObject> cards2Flip = isLeft ? leftFlippedCards : rightFlippedCards;
+        List<GameObject> cards2Flip = this.flippedCards;
+        for (int i = 0; i<cards2Flip.Count; ++i)
         {
             if (cards2Flip[i].GetComponent<CardSingle>().isFlip)
                 cards2Flip[i].GetComponent<CardSingle>().FlipCard();
         }
-        if (isLeft) leftFlippedCards.Clear();
-        else rightFlippedCards.Clear();
-        if (isLeft)
-        {
-            leftCanBeClick = true;
-            remainLeftStep = levelInfo.leftStep;
-        }
-        else
-        {
-            rightCanBeClick = true;
-            remainRightStep = levelInfo.rightStep;
-        }
+        flippedCards.Clear();
+        remainStepNum = levelInfo.stepNum;
+        CanBeClick = true;
+        //if (isLeft) leftFlippedCards.Clear();
+        //else rightFlippedCards.Clear();
+        //if (isLeft)
+        //{
+        //    leftCanBeClick = true;
+        //    remainLeftStep = levelInfo.leftStep;
+        //}
+        //else
+        //{
+        //    rightCanBeClick = true;
+        //    remainRightStep = levelInfo.rightStep;
+        //}     
     }
 
     public void ResetSteps()
     {
-        this.remainLeftStep = this.levelInfo.leftStep;
-        this.remainRightStep = this.levelInfo.rightStep;
-        this.leftCanBeClick = true;
-        this.rightCanBeClick = true;
+        //this.remainLeftStep = this.levelInfo.leftStep;
+        //this.remainRightStep = this.levelInfo.rightStep;
+        //this.leftCanBeClick = true;
+        //this.rightCanBeClick = true;
+        this.remainStepNum = this.levelInfo.stepNum;
+        this.CanBeClick = true;
     }
 
     // Update is called once per frame

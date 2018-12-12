@@ -245,43 +245,51 @@ public class CardSingle : MonoBehaviour {
         if (this.isInSlot) return;  //如果牌已经置于槽中，返回
 
         if (this.transform.position != this.oldLoc) this.transform.position = this.oldLoc;
-
-        if (this.cardInfo.locType == LocType.Left)
+        if (!levelInstance.GetComponent<LevelInstance>().CanBeClick) return;
+        int remainStep = levelInstance.GetComponent<LevelInstance>().remainStepNum - 1;
+        levelInstance.GetComponent<LevelInstance>().remainStepNum = remainStep;
+        levelInstance.GetComponent<LevelInstance>().flippedCards.Add(this.gameObject);
+        if(remainStep == 0)
         {
-            if (!levelInstance.GetComponent<LevelInstance>().leftCanBeClick) return; //左边的牌正在恢复中，不能点击
-
-            int rLS = levelInstance.GetComponent<LevelInstance>().remainLeftStep - 1;
-            int rRS = levelInstance.GetComponent<LevelInstance>().remainRightStep;
-            levelInstance.GetComponent<LevelInstance>().remainLeftStep = rLS;
-            levelInstance.GetComponent<LevelInstance>().leftFlippedCards.Add(this.gameObject);
-            if(rLS == 0)
-            {
-                levelInstance.GetComponent<LevelInstance>().leftCanBeClick = false;
-                if (rRS == 0)
-                {
-                    levelInstance.GetComponent<LevelInstance>().FlipCards(true, this.cardInfo.stayTime);
-                    levelInstance.GetComponent<LevelInstance>().FlipCards(false, this.cardInfo.stayTime);
-                }
-            }
+            levelInstance.GetComponent<LevelInstance>().FlipCards(this.cardInfo.stayTime);
         }
-        else
-        {
-            if (!levelInstance.GetComponent<LevelInstance>().rightCanBeClick) return; //右边的牌正在恢复中，不能点击
 
-            int rRS = levelInstance.GetComponent<LevelInstance>().remainRightStep - 1;
-            int rLS = levelInstance.GetComponent<LevelInstance>().remainLeftStep;
-            levelInstance.GetComponent<LevelInstance>().remainRightStep = rRS;
-            levelInstance.GetComponent<LevelInstance>().rightFlippedCards.Add(this.gameObject);
-            if (rRS == 0)
-            {
-                levelInstance.GetComponent<LevelInstance>().rightCanBeClick = false;
-                if (rLS == 0)
-                {
-                    levelInstance.GetComponent<LevelInstance>().FlipCards(true, this.cardInfo.stayTime);
-                    levelInstance.GetComponent<LevelInstance>().FlipCards(false, this.cardInfo.stayTime);
-                }
-            }
-        }
+        //if (this.cardInfo.locType == LocType.Left)
+        //{
+        //    if (!levelInstance.GetComponent<LevelInstance>().leftCanBeClick) return; //左边的牌正在恢复中，不能点击
+
+        //    int rLS = levelInstance.GetComponent<LevelInstance>().remainLeftStep - 1;
+        //    int rRS = levelInstance.GetComponent<LevelInstance>().remainRightStep;
+        //    levelInstance.GetComponent<LevelInstance>().remainLeftStep = rLS;
+        //    levelInstance.GetComponent<LevelInstance>().leftFlippedCards.Add(this.gameObject);
+        //    if(rLS == 0)
+        //    {
+        //        levelInstance.GetComponent<LevelInstance>().leftCanBeClick = false;
+        //        if (rRS == 0)
+        //        {
+        //            levelInstance.GetComponent<LevelInstance>().FlipCards(true, this.cardInfo.stayTime);
+        //            levelInstance.GetComponent<LevelInstance>().FlipCards(false, this.cardInfo.stayTime);
+        //        }
+        //    }
+        //}
+        //else
+        //{
+        //    if (!levelInstance.GetComponent<LevelInstance>().rightCanBeClick) return; //右边的牌正在恢复中，不能点击
+
+        //    int rRS = levelInstance.GetComponent<LevelInstance>().remainRightStep - 1;
+        //    int rLS = levelInstance.GetComponent<LevelInstance>().remainLeftStep;
+        //    levelInstance.GetComponent<LevelInstance>().remainRightStep = rRS;
+        //    levelInstance.GetComponent<LevelInstance>().rightFlippedCards.Add(this.gameObject);
+        //    if (rRS == 0)
+        //    {
+        //        levelInstance.GetComponent<LevelInstance>().rightCanBeClick = false;
+        //        if (rLS == 0)
+        //        {
+        //            levelInstance.GetComponent<LevelInstance>().FlipCards(true, this.cardInfo.stayTime);
+        //            levelInstance.GetComponent<LevelInstance>().FlipCards(false, this.cardInfo.stayTime);
+        //        }
+        //    }
+        //}
 
         FlipCard(5.0f);
     }
