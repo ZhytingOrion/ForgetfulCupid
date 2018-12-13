@@ -286,6 +286,7 @@ public class LevelResultManager : MonoBehaviour {
                 }
                 line += "\n";
                 canvas.transform.Find("TextCardContext").GetComponent<Text>().text = line;
+                canvas.transform.Find("TextCardContext/Click").GetComponent<RectTransform>().anchoredPosition = new Vector3((line.Split('\n')[1].Length + 1) * 25 - 485 ,0,0);
                 canvas.transform.Find("TextCardContext/Click").gameObject.SetActive(true);
                 if (cardResult.Score == -1)
                     this.EndID = cardResult.SpecialEndID;
@@ -295,6 +296,7 @@ public class LevelResultManager : MonoBehaviour {
                 line = cardResult.resultString.Replace('-', '\n');
                 line += "\n";
                 canvas.transform.Find("TextResult").GetComponent<Text>().text = line;
+                canvas.transform.Find("TextResult/Click").GetComponent<RectTransform>().anchoredPosition = new Vector3((line.Split('\n')[line.Split('\n').Length-2].Length + 1) * 25 - 485, 32 - (line.Split('\n').Length-2) * 32, 0);
                 canvas.transform.Find("TextResult/Click").gameObject.SetActive(true);
                 if (isMarked[this.resultNum]) nextLine();
                 break;
