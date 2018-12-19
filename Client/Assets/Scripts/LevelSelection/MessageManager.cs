@@ -28,6 +28,11 @@ public class MessageManager : MonoBehaviour {
 
     public void ResetMessages()
     {
+        for(int i = 0; i<messageInstance.Count; ++i)
+        {
+            Destroy(messageInstance[i]);
+        }
+
         messageList.Clear();
         messageInstance.Clear();
 

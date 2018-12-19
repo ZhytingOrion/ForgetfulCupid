@@ -90,6 +90,7 @@ public class Game{
         timeAttr = 0;
         gameState = GameState.Start;
         rolePairs.Clear();
+        messageShowMap.Clear();
     }
 
     public GameState gameState;
