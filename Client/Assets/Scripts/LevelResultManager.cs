@@ -118,10 +118,10 @@ public class LevelResultManager : MonoBehaviour {
     {
         if(!firstCard.GetComponent<CardSingle>().isFlip)
         {
-            firstCard.GetComponent<CardSingle>().FlipCard(3.0f);
-            yield return new WaitForSeconds(1.0f);
+            firstCard.GetComponent<CardSingle>().FlipCard(0.75f);
+            yield return new WaitForSeconds(0.75f);
         }        
-        if (!lastCard.GetComponent<CardSingle>().isFlip) lastCard.GetComponent<CardSingle>().FlipCard(3.0f);
+        if (!lastCard.GetComponent<CardSingle>().isFlip) lastCard.GetComponent<CardSingle>().FlipCard(0.75f);
     }
 
     public void resetPage(int page)

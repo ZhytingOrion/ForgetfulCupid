@@ -124,13 +124,13 @@ public class CardSingle : MonoBehaviour {
         HideType();
     }
 
-    IEnumerator RotateSelf(float degree)
+    IEnumerator RotateSelf(float time)
     {
         Debug.Log("我翻了！" + this.cardInfo.cardID);
         Destroy(this.GetComponent<BoxCollider2D>());
 
         float rotateY = 0.0f;
-        for(int i = 0; i < 180 / Mathf.Abs(degree); i++)
+        for(float i = 0; i < time; i+=Time.deltaTime)
         {
             if (Mathf.Abs(rotateY) >= 90  &&  Mathf.Abs(rotateY)<=100)
             {
@@ -144,11 +144,13 @@ public class CardSingle : MonoBehaviour {
                     this.GetComponent<Renderer>().material.SetFloat("_isBack", 1);
                 }
             }
+
+            float degree = Time.deltaTime / time * 180.0f;
             rotateY += degree;
             this.transform.Rotate(new Vector3(0, 1, 0), degree);
             yield return null;
         }
-        rotateY = degree < 0 ? -180 - rotateY : 180 - rotateY;
+        rotateY = 180 - rotateY;
         this.transform.Rotate(new Vector3(0, 1, 0), rotateY);
         Vector3 loc = this.transform.position;
         if (Game.Instance.gameState == GameState.Play) loc.z = 0.0f;
@@ -158,7 +160,7 @@ public class CardSingle : MonoBehaviour {
         this.GetComponent<BoxCollider2D>().isTrigger = true;
     }
     
-    public void FlipCard(float time = 3.0f)
+    public void FlipCard(float time = 0.75f)
     {
         this.isFlip = !this.isFlip;
 
@@ -174,7 +176,7 @@ public class CardSingle : MonoBehaviour {
         this.isFlip = false;
         if(this.cardInfo.AlwaysShowCard)
         {
-            FlipCard(3);
+            FlipCard();
         }
         ShowType(this.showTypeTime);
         //FlipCard(3);
@@ -291,7 +293,7 @@ public class CardSingle : MonoBehaviour {
         //    }
         //}
 
-        FlipCard(5.0f);
+        FlipCard();
     }
 
     /// <summary>
