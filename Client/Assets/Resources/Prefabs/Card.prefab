@@ -180,12 +180,12 @@ TextMesh:
   m_GameObject: {fileID: 1671015147736104}
   m_Text: "\u6211\u2026\u6211\u662F\u9694\u58C14\u73ED\n\u7684\u5F20\u5FD7\u519B\u2026"
   m_OffsetZ: 0
-  m_CharacterSize: 0.25
+  m_CharacterSize: 20
   m_LineSpacing: 1.2
   m_Anchor: 4
   m_Alignment: 1
   m_TabSize: 4
-  m_FontSize: 4
+  m_FontSize: 100
   m_FontStyle: 0
   m_RichText: 0
   m_Font: {fileID: 12800000, guid: 24fd03acfffcf43419230b7d28d4a86d, type: 3}
@@ -223,7 +223,8 @@ MonoBehaviour:
   showTypeTime: 3
   mouseOnScaleSize: 1.5
   inSlotCardSize: 0.4
-  textSize: 0.25
+  textSize: 25
+  DistanceX: 1.5
 --- !u!212 &212182186318368530
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -322,7 +323,7 @@ RectTransform:
   m_GameObject: {fileID: 1671015147736104}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0.1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children: []
   m_Father: {fileID: 4170986102601634}
   m_RootOrder: 0

@@ -21,6 +21,7 @@ public class Game{
             if(_instance == null)
             {
                 _instance = new Game();
+                Screen.SetResolution(1750, 900, false);
             }
             return _instance;
         }

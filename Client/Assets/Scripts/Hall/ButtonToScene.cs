@@ -7,6 +7,11 @@ public class ButtonToScene : ButtonClass {
 
     public string SceneName;
 
+    private void Awake()
+    {
+        Game game = Game.Instance;
+    }
+
     private void OnMouseDown()
     {
         SceneManager.LoadScene(SceneName);
