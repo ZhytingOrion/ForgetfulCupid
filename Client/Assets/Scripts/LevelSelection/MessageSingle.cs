@@ -24,6 +24,40 @@ public class MessageSingle : MonoBehaviour {
 		
 	}
 
+    public IEnumerator Bound()
+    {
+        
+        float x0 = 5.57f, x1 = -2.53f, x2 = 0.27f, time = 0;
+        float t0 = 0.13f, t1 = 0.19f, t2 = 0.25f;
+        Vector3 pos0 = this.transform.position;
+        pos0.x = x0;
+        this.transform.position = pos0;
+        for (time = 0; time < t0; time += Time.deltaTime)
+        {
+            this.transform.position += new Vector3((x2-x0) /t0 * Time.deltaTime, 0, 0);
+            this.transform.localScale -= new Vector3(0.22f /t0 * Time.deltaTime, 0, 0);
+            yield return null;
+        }
+        for (; time < t1; time += Time.deltaTime)
+        {
+            this.transform.position += new Vector3((x1-x2) / (t1-t0) * Time.deltaTime, 0, 0);
+            this.transform.localScale -= new Vector3(0.06f / (t1 - t0) * Time.deltaTime, 0, 0);
+            yield return null;
+        }
+        for (; time < t2; time += Time.deltaTime)
+        {
+            this.transform.position += new Vector3((x2-x1) / (t2-t1) * Time.deltaTime, 0, 0);
+            this.transform.localScale += new Vector3(0.28f / (t2 - t1) * Time.deltaTime, 0, 0);
+            yield return null;
+        }
+        Vector3 pos = this.transform.position;
+        pos.x = 0.27f;
+        this.transform.position = pos;
+        Vector3 scale = this.transform.localScale;
+        scale.x = scale.y;
+        this.transform.localScale = scale;
+    }
+
     private void OnMouseEnter()
     {
         if (this.state != MessageState.Normal) return;

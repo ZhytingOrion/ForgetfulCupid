@@ -142,6 +142,7 @@ public class SelectInfo
     public int leftRoleID;
     public int rightRoleID;
     public string message;
+    public bool isNew = false;
 }
 
 [System.Serializable]

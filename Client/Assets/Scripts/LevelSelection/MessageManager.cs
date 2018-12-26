@@ -6,10 +6,12 @@ public class MessageManager : MonoBehaviour {
 
     public List<SelectInfo> messageList = new List<SelectInfo>();
     public List<GameObject> messageInstance = new List<GameObject>();
+    public List<int> newMessageList = new List<int>();
     public Sprite overtimedTex;
     public Sprite passTex;
     public float startY = 1.15f;
     public float spaceY = 3.3f;
+    public int currentIndex = 0;
 
     private SelectInfoDic selectInfoDic;
     private SelectInfoArray selectInfoArray;
@@ -64,23 +66,80 @@ public class MessageManager : MonoBehaviour {
                     else  //无CP
                     {
                         Game.Instance.addMessageInit(selectInfo.messageID);
-                        messageList.Add(selectInfo);
+                        selectInfo.isNew = true;
+                        messageList.Add(selectInfo);                        
                     }
                 }
             }
         }
-        messageList.Sort((x, y) => { return -x.timeAttr.CompareTo(y.timeAttr); });   //按时间顺序排序
-
+        messageList.Sort((x, y) => { return -x.timeAttr.CompareTo(y.timeAttr); });   //按时间顺序排序        
         for (int i = 0; i < messageList.Count; ++i)
         {
             GameObject message = Instantiate((GameObject)Resources.Load("Prefabs/AMessage"));
-            message.transform.position = new Vector3(0.0f, startY - spaceY * i, -0.1f);
+            if (messageList[i].isNew)
+            {
+                message.transform.position = new Vector3(15.27f, startY - spaceY * i, -0.1f);
+                newMessageList.Add(i);
+            }
+            else
+            {
+                message.transform.position = new Vector3(0.27f, startY - spaceY * i, -0.1f);
+            }
             message.transform.parent = GameObject.Find("Messages").transform;
             message.GetComponent<MessageSingle>().selectInfo = messageList[i];
             message.GetComponent<MessageSingle>().state = Game.Instance.messageShowMap[messageList[i].messageID];
             message.GetComponent<MessageSingle>().passTex = this.passTex;
             message.GetComponent<MessageSingle>().overtimedTex = this.overtimedTex;
             messageInstance.Add(message);
+        }
+
+        if(newMessageList.Count>0)
+        {
+            float moveY = (Mathf.Min(newMessageList[newMessageList.Count - 1] + 1, messageInstance.Count - 1) - this.currentIndex) * spaceY;
+            for (int i = 0; i<messageInstance.Count; ++i)
+            {
+                messageInstance[i].transform.position += new Vector3(0, moveY, 0);
+            }
+            this.currentIndex = Mathf.Min(newMessageList[newMessageList.Count - 1] + 1, messageInstance.Count - 1);
+        }
+        StartCoroutine(messagesBound());
+    }
+
+    private IEnumerator messagesBound()
+    {
+        for(int j = newMessageList.Count-1; j>=0; j--)
+        {
+            Debug.Log("翻牌计划：" + newMessageList[j]);
+            int bottomMessageIndex = Mathf.Min(newMessageList[j] + 1, messageInstance.Count - 1);
+
+            Debug.Log("下面一张牌：" + bottomMessageIndex);
+            float moveY = (bottomMessageIndex-this.currentIndex) * spaceY;
+            Debug.Log("头牌：" + this.currentIndex);
+            Debug.Log("移动：" + moveY);
+            if (Mathf.Abs(moveY)>=0.01f)
+            {
+                yield return StartCoroutine(messagesSlide(moveY, 0.5f));
+            }
+            if (newMessageList[j] + 1 <= messageInstance.Count - 1)
+            {
+                yield return new WaitForSeconds(0.2f);
+                yield return StartCoroutine(messagesSlide(-spaceY));
+                yield return new WaitForSeconds(0.2f);
+            }
+            yield return StartCoroutine(messageInstance[newMessageList[j]].GetComponent<MessageSingle>().Bound());
+            currentIndex = newMessageList[j];
+        }
+    }
+
+    private IEnumerator messagesSlide(float moveY, float time = 0.5f)
+    {
+        for(float t = 0;t<time; t+=Time.deltaTime)
+        {
+            for(int i = 0; i<messageInstance.Count; ++i)
+            {
+                messageInstance[i].transform.position += new Vector3(0, moveY / time * Time.deltaTime,0);
+            }
+            yield return null;
         }
     }
 

@@ -129,7 +129,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1217788324825044}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.1300004, z: 0}
+  m_LocalPosition: {x: 0.27, y: 1.15, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4680081939966540}
@@ -294,6 +294,7 @@ MonoBehaviour:
   state: 2
   overtimedTex: {fileID: 21300000, guid: fd02939cbd730f646a63fb8c9e55b5fe, type: 3}
   passTex: {fileID: 21300000, guid: 86e239e771350c146b8e7e67b21411b2, type: 3}
+  needBound: 0
 --- !u!212 &212007318734523704
 SpriteRenderer:
   m_ObjectHideFlags: 1
