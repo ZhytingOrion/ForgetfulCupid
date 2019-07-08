@@ -3304,6 +3304,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b112a1bb66760b74fa9b1905e9bcd0dd, type: 3}
   - {fileID: 21300000, guid: b8312f3e5a24c3a419b1895963593d24, type: 3}
   - {fileID: 21300000, guid: 5d5e58fd7302cba4ea46f949003e5c9d, type: 3}
+  SlotFullPics:
+  - {fileID: 21300000, guid: 52674b6f72d604144a4199b6be4bea9a, type: 3}
+  - {fileID: 21300000, guid: 32d83df4e0355c444b24f97d59a0a97f, type: 3}
+  - {fileID: 21300000, guid: f65e569c2f18acf47bda2c34d79bf79d, type: 3}
   SlotButtonPics:
   - {fileID: 21300000, guid: 34b3dfb74deec324b800bd99b35def16, type: 3}
   - {fileID: 21300000, guid: 2337914a8f0ddc041868d993ca52b448, type: 3}
@@ -3315,6 +3319,7 @@ MonoBehaviour:
   SlotArrows: []
   SlotArrowButtonsLeft: []
   SlotArrowButtonsRight: []
+  ActiveArrow: {fileID: 0}
 --- !u!1 &1931020292
 GameObject:
   m_ObjectHideFlags: 0
