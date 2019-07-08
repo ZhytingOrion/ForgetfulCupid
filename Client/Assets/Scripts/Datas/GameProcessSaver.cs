@@ -8,6 +8,6 @@ public class GameProcessSaver : ScriptableObject{
     public int gameResultID;
     public int gameMessageID;
     public int timeAttr;
-    public List<CPpair> cpPairs = new List<CPpair>();
-    public List<messageMap> messMap = new List<messageMap>();
+    public List<CPpair> cpPairs;
+    public List<messageMap> messMap;
 }

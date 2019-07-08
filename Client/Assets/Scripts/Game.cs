@@ -11,7 +11,7 @@ public enum GameState
     Result,
 }
 
-public class Game{
+public class Game : MonoBehaviour{
     
     private static Game _instance = null;
     public static Game Instance
@@ -37,7 +37,7 @@ public class Game{
         //Read CP Files and Message Files
     }
 
-    ~Game()
+    void OnDestroy()
     {
         //Wrtie CP Files and Message Files
         GameProcessSaver saver = new GameProcessSaver();
