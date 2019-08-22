@@ -45,20 +45,22 @@ public class CardArrowManager : MonoBehaviour {
     private GameObject rightRoot;  //右边卡牌的根
 
     // Use this for initialization
-    void Awake () {
-        InitCards();
-	}
+    void Awake ()
+    {
+    }
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
-
-    public void InitCards()
+    
+    public void InitCards(List<CardInfo> cardsInfoLeft, List<CardInfo> cardsInfoRight)
     {
-        _instance = this;
+        if(_instance == null) _instance = this;
         leftRoot = this.transform.Find("Left").gameObject;
         rightRoot = this.transform.Find("Right").gameObject;
+        this.cardsInfosLeft = cardsInfoLeft;
+        this.cardsInfosRight = cardsInfoRight;
         classifyCards(cardsLeft, cardsInfosLeft, leftRoot);
         classifyCards(cardsRight, cardsInfosRight, rightRoot);
     }

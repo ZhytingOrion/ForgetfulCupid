@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb1fef82f5790a845badf9d286f5af99, type: 3}
+  m_Name: SelectInfo
+  m_EditorClassIdentifier: 
+  dataArray:
+  - messageID: 101
+    levelID: 101
+    timeAttr: 0
+    leftRoleID: 101
+    rightRoleID: 102
+    message: "\u6295\u7A3F\u4EBA\uFF1A\u9694\u58C1\u73ED\u7684\u67D0\u4EBA-\u9AD8\u4E8C(5)\u73ED\u7684\u7A0B\u654F\u654F\u540C\u5B66\uFF0C\u8FD9\u5468\u4E94\u653E\u5B66\u80FD\u548C\u6211\u4E00\u8D77-\u53BB\u56FE\u4E66\u9986\u590D\u4E60\u671F\u672B\u8003\u8BD5\u5417\uFF1F"
+    isNew: 0
+  - messageID: 102
+    levelID: 104
+    timeAttr: 0
+    leftRoleID: 103
+    rightRoleID: 102
+    message: "\u6295\u7A3F\u4EBA\uFF1A\u654F\u54E5\u7684\u5C0F\u5F1F-\u654F\u54E5carry\u5F3A\u65E0\u654C\uFF01\u6C42\u654F\u54E5\u518D\u5E26\u6211\u4E0A\u5206\uFF0C-\u8FD9\u4E2A\u6708\u7684\u665A\u996D\u90FD\u6211\u627F\u5305\u4E86\uFF01"
+    isNew: 0

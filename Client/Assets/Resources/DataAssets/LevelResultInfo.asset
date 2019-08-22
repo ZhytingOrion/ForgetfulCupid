@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7e80ff9f3523d843964941a719201a8, type: 3}
+  m_Name: LevelResultInfo
+  m_EditorClassIdentifier: 
+  dataArray:
+  - levelID: 101
+    passScore: 20
+    maxScore: 20
+    successEndID: -1
+    successEndName: ' '
+    failEndID: -1
+    failEndName: ' '
+  - levelID: 102
+    passScore: 50
+    maxScore: 80
+    successEndID: -1
+    successEndName: ' '
+    failEndID: -1
+    failEndName: ' '
+  - levelID: 103
+    passScore: 20
+    maxScore: 55
+    successEndID: 12
+    successEndName: "\u52C7\u6C14\u662F\u4E00\u5207\u7684\u5F00\u59CB"
+    failEndID: 13
+    failEndName: "\u5355\u604B\u7684\u7EC8\u7ED3"
+  - levelID: 104
+    passScore: 25
+    maxScore: 25
+    successEndID: -1
+    successEndName: ' '
+    failEndID: -1
+    failEndName: ' '
+  - levelID: 105
+    passScore: 45
+    maxScore: 75
+    successEndID: -1
+    successEndName: ' '
+    failEndID: -1
+    failEndName: ' '
+  - levelID: 106
+    passScore: 30
+    maxScore: 50
+    successEndID: 14
+    successEndName: "\u6C38\u6052\u7684\u53CB\u8C0A"
+    failEndID: 15
+    failEndName: "\u6E10\u884C\u6E10\u8FDC"

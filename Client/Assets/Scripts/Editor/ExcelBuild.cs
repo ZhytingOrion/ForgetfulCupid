@@ -72,6 +72,7 @@ namespace EditorTool
             SelectInfoArray asset = ScriptableObject.CreateInstance<SelectInfoArray>();
             asset.dataArray = ExcelTools.CreateSelectInfoArrayWithExcel(ExcelConfig.excelsPath + "SelectInfo.xlsx");
             BuildAssets(asset, "SelectInfo.asset");
+
         }
         
         /// <summary>
@@ -96,6 +97,7 @@ namespace EditorTool
             AssetDatabase.CreateAsset(assets, assetPath);
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
+            Debug.Log("成功导表" + assetName);
         }
     }
 }

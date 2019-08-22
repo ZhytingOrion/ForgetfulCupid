@@ -67,7 +67,7 @@ public class MessageManager : MonoBehaviour {
                     {
                         Game.Instance.addMessageInit(selectInfo.messageID);
                         selectInfo.isNew = true;
-                        messageList.Add(selectInfo);                        
+                        messageList.Add(selectInfo);
                     }
                 }
             }

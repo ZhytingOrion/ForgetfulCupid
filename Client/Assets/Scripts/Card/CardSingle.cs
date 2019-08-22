@@ -253,7 +253,7 @@ public class CardSingle : MonoBehaviour {
         levelInstance.GetComponent<LevelInstance>().flippedCards.Add(this.gameObject);
         if(remainStep == 0)
         {
-            levelInstance.GetComponent<LevelInstance>().FlipCards(this.cardInfo.stayTime);
+            levelInstance.GetComponent<LevelInstance>().FlipCards(3.0f);
         }
 
         //if (this.cardInfo.locType == LocType.Left)

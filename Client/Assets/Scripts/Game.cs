@@ -11,7 +11,7 @@ public enum GameState
     Result,
 }
 
-public class Game : MonoBehaviour{
+public class Game{
     
     private static Game _instance = null;
     public static Game Instance
@@ -146,5 +146,14 @@ public class Game : MonoBehaviour{
         {
             messageShowMap.Add(messageID, MessageState.Normal);
         }
+    }
+
+    public MessageState getMessageState(int messageID)
+    {
+        if (messageShowMap.ContainsKey(messageID))
+        {
+            return messageShowMap[messageID];
+        }
+        else return MessageState.Overtimed;
     }
 }

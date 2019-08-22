@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1656b16250ec21242a4b823451bad782, type: 3}
+  m_Name: RoleInfo
+  m_EditorClassIdentifier: 
+  dataArray:
+  - roleID: 100
+    roleName: "\uFF1F\uFF1F\uFF1F"
+    roleDesAddr: Arts/ImagesNew/dialo_101L
+    roleHeadPicAddr: Arts/ImagesNew/dp_unknown
+    rolePicAddr: 
+  - roleID: 101
+    roleName: "\u5F20\u667A\u541B"
+    roleDesAddr: Arts/ImagesNew/LeftChar101
+    roleHeadPicAddr: Arts/ImagesNew/dp_zhangzj
+    rolePicAddr: Arts/ImagesNew/LeftChar101
+  - roleID: 102
+    roleName: "\u7A0B\u654F\u654F"
+    roleDesAddr: Arts/ImagesNew/dialo_101R
+    roleHeadPicAddr: Arts/ImagesNew/dp_chengmm
+    rolePicAddr: Arts/ImagesNew/RightChar102
+  - roleID: 103
+    roleName: "\u8881\u5955\u5BB8"
+    roleDesAddr: Arts/ImagesNew/LeftChar102
+    roleHeadPicAddr: Arts/ImagesNew/dp_yuanyc
+    rolePicAddr: Arts/ImagesNew/LeftChar103
+  - roleID: 104
+    roleName: "\u53F6\u6E05\u51E1"
+    roleDesAddr: Arts/ImagesNew/
+    roleHeadPicAddr: Arts/ImagesNew/
+    rolePicAddr: Arts/ImagesNew/
+  - roleID: 105
+    roleName: "\u94B1\u626C"
+    roleDesAddr: Arts/ImagesNew/
+    roleHeadPicAddr: Arts/ImagesNew/
+    rolePicAddr: Arts/ImagesNew/
+  - roleID: 106
+    roleName: "\u82CF\u4F73"
+    roleDesAddr: Arts/ImagesNew/
+    roleHeadPicAddr: Arts/ImagesNew/
+    rolePicAddr: Arts/ImagesNew/

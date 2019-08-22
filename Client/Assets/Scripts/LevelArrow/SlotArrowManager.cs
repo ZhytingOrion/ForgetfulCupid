@@ -40,6 +40,7 @@ public class SlotArrowManager : MonoBehaviour {
     public List<GameObject> SlotArrowButtonsLeft = new List<GameObject>();   //ArrowButtons左边的
     public List<GameObject> SlotArrowButtonsRight = new List<GameObject>();   //ArrowButtons右边的
 
+    public List<CardResultInfo> answers = new List<CardResultInfo>();
     [HideInInspector] public GameObject ActiveArrow = null;
 
     // Use this for initialization

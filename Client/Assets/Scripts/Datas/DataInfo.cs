@@ -29,14 +29,13 @@ public enum MessageState
 
 [System.Serializable]
 public class CardInfo {
-    public int cardID;
-    public CardType type;
-    public string context;
+    public int cardID;   //卡片编号
+    public CardType type;     //卡片属性
+    public string context;    //内容
     public LocType locType;   //左边还是右边
-    public bool AlwaysShowCard;
-    public bool AlwaysShowType;
-    public float stayTime = 3.0f;
-    public int bindInfoID;
+    public bool AlwaysShowCard;  //翻牌版本用
+    public bool AlwaysShowType;  //翻牌版本，射箭版本已取消
+    public int levelID;  //对应关卡号
 }
 
 [System.Serializable]
@@ -64,33 +63,17 @@ public class RoleInfoDic
 [System.Serializable]
 public class CardManagerInfo
 {
-    public int levelID;
-    public string levelName;
-    public int roleLeftID;
-    public string roleLeftPic;
-    public string roleLeftName;
-    public string roleLeftDesPic;
-    public int roleRightID;
-    public string roleRightPic;
-    public string roleRightName;
-    public string roleRightDesPic;
-    public int[] CardsLeftID;
-    public int[] CardsRightID;
-    public int[] CardsLeftLocs;
-    public int[] CardsRightLocs;
-    //如果每关的卡的图案都不同
-    public string[] typeTexsAddrs;
-    public string[] ContentTypeTexsAddrs;
-    public string contentTexsAddrsLeft;
-    public string contentTexsAddrsRight;
-    public string backTexsAddrsLeft;
-    public string backTexsAddrsRight;
-    //行动点数
-    public int leftStep;
-    public int rightStep;
-    //槽
-    public string[] slotTypeTexsAddrs;
-    public int[] slotTypes;
+    public int levelID;         //关卡id
+    public int roleLeftID;      //左角色id
+    public int roleRightID;      //右角色id
+    public int[] CardsLeftID;   //左卡牌
+    public int[] CardsRightID;  //右卡牌
+    public int[] slotTypes;     //槽
+    public string levelName;    //关卡名
+    public string roleLeftName;  //左角色名
+    public string roleLeftDesPic;  //左角色对话框图
+    public string roleRightName;   //右角色名
+    public string roleRightDesPic;  //右角色对话框图
 }
 
 [System.Serializable]
@@ -110,7 +93,6 @@ public class CardResultInfo
     public string resultString;
     public int SpecialEndID;
     public string SpecialEndName;
-    public string EndPic;
 }
 
 [System.Serializable]
@@ -121,10 +103,8 @@ public class LevelResultInfo
     public int maxScore;
     public int successEndID;
     public string successEndName;
-    public string successEndPic;
     public int failEndID;
     public string failEndName;
-    public string failEndPic;
 }
 
 [System.Serializable]

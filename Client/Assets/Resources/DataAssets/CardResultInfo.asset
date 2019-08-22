@@ -1,0 +1,366 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfb79f820a1df9c49bef26f2cf5680a1, type: 3}
+  m_Name: CardResultInfo
+  m_EditorClassIdentifier: 
+  dataArray:
+  - levelID: 101
+    leftCardID: 101
+    rightCardID: 103
+    rightFirst: 1
+    Score: 10
+    resultString: "\u7A0B\u654F\u654F\u7EC8\u4E8E\u77E5\u9053\u4E86\u8868\u767D\u5899\u4E0A\u7684\u795E\u79D8\u7537\u751F\u7684\u771F\u9762\u76EE\uFF0C-\u4F3C\u4E4E\u542C\u90A3\u4E2A\u95F7\u9A9A\u5B66\u9738\u63D0\u8D77\u8FC7\uFF1F"
+    SpecialEndID: -1
+    SpecialEndName: ' '
+  - levelID: 101
+    leftCardID: 101
+    rightCardID: 104
+    rightFirst: 1
+    Score: 10
+    resultString: "\u7A0B\u654F\u654F\u7EC8\u4E8E\u77E5\u9053\u4E86\u8868\u767D\u5899\u4E0A\u7684\u795E\u79D8\u7537\u751F\u7684\u771F\u9762\u76EE\uFF0C-\u4F3C\u4E4E\u542C\u90A3\u4E2A\u95F7\u9A9A\u5B66\u9738\u63D0\u8D77\u8FC7\uFF1F"
+    SpecialEndID: -1
+    SpecialEndName: ' '
+  - levelID: 101
+    leftCardID: 102
+    rightCardID: 105
+    rightFirst: 0
+    Score: 10
+    resultString: "\u670B\u53CB\u9F13\u52B1\u81EA\u5DF1\u8BD5\u8BD5\uFF0C\u6CA1\u60F3\u5230\u5979\u5C45\u7136\u7B54\u5E94\u4E86\u2026-\u5F20\u667A\u541B\u5728\u5174\u594B\u4E4B\u4F59\uFF0C\u611F\u5230\u6709\u4E9B\u4E0D\u77E5\u6240\u63AA\u3002"
+    SpecialEndID: -1
+    SpecialEndName: ' '
+  - levelID: 101
+    leftCardID: 102
+    rightCardID: 106
+    rightFirst: 0
+    Score: -1
+    resultString: 
+    SpecialEndID: 1
+    SpecialEndName: "\u62B1\u6B49\uFF0C\u6CA1\u7A7A\uFF01"
+  - levelID: 102
+    leftCardID: 107
+    rightCardID: 115
+    rightFirst: 0
+    Score: 15
+    resultString: "\u5F20\u667A\u541B\u88C5\u51FA\u4E00\u526F\u521A\u51C6\u65F6\u62B5\u8FBE\u56FE\u4E66\u9986\u95E8\u53E3\u7684\u6837\u5B50\uFF0C-\u7A0B\u654F\u654F\u6CA1\u6709\u62C6\u7A7F\uFF0C\u53CD\u800C\u89C9\u5F97\u4ED6\u6709\u70B9\u53EF\u7231\u3002"
+    SpecialEndID: -1
+    SpecialEndName: ' '
+  - levelID: 102
+    leftCardID: 107
+    rightCardID: 116
+    rightFirst: 0
+    Score: 20
+    resultString: "\u5EA6\u8FC7\u4E86\u5145\u6EE1\u4E0D\u5B89\u548C\u714E\u71AC\u768430\u5206\u949F\uFF0C-\u5728\u770B\u5230\u90A3\u4E2A\u719F\u6089\u8EAB\u5F71\u5306\u5FD9\u5411\u81EA\u5DF1\u8DD1\u6765\u7684\u65F6\u5019\uFF0C\u5F20\u667A\u541B\u5C45\u7136\u6709\u70B9\u60F3\u54ED\u3002"
+    SpecialEndID: -1
+    SpecialEndName: ' '
+  - levelID: 102
+    leftCardID: 112
+    rightCardID: 118
+    rightFirst: 0
+    Score: 30
+    resultString: "\u8FD9\u4E48\u4E00\u8BF4\uFF0C\u597D\u50CF\u5728\u5316\u5B66\u7EA2\u699C\u4E0A\u89C1\u8FC7\u8FD9\u4E2A\u540D\u5B57\u2026-\u7A0B\u654F\u654F\u60F3\u7740\uFF0C\u5E74\u7EA7\u7B2C\u4E09\u7ED9\u6211\u8865\u4E60\uFF0C\u8FD9\u6B21\u5316\u5B66\u603B\u8BE5\u6709\u6551\u4E86\uFF01"
+    SpecialEndID: -1
+    SpecialEndName: ' '
+  - levelID: 102
+    leftCardID: 109
+    rightCardID: 119
+    rightFirst: 0
+    Score: 35
+    resultString: "\u7A0B\u654F\u654F\u7ED9\u81EA\u5DF1\u8BB2\u9898\u7684\u8BA4\u771F\u7684\u6837\u5B50\u771F\u597D\u770B\u2026-\u5F20\u667A\u541B\u779F\u4E86\u4E00\u773C\u540E\u773C\u795E\u8FC5\u901F\u56DE\u5F52\u8BD5\u5377\uFF0C\u8BD5\u56FE\u5E73\u590D\u81EA\u5DF1\u7684\u5FC3\u8DF3\u3002"
+    SpecialEndID: -1
+    SpecialEndName: ' '
+  - levelID: 102
+    leftCardID: 113
+    rightCardID: 121
+    rightFirst: 1
+    Score: 20
+    resultString: "\u867D\u7136\u5F20\u667A\u541B\u60F3\u8BF7\u5BA2\uFF0C\u4F46\u7A0B\u654F\u654F\u575A\u6301\u8981AA\u5236\u3002-\u7A0B\u654F\u654F\u5E78\u798F\u5730\u5543\u4E86\u4E00\u5634\u6CB9\uFF0C\u5F20\u667A\u541B\u5F88\u8D34\u5FC3\u5730\u9012\u4E0A\u7EB8\u5DFE\u3002"
+    SpecialEndID: -1
+    SpecialEndName: ' '
+  - levelID: 102
+    leftCardID: 113
+    rightCardID: 122
+    rightFirst: 1
+    Score: 25
+    resultString: "\u5316\u89E3\u4E86\u81EA\u5DF1\u6CA1\u94B1\u7684\u7A98\u5883\uFF0C\u8FD8\u8BF7\u5403\u81EA\u5DF1\u6700\u559C\u6B22\u7684KFB\uFF0C\u7A0B\u654F\u654F\u611F\u5230\u5341\u5206\u6EE1\u8DB3\u3002-\u4E0B\u5468\u4E00\u518D\u53BB\u9694\u58C1\u73ED\u628A\u94B1\u8FD8\u7ED9\u4ED6\u5427\u3002"
+    SpecialEndID: -1
+    SpecialEndName: ' '
+  - levelID: 102
+    leftCardID: 107
+    rightCardID: 117
+    rightFirst: 0
+    Score: -1
+    resultString: 
+    SpecialEndID: 2
+    SpecialEndName: "\u6709\u4EC0\u4E48\u6BD4\u5F00\u9ED1\u66F4\u91CD\u8981\uFF1F"
+  - levelID: 102
+    leftCardID: 110
+    rightCardID: 120
+    rightFirst: 0
+    Score: -1
+    resultString: 
+    SpecialEndID: 3
+    SpecialEndName: "\u300A\u9AD8\u8003\u82F1\u8BED\u8BCD\u6C47\u624B\u518C\u300B"
+  - levelID: 103
+    leftCardID: 123
+    rightCardID: 128
+    rightFirst: 0
+    Score: 15
+    resultString: "\u8FD9\u53E5\u6CA1\u8BDD\u627E\u8BDD\u7684\u5F00\u5934\u8BA9\u7A0B\u654F\u654F\u4EA7\u751F\u4E86\u4E00\u79CD\u5FAE\u5999\u7684\u9884\u611F\u2026-\u5979\u53EA\u80FD\u968F\u610F\u5730\u642A\u585E\u8FC7\u53BB\u3002"
+    SpecialEndID: -1
+    SpecialEndName: ' '
+  - levelID: 103
+    leftCardID: 123
+    rightCardID: 129
+    rightFirst: 0
+    Score: 10
+    resultString: "\u7A0B\u654F\u654F\u5F88\u611F\u8C22\u5F20\u667A\u541B\u8BA9\u5979\u53D1\u73B0\u4E86\u4E00\u4E2A\u590D\u4E60\u529F\u8BFE\u7684\u597D\u53BB\u5904\uFF0C-\u6709\u4EBA\u6C14\u5374\u53C8\u5F88\u5B89\u9759\u2026"
+    SpecialEndID: -1
+    SpecialEndName: ' '
+  - levelID: 103
+    leftCardID: 125
+    rightCardID: 128
+    rightFirst: 0
+    Score: 10
+    resultString: "\u4ED6\u771F\u7684\u5F88\u5BB3\u7F9E\u5462\u2026\u7A0B\u654F\u654F\u60F3\u3002-\u4F1A\u628A\u5BB3\u7F9E\u7684\u4E8B\u60C5\u8BF4\u51FA\u6765\uFF0C\u4ED6\u4E5F\u771F\u591F\u695E\u7684\u3002"
+    SpecialEndID: -1
+    SpecialEndName: ' '
+  - levelID: 103
+    leftCardID: 126
+    rightCardID: 130
+    rightFirst: 0
+    Score: 40
+    resultString: "\u80FD\u6709\u4E00\u6BB5\u503C\u5F97\u6000\u5FF5\u7684\u5FEB\u4E50\u56DE\u5FC6\uFF0C\u5F20\u667A\u541B\u5DF2\u7ECF\u5F88\u77E5\u8DB3\u4E86\u3002-\u4ED6\u6000\u7740\u7ED3\u675F\u4E00\u5207\u7684\u5E73\u6DE1\u5FC3\u60C5\u53D1\u51FA\u4E86\u8FD9\u6761\u4FE1\u606F\uFF0C-\u5374\u6536\u83B7\u4E86\u610F\u60F3\u4E0D\u5230\u7684\u56DE\u5E94\u2026"
+    SpecialEndID: -1
+    SpecialEndName: ' '
+  - levelID: 103
+    leftCardID: 126
+    rightCardID: 131
+    rightFirst: 0
+    Score: -1
+    resultString: 
+    SpecialEndID: 4
+    SpecialEndName: "\u9010\u6E10\u660E\u6717\u7684\u5FC3\u60C5"
+  - levelID: 103
+    leftCardID: 126
+    rightCardID: 132
+    rightFirst: 0
+    Score: -1
+    resultString: 
+    SpecialEndID: 5
+    SpecialEndName: "\u5BF9\u4E0D\u8D77\uFF0C\u4F60\u662F\u4E2A\u597D\u4EBA\u3002"
+  - levelID: 104
+    leftCardID: 133
+    rightCardID: 137
+    rightFirst: 0
+    Score: -1
+    resultString: 
+    SpecialEndID: 6
+    SpecialEndName: "\u6E38\u620F\u7981\u6B62"
+  - levelID: 104
+    leftCardID: 133
+    rightCardID: 138
+    rightFirst: 0
+    Score: 5
+    resultString: "\u5C31\u7B97\u6709\u4F53\u80B2\u7279\u957F\u751F\u7684\u8EAB\u4EFD\u4F5C\u5E87\u62A4\uFF0C-\u7A0B\u654F\u654F\u4E5F\u5F88\u62C5\u5FC3\u8881\u5955\u5BB8\u80FD\u4E0D\u80FD\u6B63\u5E38\u6BD5\u4E1A\u3002"
+    SpecialEndID: -1
+    SpecialEndName: ' '
+  - levelID: 104
+    leftCardID: 134
+    rightCardID: 139
+    rightFirst: 0
+    Score: -1
+    resultString: 
+    SpecialEndID: 7
+    SpecialEndName: "\u4E89\u5435"
+  - levelID: 104
+    leftCardID: 135
+    rightCardID: 140
+    rightFirst: 0
+    Score: 20
+    resultString: "\u65E2\u7136\u4ED6\u4FDD\u8BC1\u4F1A\u5148\u5199\u5B8C\u4F5C\u4E1A\u2026\u5C31\u966A\u4ED6\u6253\u4E24\u5C40\u597D\u4E86\uFF0C-\u6211\u5176\u5B9E\u6CA1\u6709\u5F88\u60F3\u73A9\u7684\u2026\u7A0B\u654F\u654F\u60F3\u3002"
+    SpecialEndID: -1
+    SpecialEndName: ' '
+  - levelID: 105
+    leftCardID: 141
+    rightCardID: 148
+    rightFirst: 0
+    Score: 5
+    resultString: "\u770B\u5230\u8881\u5955\u5BB8\u7684\u5728\u7EBF\u65F6\u957F\uFF0C\u7A0B\u654F\u654F\u53F9\u4E86\u53E3\u6C14\u3002-\u679C\u7136\u4F5C\u4E1A\u554A\u8003\u8BD5\u4EC0\u4E48\u7684\u5BF9\u4ED6\u800C\u8A00\u90FD\u6CA1\u6709GOTA\u91CD\u8981\u3002"
+    SpecialEndID: -1
+    SpecialEndName: ' '
+  - levelID: 105
+    leftCardID: 142
+    rightCardID: 148
+    rightFirst: 1
+    Score: 10
+    resultString: "\u4F60\u624D\u4E0A\u7EBF\u554A\uFF0C\u6211\u4E0B\u5348\u5C31\u628A\u4F5C\u4E1A\u5199\u5B8C\u4E86\uFF0C\u7B49\u4F60\u597D\u4E45\u4E86\u3002-\u7A0B\u654F\u654F\u4E0D\u6562\u76F8\u4FE1\uFF0C\u8FD9\u662F\u4ECE\u90A3\u4E2A-\u89C6\u5B66\u4E60\u5982\u6D2A\u6C34\u731B\u517D\u7684\u4EBA\u5634\u91CC\u8BF4\u51FA\u6765\u7684\u3002"
+    SpecialEndID: -1
+    SpecialEndName: ' '
+  - levelID: 105
+    leftCardID: 144
+    rightCardID: 150
+    rightFirst: 0
+    Score: 20
+    resultString: "\u6DF1\u77E5\u7A0B\u654F\u654F\u7684\u5BB6\u5EAD\u77DB\u76FE\uFF0C\u8881\u5955\u5BB8\u4E0D\u60F3\u52A0\u91CD\u5979\u7684\u538B\u529B\uFF0C-\u4E8E\u662F\u63D0\u51FA\u4E00\u8D77\u53BB\u5FEB\u901F\u6A21\u5F0F\u6253\u5A31\u4E50\u5C40\uFF0C\u653E\u677E\u5FC3\u60C5\u3002"
+    SpecialEndID: -1
+    SpecialEndName: ' '
+  - levelID: 105
+    leftCardID: 144
+    rightCardID: 149
+    rightFirst: 0
+    Score: 10
+    resultString: "\u8881\u5955\u5BB8\u89C9\u5F97\u7A0B\u654F\u654F\u4F3C\u4E4E\u9690\u7792\u4E86\u4EC0\u4E48\u2026-\u4F46\u65E2\u7136\u5979\u4E0D\u80AF\u8BF4\uFF0C\u4ED6\u4E5F\u4E0D\u4F1A\u5F3A\u6C42\u3002"
+    SpecialEndID: -1
+    SpecialEndName: ' '
+  - levelID: 105
+    leftCardID: 145
+    rightCardID: 151
+    rightFirst: 0
+    Score: -1
+    resultString: 
+    SpecialEndID: 8
+    SpecialEndName: "\u9752\u6885\u7AF9\u9A6C\u7684\u51B7\u6218"
+  - levelID: 105
+    leftCardID: 143
+    rightCardID: 149
+    rightFirst: 0
+    Score: 5
+    resultString: "\u770B\u5230\u7A0B\u654F\u654F\u9053\u6B49\uFF0C\u8881\u5955\u5BB8\u4E5F\u4E0D\u597D\u610F\u601D\u518D\u5410\u69FD\u5979\u7684\u5931\u8BEF\u3002-\u4ECA\u5929\u4E5F\u53EA\u80FD\u8FD9\u6837\u4E86\uFF0C\u4E0A\u5206\u8FD8\u662F\u4E0B\u6B21\u5427\u3002"
+    SpecialEndID: -1
+    SpecialEndName: ' '
+  - levelID: 105
+    leftCardID: 143
+    rightCardID: 150
+    rightFirst: 0
+    Score: 30
+    resultString: "\u4ED6\u4EEC\u4EE5\u540E\u518D\u5435\u67B6\uFF0C\u4F60\u5C31\u8DF3\u8FDB\u53BB\u5F00\u5927\uFF0C\u6709\u6211\u8F85\u52A9\u4FDD\u4F60\u4E0D\u6B7B\u3002-\u8881\u5955\u5BB8\u7684\u5410\u69FD\u77AC\u95F4\u9A71\u6563\u4E86\u7A0B\u654F\u654F\u5FC3\u4E2D\u7684\u9634\u973E\u3002"
+    SpecialEndID: -1
+    SpecialEndName: ' '
+  - levelID: 105
+    leftCardID: 146
+    rightCardID: 152
+    rightFirst: 1
+    Score: 20
+    resultString: "\u56E0\u4E3A\u8881\u5955\u5BB8\u7684\u6572\u95E8\u58F0\uFF0C\u7A0B\u654F\u654F\u7684\u7236\u6BCD\u6682\u505C\u4E86\u4E89\u5435\uFF0C-\u800C\u7A0B\u654F\u654F\u4E5F\u4ECE\u5395\u6240\u91CC\u51FA\u6765\uFF0C\u4E00\u8A00\u4E0D\u53D1\u5730\u548C\u8881\u5955\u5BB8\u4E00\u8D77\u51FA\u95E8\u4E86\u3002"
+    SpecialEndID: -1
+    SpecialEndName: ' '
+  - levelID: 105
+    leftCardID: 146
+    rightCardID: 154
+    rightFirst: 0
+    Score: -1
+    resultString: 
+    SpecialEndID: 9
+    SpecialEndName: "\u9519\u8FC7"
+  - levelID: 105
+    leftCardID: 147
+    rightCardID: 154
+    rightFirst: 0
+    Score: -1
+    resultString: 
+    SpecialEndID: 9
+    SpecialEndName: "\u9519\u8FC7"
+  - levelID: 105
+    leftCardID: 147
+    rightCardID: 152
+    rightFirst: 0
+    Score: -1
+    resultString: 
+    SpecialEndID: 9
+    SpecialEndName: "\u9519\u8FC7"
+  - levelID: 105
+    leftCardID: 147
+    rightCardID: 153
+    rightFirst: 1
+    Score: 35
+    resultString: "\u5C0F\u65F6\u5019\u8881\u5955\u5BB8\u4E5F\u603B\u662F\u4ECE\u7A97\u53E3\u62DB\u547C\u7A0B\u654F\u654F\u51FA\u53BB\u73A9\uFF0C-\u8FD9\u662F\u4ED6\u4EEC\u4E4B\u95F4\u4E0D\u6210\u6587\u7684\u7EA6\u5B9A\u3002"
+    SpecialEndID: -1
+    SpecialEndName: ' '
+  - levelID: 105
+    leftCardID: 146
+    rightCardID: 153
+    rightFirst: 1
+    Score: 15
+    resultString: "\u7A0B\u654F\u654F\u7684\u7236\u6BCD\u544A\u8BC9\u8881\u5955\u5BB8\u5979\u6B63\u5728\u623F\u95F4\u91CC\u5B66\u4E60\uFF0C-\u8881\u5955\u5BB8\u4EE5\u8BF7\u6559\u4F5C\u4E1A\u4E3A\u7531\uFF0C\u628A\u7A0B\u654F\u654F\u4ECE\u5BB6\u91CC\u5E26\u51FA\u53BB\u4E86\u3002"
+    SpecialEndID: -1
+    SpecialEndName: ' '
+  - levelID: 106
+    leftCardID: 155
+    rightCardID: 160
+    rightFirst: 0
+    Score: 5
+    resultString: "\u770B\u5230\u7A0B\u654F\u654F\u6CA1\u4EC0\u4E48\u98DF\u6B32\u7684\u6837\u5B50\uFF0C\u8881\u5955\u5BB8\u51B3\u5B9A\u628A\u76EE\u7684\u5730\u4ECEKFB\u6362\u6210\u661F\u5DF4\u5DF4\u3002"
+    SpecialEndID: -1
+    SpecialEndName: ' '
+  - levelID: 106
+    leftCardID: 155
+    rightCardID: 161
+    rightFirst: 0
+    Score: 10
+    resultString: "\u65E2\u7136\u7A0B\u654F\u654F\u6CA1\u600E\u4E48\u5403\u665A\u996D\uFF0C\u6B63\u597D\u53EF\u4EE5\u8BF7\u5979\u53BB\u5403\u5979\u6700\u559C\u6B22\u7684KFB\u3002"
+    SpecialEndID: -1
+    SpecialEndName: ' '
+  - levelID: 106
+    leftCardID: 156
+    rightCardID: 161
+    rightFirst: 0
+    Score: 25
+    resultString: "\u7A0B\u654F\u654F\u7684\u809A\u5B50\u5341\u5206\u5E94\u666F\u5730\u53D1\u51FA\u4E86\u5495\u565C\u58F0\u3002-\u679C\u7136\u654F\u54E5\u7684\u95EE\u9898\u6CA1\u4EC0\u4E48\u662F\u4E00\u53EA\u70B8\u9E21\u89E3\u51B3\u4E0D\u4E86\u7684\uFF0C\u5982\u679C\u4E0D\u884C\uFF0C\u90A3\u5C31\u518D\u52A0\u4E00\u53EA\u3002"
+    SpecialEndID: -1
+    SpecialEndName: ' '
+  - levelID: 106
+    leftCardID: 156
+    rightCardID: 160
+    rightFirst: 0
+    Score: -1
+    resultString: 
+    SpecialEndID: 10
+    SpecialEndName: "\u8FDD\u5FC3\u4E4B\u8A00"
+  - levelID: 106
+    leftCardID: 157
+    rightCardID: 162
+    rightFirst: 0
+    Score: 20
+    resultString: "\u8881\u5955\u5BB8\u5F88\u6E05\u695A\u7A0B\u654F\u654F\u5BB6\u91CC\u90A3\u4E9B\u7834\u4E8B\u3002-\u4ED6\u8FD9\u4E48\u95EE\uFF0C\u662F\u5E0C\u671B\u7A0B\u654F\u654F\u80FD\u628A\u5185\u5FC3\u7684\u4E0D\u6109\u5FEB\u90FD\u53D1\u6CC4\u51FA\u6765\u3002"
+    SpecialEndID: -1
+    SpecialEndName: ' '
+  - levelID: 106
+    leftCardID: 157
+    rightCardID: 163
+    rightFirst: 0
+    Score: -1
+    resultString: 
+    SpecialEndID: 11
+    SpecialEndName: "\u5404\u81EA\u7684\u70E6\u607C"
+  - levelID: 106
+    leftCardID: 158
+    rightCardID: 162
+    rightFirst: 1
+    Score: 20
+    resultString: "\u501F\u7740\u7A0B\u654F\u654F\u5410\u69FD\u7236\u6BCD\u7684\u673A\u4F1A\uFF0C\u8881\u5955\u5BB8\u4E5F\u5F00\u59CB\u5217\u4E3E\u4ED6\u548C\u524D\u5973\u53CB\u7684\u4E89\u5435\u3002-\u4E24\u4EBA\u8D8A\u8C08\u8D8A\u6765\u52B2\uFF0C\u9017\u5F97\u5BF9\u65B9\u54C8\u54C8\u5927\u7B11\u3002"
+    SpecialEndID: -1
+    SpecialEndName: ' '
+  - levelID: 106
+    leftCardID: 158
+    rightCardID: 164
+    rightFirst: 1
+    Score: 15
+    resultString: "\u4F60\u524D\u5973\u53CB\u770B\u6211\u7684\u773C\u795E\u5C31\u50CF\u8981\u628A\u6211\u5403\u4E86\u4E00\u6837\u2026-\u7A0B\u654F\u654F\u7FFB\u4E86\u4E2A\u767D\u773C\uFF0C\u9752\u6885\u7AF9\u9A6C\u53EF\u771F\u96BE\u505A\u4EBA\u3002"
+    SpecialEndID: -1
+    SpecialEndName: ' '
+  - levelID: 106
+    leftCardID: 159
+    rightCardID: 164
+    rightFirst: 0
+    Score: 25
+    resultString: "\u8881\u5955\u5BB8\u6015\u7A0B\u654F\u654F\u604B\u7231\u540E\u5C31\u4E0D\u548C\u4ED6\u4E00\u8D77\u73A9\u6E38\u620F\u4E86\u3002-\u201C\u90FD\u548C\u4F60\u73A9\u8FD9\u4E48\u591A\u5E74\u6E38\u620F\u4E86\uFF0C\u4EE5\u540E\u4E5F\u53EA\u80FD\u627E\u4F60\u73A9\u554A\u3002\u201D-\u7A0B\u654F\u654F\u7B11\u7740\u8BF4\u3002"
+    SpecialEndID: -1
+    SpecialEndName: 

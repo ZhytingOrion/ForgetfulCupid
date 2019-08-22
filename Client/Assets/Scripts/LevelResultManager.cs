@@ -250,7 +250,6 @@ public class LevelResultManager : MonoBehaviour {
             cardResult.SpecialEndName = null;
             cardResult.rightFirst = false;
             cardResult.SpecialEndID = -1;
-            cardResult.EndPic = null;
         }
         
         switch (this.lineNum)

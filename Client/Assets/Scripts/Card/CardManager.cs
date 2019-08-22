@@ -79,6 +79,7 @@ public class CardManager : MonoBehaviour {
 
             card.transform.parent = GameObject.Find("Cards").transform;
             card.transform.localScale = new Vector3(this.originCardSize, this.originCardSize, this.originCardSize);
+            cardsInfos[i].locType = isLeft ? LocType.Left : LocType.Right;
             card.GetComponent<CardSingle>().cardInfo = cardsInfos[i];
             card.GetComponent<CardSingle>().mouseOnScaleSize = this.mouseOnCardScale;
             card.GetComponent<CardSingle>().inSlotCardSize = this.inSlotCardSize;
@@ -99,17 +100,29 @@ public class CardManager : MonoBehaviour {
 
     public void setCardsLocs(List<int> cardsLocs, List<GameObject> cards, bool isLeft)
     {
+        //瞎写
+        cardsLocs.Clear();
+        int row = cards.Count / 3 + 1;
+        for (int i = 0; i < row; i++)
+        {
+            cardsLocs.Add(3);
+        }
+
         int count = 0;
         int ratio = 1;
         if (isLeft) ratio = -1;
         float startY = (cardsLocs.Count-1) * 0.5f * -this.SpaceY + this.OffsetY;
         float startX = this.StartX * ratio;
         Debug.Log(isLeft + " " + ratio + " " + startY + "," + startX);
+
+
         for(int i = 0;i<cardsLocs.Count; ++i)
         {
             float locY = startY + i * this.SpaceY;
             for(int j = 0; j<cardsLocs[i]; ++j)
             {
+                if (count >= cards.Count) break;
+
                 float locX = startX - j * this.SpaceX * ratio;
                 if(isInit) cards[count].GetComponent<CardSingle>().setLoc(new Vector3(locX, locY, 0));
                 else cards[count].GetComponent<CardSingle>().resetLoc(new Vector3(locX, locY, 0));

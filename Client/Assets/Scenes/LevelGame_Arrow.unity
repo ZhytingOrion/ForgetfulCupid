@@ -663,38 +663,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &448548884
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 448548885}
-  m_Layer: 0
-  m_Name: Managers
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &448548885
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 448548884}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1762570262}
-  - {fileID: 1114171007}
-  - {fileID: 1457943681}
-  - {fileID: 636980778}
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &463415258
 GameObject:
   m_ObjectHideFlags: 0
@@ -826,7 +794,7 @@ Transform:
   - {fileID: 545604208}
   - {fileID: 1595749317}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -1191,7 +1159,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &636980777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1200,16 +1168,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 636980776}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b0653604e9793143bbba83fc1736097, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ae0d948d04b9344aa22d1e6581c3037, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slots: []
-  resultNum: 0
-  lineNum: 4
-  CardTypeName:
-  - "\u65F6\u95F4"
-  - "\u5BF9\u8BDD"
-  - "\u884C\u52A8"
   cardResultInfo: []
   levelResultInfo:
     levelID: 0
@@ -1233,8 +1194,6 @@ MonoBehaviour:
     roleDesAddr: 
     roleHeadPicAddr: 
     rolePicAddr: 
-  cardOffsetY: 2.5
-  resultCardSize: {x: 2, y: 2, z: 2}
 --- !u!4 &636980778
 Transform:
   m_ObjectHideFlags: 0
@@ -1245,8 +1204,8 @@ Transform:
   m_LocalPosition: {x: 0.5357973, y: -0.22032796, z: 0.032850716}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 448548885}
-  m_RootOrder: 3
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &816074101
 GameObject:
@@ -1729,7 +1688,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1114171006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1738,14 +1697,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1114171005}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04e968070a7c45f4f9deadd3a5f7413d, type: 3}
+  m_Script: {fileID: 11500000, guid: 7ba11eb27b8e1d04abd46070d4cbaa45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelInfo:
-    levelIndex: 0
-    stepNum: 0
-  flippedCards: []
-  CanBeClick: 1
+  levelIndex: 0
   leftRole:
     roleID: 0
     roleName: 
@@ -1768,8 +1723,8 @@ Transform:
   m_LocalPosition: {x: -8.830196, y: 0.05896926, z: 0.016765798}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 448548885}
-  m_RootOrder: 1
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1163134890
 GameObject:
@@ -2205,55 +2160,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1457943679
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1457943681}
-  - component: {fileID: 1457943680}
-  m_Layer: 0
-  m_Name: _slotManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1457943680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1457943679}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d176b96bee35ae4a90cf5d938d85b64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slotCardTypes: 01000000
-  slots: []
-  slotTypeTexs:
-  - {fileID: 2800000, guid: a2326219ed0b00a4e8ea59e14013a966, type: 3}
-  - {fileID: 2800000, guid: 197ca083219183b46a24ffcaee68f215, type: 3}
-  - {fileID: 2800000, guid: 1823057fb9bc0e64991d203cec1207d8, type: 3}
-  spaceY: 1.8
-  offsetY: -0.1
-  answers: []
---- !u!4 &1457943681
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1457943679}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 448548885}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1458072305
 GameObject:
   m_ObjectHideFlags: 0
@@ -2464,7 +2370,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1543900953
 Transform:
   m_ObjectHideFlags: 0
@@ -2616,7 +2522,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1588569716
 Transform:
   m_ObjectHideFlags: 0
@@ -2968,123 +2874,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1762570260
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1762570262}
-  - component: {fileID: 1762570261}
-  m_Layer: 0
-  m_Name: _cardManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1762570261
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1762570260}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65328107ff8fe154e85f5d7384a5d29b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpaceX: 2
-  SpaceY: 2.5
-  OffsetY: -0.7
-  StartX: 7
-  originCardSize: 0.5
-  mouseOnCardScale: 1.5
-  inSlotCardSize: 0.25
-  textSize: 20
-  showTypeTime: 3
-  isInit: 1
-  cardsInfosLeft:
-  - cardID: 101
-    type: 1
-    context: "\u5468\u4E94\u653E\u5B66\u540E14:30-\u6211\u4F1A\u5728\u56FE\u4E66\u9986-\u95E8\u53E3\u7B49\u4F60\u3002"
-    locType: 0
-    AlwaysShowCard: 0
-    AlwaysShowType: 0
-    stayTime: 3
-    bindInfoID: 0
-  - cardID: 102
-    type: 1
-    context: "\u6211\u2026\u6211\u662F\u9694\u58C14\u73ED-\u7684\u5F20\u5FD7\u519B\u2026"
-    locType: 0
-    AlwaysShowCard: 0
-    AlwaysShowType: 0
-    stayTime: 3
-    bindInfoID: 0
-  cardsLocsLeft: 02000000
-  cardsInfosRight:
-  - cardID: 103
-    type: 1
-    context: "\u4F60\u662F\u8C01\uFF1F"
-    locType: 1
-    AlwaysShowCard: 1
-    AlwaysShowType: 0
-    stayTime: 3
-    bindInfoID: 0
-  - cardID: 104
-    type: 1
-    context: "\u4F60\u5230\u5E95\u662F\u8C01\uFF1F"
-    locType: 1
-    AlwaysShowCard: 1
-    AlwaysShowType: 0
-    stayTime: 3
-    bindInfoID: 0
-  - cardID: 105
-    type: 1
-    context: "\u53EF\u4EE5\u554A\uFF0C -\u90A3\u5C31\u653E\u5B66\u89C1\uFF01"
-    locType: 1
-    AlwaysShowCard: 0
-    AlwaysShowType: 0
-    stayTime: 3
-    bindInfoID: 0
-  - cardID: 106
-    type: 1
-    context: "\u62B1\u6B49\uFF0C\u6211\u5468\u4E94-\u653E\u5B66\u6709\u4E8B\u2026"
-    locType: 1
-    AlwaysShowCard: 0
-    AlwaysShowType: 0
-    stayTime: 3
-    bindInfoID: 0
-  cardsLocsRight: 0200000002000000
-  typeTexs:
-  - {fileID: 2800000, guid: d92a6da8d07b2274581b59882f85b39d, type: 3}
-  - {fileID: 2800000, guid: 6163582d2096d1b478592d7368181e75, type: 3}
-  - {fileID: 2800000, guid: be54491556106904488bf1ca6799af45, type: 3}
-  typeFrontTexs:
-  - {fileID: 2800000, guid: e2a4b5a9bb3c56b4ab337a8bd43b44d8, type: 3}
-  - {fileID: 2800000, guid: bbebb3053a74aeb45a1fe47e590ea4d4, type: 3}
-  - {fileID: 2800000, guid: 8b0c941964508bf46b88e39cd3c88263, type: 3}
-  contentTexsLeft: {fileID: 2800000, guid: 6f15ae65361136142b3aa7082cde035f, type: 3}
-  contentTexsRight: {fileID: 2800000, guid: 6f15ae65361136142b3aa7082cde035f, type: 3}
-  leftBackTex: {fileID: 2800000, guid: fd6abee45e6f4724abefa41bc9202ea6, type: 3}
-  rightBackTex: {fileID: 2800000, guid: fd6abee45e6f4724abefa41bc9202ea6, type: 3}
-  LeftRolePic: 
-  RightRolePic: 
---- !u!4 &1762570262
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1762570260}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.2595234, y: 2.8985298, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 448548885}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1843992761
 GameObject:
@@ -3319,6 +3109,7 @@ MonoBehaviour:
   SlotArrows: []
   SlotArrowButtonsLeft: []
   SlotArrowButtonsRight: []
+  answers: []
   ActiveArrow: {fileID: 0}
 --- !u!1 &1931020292
 GameObject:

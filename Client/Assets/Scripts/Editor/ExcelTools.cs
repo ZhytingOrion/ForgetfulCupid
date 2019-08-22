@@ -25,13 +25,11 @@ namespace EditorTool
                 CardInfo cardInfo = new CardInfo();
                 cardInfo.cardID = int.Parse(collect[i][0].ToString());
                 cardInfo.locType = LocType.Left;
-                if (collect[i][2].ToString() == "R") cardInfo.locType = LocType.Right;
-                cardInfo.type = (CardType)int.Parse(collect[i][3].ToString());
-                cardInfo.AlwaysShowCard = collect[i][4].ToString() == "Y" ? true : false;
-                cardInfo.AlwaysShowType = collect[i][5].ToString() == "Y" ? true : false; ;
-                cardInfo.stayTime = float.Parse(collect[i][6].ToString());
-                cardInfo.context = collect[i][7].ToString();
-                cardInfo.bindInfoID = int.Parse(collect[i][8].ToString());
+                cardInfo.type = (CardType)int.Parse(collect[i][2].ToString());
+                cardInfo.AlwaysShowCard = false;
+                cardInfo.AlwaysShowType = false;
+                cardInfo.context = collect[i][3].ToString();
+                cardInfo.levelID = int.Parse(collect[i][4].ToString());
                 array[i - 2] = cardInfo;
             }
             return array;
@@ -77,28 +75,15 @@ namespace EditorTool
                 CardManagerInfo info = new CardManagerInfo();
                 info.levelID = int.Parse(collect[i][0].ToString());
                 info.roleLeftID = int.Parse(collect[i][1].ToString());
-                info.roleLeftPic = collect[i][2].ToString();
-                info.roleRightID = int.Parse(collect[i][3].ToString());
-                info.roleRightPic = collect[i][4].ToString();
-                info.CardsLeftID = getIntArrayFromString(collect[i][5].ToString(), ';');
-                info.CardsRightID = getIntArrayFromString(collect[i][6].ToString(), ';');
-                info.CardsLeftLocs = getIntArrayFromString(collect[i][7].ToString(), ';');
-                info.CardsRightLocs = getIntArrayFromString(collect[i][8].ToString(), ';');
-                info.typeTexsAddrs = collect[i][9].ToString().Split(';');
-                info.ContentTypeTexsAddrs = collect[i][10].ToString().Split(';');
-                info.contentTexsAddrsLeft = collect[i][11].ToString();
-                info.contentTexsAddrsRight = collect[i][12].ToString();
-                info.backTexsAddrsLeft= collect[i][13].ToString();
-                info.backTexsAddrsRight = collect[i][14].ToString();
-                info.leftStep = int.Parse(collect[i][15].ToString());
-                info.rightStep = int.Parse(collect[i][16].ToString());
-                info.slotTypeTexsAddrs = collect[i][17].ToString().Split(';');
-                info.slotTypes = getIntArrayFromString(collect[i][18].ToString(), ';');
-                info.levelName = collect[i][19].ToString();
-                info.roleLeftName = collect[i][20].ToString();
-                info.roleRightName = collect[i][21].ToString();
-                info.roleLeftDesPic = collect[i][22].ToString();
-                info.roleRightDesPic = collect[i][23].ToString();
+                info.roleRightID = int.Parse(collect[i][2].ToString());
+                info.CardsLeftID = getIntArrayFromString(collect[i][3].ToString(), ';', '-');
+                info.CardsRightID = getIntArrayFromString(collect[i][4].ToString(), ';', '-');
+                info.slotTypes = getIntArrayFromString(collect[i][5].ToString(), ';');
+                info.levelName = collect[i][6].ToString();
+                info.roleLeftName = collect[i][7].ToString();
+                info.roleRightName = collect[i][8].ToString();
+                info.roleLeftDesPic = collect[i][9].ToString();
+                info.roleRightDesPic = collect[i][10].ToString();
                 array[i - 2] = info;
             }
             return array;
@@ -126,7 +111,6 @@ namespace EditorTool
                 info.resultString = collect[i][5].ToString();
                 info.SpecialEndID = int.Parse(collect[i][6].ToString());
                 info.SpecialEndName = collect[i][7].ToString();
-                info.EndPic = collect[i][8].ToString();
                 array[i - 2] = info;
             }
             return array;
@@ -151,10 +135,8 @@ namespace EditorTool
                 info.maxScore = int.Parse(collect[i][2].ToString());
                 info.successEndID = int.Parse(collect[i][3].ToString());
                 info.successEndName = collect[i][4].ToString();
-                info.successEndPic = collect[i][5].ToString();
-                info.failEndID = int.Parse(collect[i][6].ToString());
-                info.failEndName = collect[i][7].ToString();
-                info.failEndPic = collect[i][8].ToString();
+                info.failEndID = int.Parse(collect[i][5].ToString());
+                info.failEndName = collect[i][6].ToString();
                 array[i - 2] = info;
             }
             return array;
@@ -224,6 +206,45 @@ namespace EditorTool
             columnNum = result.Tables[0].Columns.Count;
             rowNum = result.Tables[0].Rows.Count;
             return result.Tables[0].Rows;
+        }
+
+        private static int[] getIntArrayFromString(string s, char split, char from_to)
+        {
+            List<int> array = new List<int>();
+            if (s.Contains(split.ToString()))
+            {
+                string[] stringArray = s.Split(split);
+                for (int i = 0; i < stringArray.Length; ++i)
+                {
+                    List<int> from_to_array = getListIntFromString(stringArray[i], from_to);
+                    foreach (int tmp in from_to_array)
+                        array.Add(tmp);
+                }
+            }
+            else
+            {
+                List<int> from_to_array = getListIntFromString(s, from_to);
+                foreach (int tmp in from_to_array)
+                    array.Add(tmp);
+            }
+            return array.ToArray();
+        }
+
+        private static List<int> getListIntFromString(string s, char from_to)
+        {
+            List<int> array = new List<int>();
+            if (s.Contains(from_to.ToString()))
+            {
+                string[] fromtoArray = s.Split(from_to);
+                int start = int.Parse(fromtoArray[0]);
+                int end = int.Parse(fromtoArray[1]);
+                for (int i = start; i <= end; i++)
+                {
+                    array.Add(i);
+                }
+            }
+            else array.Add(int.Parse(s));
+            return array;
         }
 
         private static int[] getIntArrayFromString(string s, char split)

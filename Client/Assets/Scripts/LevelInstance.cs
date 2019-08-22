@@ -51,7 +51,7 @@ public class LevelInstance : MonoBehaviour {
 
         //levelInfo.leftStep = cardManagerInfo.leftStep;
         //levelInfo.rightStep = cardManagerInfo.rightStep;
-        levelInfo.stepNum = cardManagerInfo.leftStep + cardManagerInfo.rightStep;
+        levelInfo.stepNum = 2;
         levelInfo.levelIndex = level;
 
         //this.remainLeftStep = cardManagerInfo.leftStep;
@@ -79,28 +79,32 @@ public class LevelInstance : MonoBehaviour {
         cardManager.GetComponent<CardManager>().cardsInfosRight = rightCardInfo;
 
         //卡片位置信息：
-        cardManager.GetComponent<CardManager>().cardsLocsLeft = new List<int>(cardManagerInfo.CardsLeftLocs);
-        cardManager.GetComponent<CardManager>().cardsLocsRight = new List<int>(cardManagerInfo.CardsRightLocs);
+        int[] locs = { 3, 3, 3 };
+        cardManager.GetComponent<CardManager>().cardsLocsLeft = new List<int>(locs);
+        cardManager.GetComponent<CardManager>().cardsLocsRight = new List<int>(locs);
 
         //卡面图案信息：
-        cardManager.GetComponent<CardManager>().contentTexsLeft = (Texture2D)Resources.Load(cardManagerInfo.contentTexsAddrsLeft);
-        cardManager.GetComponent<CardManager>().contentTexsRight = (Texture2D)Resources.Load(cardManagerInfo.contentTexsAddrsRight);
-        cardManager.GetComponent<CardManager>().leftBackTex = (Texture2D)Resources.Load(cardManagerInfo.backTexsAddrsLeft);
-        cardManager.GetComponent<CardManager>().rightBackTex = (Texture2D)Resources.Load(cardManagerInfo.backTexsAddrsRight);
-        Texture2D[] typeFrontTexs = new Texture2D[cardManagerInfo.ContentTypeTexsAddrs.Length];
-        for(int i = 0; i<cardManagerInfo.ContentTypeTexsAddrs.Length; ++i)
+        cardManager.GetComponent<CardManager>().contentTexsLeft = (Texture2D)Resources.Load("Arts/ImagesNew/CardFront");
+        cardManager.GetComponent<CardManager>().contentTexsRight = (Texture2D)Resources.Load("Arts/ImagesNew/CardFront");
+        cardManager.GetComponent<CardManager>().leftBackTex = (Texture2D)Resources.Load("Arts/ImagesNew/CardBack");
+        cardManager.GetComponent<CardManager>().rightBackTex = (Texture2D)Resources.Load("Arts/ImagesNew/CardBack");
+
+        Texture2D[] typeFrontTexs = new Texture2D[3];
+        string[] typeFrontAddress = { "Arts/ImagesNew/CardAttri_time_front", "Arts/ImagesNew/CardAttri_dialo_front", "Arts/ImagesNew/CardAttri_action_front" };
+        for(int i = 0; i<3; ++i)
         {
-            typeFrontTexs[i] = (Texture2D)Resources.Load(cardManagerInfo.ContentTypeTexsAddrs[i]);
+            typeFrontTexs[i] = (Texture2D)Resources.Load(typeFrontAddress[i]);
         }
         cardManager.GetComponent<CardManager>().typeFrontTexs = typeFrontTexs;
-        Texture2D[] typeTexs = new Texture2D[cardManagerInfo.typeTexsAddrs.Length];
-        for (int i = 0; i < cardManagerInfo.typeTexsAddrs.Length; ++i)
+
+        Texture2D[] typeTexs = new Texture2D[3];
+        string[] typeBackAddress = { "Arts/ImagesNew/CardAttri_time_back", "Arts/ImagesNew/CardAttri_dialo_back", "Arts/ImagesNew/CardAttri_action_back" };
+        for (int i = 0; i < 3; ++i)
         {
-            typeTexs[i] = (Texture2D)Resources.Load(cardManagerInfo.typeTexsAddrs[i]);
+            typeTexs[i] = (Texture2D)Resources.Load(typeBackAddress[i]);
         }
         cardManager.GetComponent<CardManager>().typeTexs = typeTexs;
-        cardManager.GetComponent<CardManager>().LeftRolePic = cardManagerInfo.roleLeftPic;
-        cardManager.GetComponent<CardManager>().RightRolePic = cardManagerInfo.roleRightPic;
+
         GameObject.Find("LeftDesPic").GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(cardManagerInfo.roleLeftDesPic);
         GameObject.Find("RightDesPic").GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(cardManagerInfo.roleRightDesPic);
         GameObject.Find("LeftRoleName").GetComponent<TextMesh>().text = cardManagerInfo.roleLeftName;
@@ -108,15 +112,25 @@ public class LevelInstance : MonoBehaviour {
         GameObject.Find("LevelName").GetComponent<TextMesh>().text = cardManagerInfo.levelName.Replace('-','\n');
 
         ///
+        /// RoleInfo信息
+        ///
+        leftRole = GameObject.Find("_dataAssets").GetComponent<ReadAssets>().roleInfoDic.roleInfoDic[cardManagerInfo.roleLeftID];
+        rightRole = GameObject.Find("_dataAssets").GetComponent<ReadAssets>().roleInfoDic.roleInfoDic[cardManagerInfo.roleRightID];
+
+        cardManager.GetComponent<CardManager>().LeftRolePic = leftRole.roleHeadPicAddr;
+        cardManager.GetComponent<CardManager>().RightRolePic = rightRole.roleHeadPicAddr;
+
+        ///
         /// SlotManager的信息
         /// 
         GameObject slotManager = GameObject.Find("_slotManager");
         List<CardResultInfo> cardResultInfoArray = new List<CardResultInfo>(GameObject.Find("_dataAssets").GetComponent<ReadAssets>().cardResultInfoArray.dataArray).FindAll(x => x.levelID == level);
         slotManager.GetComponent<SlotManager>().answers = cardResultInfoArray;
-        Texture2D[] slotTypeTexs = new Texture2D[cardManagerInfo.slotTypeTexsAddrs.Length];
-        for (int i = 0; i < cardManagerInfo.slotTypeTexsAddrs.Length; ++i)
+        Texture2D[] slotTypeTexs = new Texture2D[3];
+        string[] slotTypeTexsAddrs = { "Arts/ImagesNew/Attribute_time", "Arts/ImagesNew/Attribute_dialo", "Arts/ImagesNew/Attribute_action" };
+        for (int i = 0; i < 3; ++i)
         {
-            slotTypeTexs[i] = (Texture2D)Resources.Load(cardManagerInfo.slotTypeTexsAddrs[i]);
+            slotTypeTexs[i] = (Texture2D)Resources.Load(slotTypeTexsAddrs[i]);
         }
         slotManager.GetComponent<SlotManager>().slotTypeTexs = slotTypeTexs;
         CardType[] slotCardTypes = new CardType[cardManagerInfo.slotTypes.Length];
@@ -125,12 +139,6 @@ public class LevelInstance : MonoBehaviour {
             slotCardTypes[i] = (CardType)cardManagerInfo.slotTypes[i];
         }
         slotManager.GetComponent<SlotManager>().slotCardTypes = slotCardTypes;
-
-        ///
-        /// RoleInfo信息
-        ///
-        leftRole = GameObject.Find("_dataAssets").GetComponent<ReadAssets>().roleInfoDic.roleInfoDic[cardManagerInfo.roleLeftID];
-        rightRole = GameObject.Find("_dataAssets").GetComponent<ReadAssets>().roleInfoDic.roleInfoDic[cardManagerInfo.roleRightID];
 
         ///
         /// CardResult信息
